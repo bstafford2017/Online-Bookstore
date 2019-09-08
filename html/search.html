@@ -1,0 +1,41 @@
+<!doctype html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../favicon.png"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title id="title"></title>
+    </head>
+    <body>
+        <div id="header"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm" style="text-align: center;">
+                    <h2 id="search-title" style="padding:10px;"></h2>
+                </div>
+            </div>
+        </div>
+        <form class="col-sm-10 offset-sm-2 input-group" action="submit()">
+            <input id="search-box" type="text" class="col-sm-7 form-control" placeholder="Search . . ."/>
+            <button type="button" class="col-sm-2 offset-sm-1 btn btn-outline-primary">Search</button>
+            <small id="search-error" class="form-text text-muted" style="color: red;"></small>
+        </form>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("#header").load("header.html");
+                $("#search").addClass("active");
+            });
+            $.getJSON("config.json", function(data){
+                $("#search-title").text(data.search);
+                $("#title").text(data.title);
+            });
+            function submit(){
+                let search = $("#search-box").val();
+                if(!search){
+                    
+                }
+            }
+        </script>
+    </body>
+</html>
