@@ -17,9 +17,14 @@ public class Create {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "delete * from ";
-            ResultSet rset = stmt.executeQuery(query);
-            rset.close();
+            ResultSet rset1 = stmt.executeQuery("drop table 'subjects' cascade constraints");
+            ResultSet rset2 = stmt.executeQuery("drop table 'book' cascade constraints");
+            ResultSet rset3 = stmt.executeQuery("drop table 'store_users' cascade constraints");
+            ResultSet rset4 = stmt.executeQuery("drop table 'subject' cascade constraints");
+            rset1.close();
+            rset2.close();
+            rset3.close();
+            rset4.close();
             stmt.close();
         }
         catch (SQLException ex) {
