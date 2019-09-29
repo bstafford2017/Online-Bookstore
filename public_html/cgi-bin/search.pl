@@ -1,11 +1,12 @@
 #!/usr/bin/perl
 use CGI; 
 $query = new CGI;
-$act = $query->param('act');
-$author = $query->param('author');
+$search = $query->param('search-box');
 
-$author =~ s/^\s*(\S*)\s*$/$1/;
-$author =~ s/;|>|>>|<|\*|\?|\&|\|//g;
+$search =~ s/^\s*(\S*)\s*$/$1/;
+$search =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 
-$cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom ListTitles ";
+$cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Search ";
+$cmd .= join $search, " ";
+
 system($cmd);

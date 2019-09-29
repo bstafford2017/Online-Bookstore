@@ -1,7 +1,9 @@
-import  java.sql.*;
-import  java.io.*;
-import  oracle.jdbc.*;
-import  oracle.jdbc.pool.OracleDataSource;
+import java.sql.*;
+import java.io.*;
+import oracle.jdbc.*;
+import oracle.jdbc.pool.OracleDataSource;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Create {
     public static void main(String[] args) throws SQLException{
@@ -16,9 +18,7 @@ public class Create {
         try {
             Statement stmt = conn.createStatement();
             String query = "insert into (title, author, isbn, subjects) values (";
-            for (int i = 0; i < args.length; i++) {
-                query += args[i].trim();
-            }
+            Arrays.stream(args).forEach(x -> query += x.trim() + " ");
             query += ");";
             ResultSet rset = stmt.executeQuery(query);
             rset.close();

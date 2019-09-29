@@ -5,7 +5,7 @@ import oracle.jdbc.pool.OracleDataSource;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class Search {
+public class Create {
     public static void main(String[] args) throws SQLException{
         String user     = "C##benjamin.stafford";
         String password = "stafford6248";
@@ -17,9 +17,7 @@ public class Search {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select ";
-            Arrays.stream(args).forEach(x -> query += x.trim() + " ");
-            query += ");";
+            String query = "delete * from ";
             ResultSet rset = stmt.executeQuery(query);
             rset.close();
             stmt.close();
