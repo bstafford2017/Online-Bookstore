@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <form class="col-sm-10 offset-sm-2 input-group" action="submit()">
+        <form method="post" class="col-sm-10 offset-sm-2 input-group" action="https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/search.cgi">
             <input id="search-box" type="text" class="col-sm-7 form-control" placeholder="Search . . ."/>
             <button type="button" class="col-sm-2 offset-sm-1 btn btn-outline-primary">Search</button>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
@@ -30,12 +30,6 @@
                 $("#search-title").text(data.search);
                 $("#title").text(data.title);
             });
-            function submit(){
-                let search = $("#search-box").val();
-                if(!search){
-                    
-                }
-            }
         </script>
     </body>
 </html>

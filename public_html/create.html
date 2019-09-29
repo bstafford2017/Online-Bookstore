@@ -15,25 +15,25 @@
                 </div>
             </div>
         </div>
-        <form class="col-sm-9 offset-sm-1" action="submit()">
+        <form class="col-sm-9 offset-sm-1" method="post" action="http://undcemcs02.und.edu/~benjamin.stafford/cgi-bin/create.cgi">
             <div class="form-group">
                 <label>Book Title</label>
-                <input id="book-title" type="text" class="form-control" placeholder="i.e. Web Programming"/>
+                <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming"/>
                 <small id="title-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <div class="form-group">
                 <label>Author</label>
-                <input id="author" type="text" class="form-control" placeholder="i.e. Dr. Wen Chen Hu"/>
+                <input id="author" name="author" type="text" class="form-control" placeholder="i.e. Dr. Wen Chen Hu"/>
                 <small id="author-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <div class="form-group">
                 <label>ISBN</label>
-                <input id="isbn" type="text" class="form-control" placeholder="i.e. 12345678"/>
+                <input id="isbn" name="isbn" type="text" class="form-control" placeholder="i.e. 12345678"/>
                 <small id="isbn-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <div class="form-group">
                 <label>Subjects</label>
-                <input id="subjects" type="text" class="form-control" placeholder="i.e. Software Development"/>
+                <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Software Development"/>
                 <small id="subjects-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <button id="submit" type="button" class="col-sm-2 offset-sm-5 btn btn-outline-primary">Submit</button>
@@ -48,25 +48,6 @@
                 $("#create-title").text(data.create);
                 $("#title").text(data.title);
             });
-            
-            function submit(){
-                let title = $("#book-title").val();
-                let author = $("#author").val();
-                let isbn = $("#isbn").val();
-                let subjects = $("#subjects").val();
-                if(!title){
-                    
-                }
-                if(!author){
-                    
-                }
-                if(!isbn){
-
-                }
-                if(!subjects){
-
-                }
-            }
         </script>
     </body>
 </html>
