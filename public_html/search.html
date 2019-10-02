@@ -5,13 +5,18 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title id="title"></title>
+        <style>
+            body {
+                background-color: rgb(157, 197, 246);
+            }
+        </style>
     </head>
     <body>
         <div id="header"></div>
         <div class="container">
             <div class="row">
                 <div class="col-sm" style="text-align: center;">
-                    <h2 id="search-title" style="padding:10px;"></h2>
+                    <h2 id="search-title" style="padding:10px; color:white;">Search for a book</h2>
                 </div>
             </div>
         </div>
@@ -28,10 +33,6 @@
             $(function(){
                 $("#header").load("header.html");
                 $("#search").addClass("active");
-            });
-            $.getJSON("config.json", function(data){
-                $("#search-title").text(data.search);
-                $("#title").text(data.title);
             });
         </script>
     </body>

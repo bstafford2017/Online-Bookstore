@@ -2,7 +2,7 @@
 use CGI; 
 $query = new CGI;
 $title = $query->param('book-title');
-$author = $query->param('author');
+$author = $query->param('price');
 $isbn = $query->param('isbn');
 $subjects = $query->param('subjects');
 

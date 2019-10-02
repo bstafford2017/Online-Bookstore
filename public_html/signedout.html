@@ -5,6 +5,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title id="title"></title>
+        <style>
+            html {
+                background-color: rgb(157, 197, 246);
+            }
+        </style>
     </head>
     <body>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -12,10 +17,6 @@
             $(function(){
                 $("#header").load("header.html");
                 $("#home").addClass("active");
-            });
-            $.getJSON("config.json", function(data){
-                $("#welcome-title").text(data.welcome);
-                $("#title").text(data.title);
             });
         </script>
     </body>
