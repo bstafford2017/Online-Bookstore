@@ -1,9 +1,10 @@
 <!doctype html>
     <head>
         <meta charset="UTF-8">
+        <link rel="icon" href="../favicon.png"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title id="title">Home</title>
+        <title id="title"></title>
         <style>
             html {
                 background-color: rgb(157, 197, 246);
@@ -48,6 +49,21 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     
         <!-- Content-->
-    
+        <div id="header"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm" style="text-align: center;">
+                    <h2 id="search-title" style="padding:10px; color:white;">Search for a book</h2>
+                </div>
+            </div>
+        </div>
+        <form method="post" class="col-sm-10 offset-sm-2 input-group" action="https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/searchbook.cgi">
+            <input id="search-box" name="search-box" type="text" class="col-sm-7 form-control" placeholder="(I.e. ISBN, Title, or Price)"/>
+            <button type="button" class="col-sm-2 offset-sm-1 btn btn-outline-primary">Search</button>
+            <small id="search-error" class="form-text text-muted" style="color: red;"></small>
+        </form>
+        <form method="post" class="col-sm-10 offset-sm-2 input-group" action="https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/clear.cgi">
+            <button type="button" class="col-sm-2 offset-sm-1 btn btn-outline-primary">Remove all books</button>
+        </form>
     </body>
 </html>

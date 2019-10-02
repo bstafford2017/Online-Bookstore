@@ -5,7 +5,7 @@ import oracle.jdbc.pool.OracleDataSource;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class Create {
+public class SearchBook {
     public static void main(String[] args) throws SQLException{
         String user     = "C##benjamin.stafford";
         String password = "stafford6248";
@@ -17,14 +17,15 @@ public class Create {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rset1 = stmt.executeQuery("truncate table subjects cascade");
-            ResultSet rset2 = stmt.executeQuery("truncate table book cascade");
-            ResultSet rset3 = stmt.executeQuery("truncate table store_users cascade");
-            ResultSet rset4 = stmt.executeQuery("truncate table subject cascade");
-            rset1.close();
-            rset2.close();
-            rset3.close();
-            rset4.close();
+            String query = "";
+            if(args.length == 0){
+                query += "select (isbn, title, price, subject) from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = book.subject);";
+            } else {
+                Arrays.stream(args).forEach(x -> query += x.trim() + " ");
+                query += ");";
+            }
+            ResultSet rset = stmt.executeQuery(query);
+            rset.close();
             stmt.close();
         }
         catch (SQLException ex) {
