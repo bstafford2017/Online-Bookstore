@@ -4,24 +4,19 @@
         <link rel="icon" href="../favicon.png"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title id="title"></title>
-        <style>
-            html {
-                background-color: rgb(157, 197, 246);
-            }
-        </style>
+        <title id="title">Search books</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
     <!-- Nav Bar-->
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <!-- Favicon -->
         <link rel="icon" href="../favicon.png"/>
+        <h1 style="text-align:center;color:white;">Welcome to the bookstore!</h1>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="index.html">Bookstore</a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav col-sm-12">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a id="home" class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
@@ -33,8 +28,8 @@
                     <li class="nav-item dropdown">
                         <a id="search" class="nav-link dropdown-toggle" href ="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="search.html">Search Subjects</a>
-                            <a class="dropdown-item" href="search.html">Search Books</a>
+                            <a class="dropdown-item" href="searchsubject.html">Search Subjects</a>
+                            <a class="dropdown-item active" href="searchbook.html">Search Books</a>
                         </div>
                     </li>
                     <li class="nav-item ml-auto">
@@ -57,13 +52,14 @@
                 </div>
             </div>
         </div>
-        <form method="post" class="col-sm-10 offset-sm-2 input-group" action="https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/searchbook.cgi">
-            <input id="search-box" name="search-box" type="text" class="col-sm-7 form-control" placeholder="(I.e. ISBN, Title, or Price)"/>
-            <button type="button" class="col-sm-2 offset-sm-1 btn btn-outline-primary">Search</button>
+        <form method="post" class="col-sm-8 offset-sm-1 input-group" action="https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/searchbook.cgi">
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
+            <input id="search-box" name="search-box" type="text" class="col-sm-7 form-control" placeholder="(i.e. ISBN, Title, or Price)"/>
+            <button type="button" class="col-sm-2 offset-sm-1 btn btn-outline-primary">Search</button>
         </form>
-        <form method="post" class="col-sm-10 offset-sm-2 input-group" action="https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/clear.cgi">
-            <button type="button" class="col-sm-2 offset-sm-1 btn btn-outline-primary">Remove all books</button>
+        <div id="table"></div>
+        <form method="post" action="https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/clear.cgi">
+            <button type="button" class="col-sm-2 btn btn-outline-primary">Remove all books</button>
         </form>
     </body>
 </html>
