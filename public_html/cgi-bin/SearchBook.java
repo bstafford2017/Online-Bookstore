@@ -20,7 +20,7 @@ public class SearchBook {
             String query = "select (isbn, title, price, subject) from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = book.subject";
             if(args.length != 0){
                 for(String arg : args){
-                    query = "book.isbn ='" + x.trim() + "' book.price = '" + x.trim() + "' book.title = '" +  x.trim() + "'"
+                    query = "book.isbn ='" + x.trim() + "' book.price = '" + x.trim() + "' book.title = '" +  x.trim() + "'";
                 }
             }
             query += ");";
