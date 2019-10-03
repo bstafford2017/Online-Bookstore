@@ -11,7 +11,7 @@ public class SearchBook {
         String password = "stafford6248";
         String database = "65.52.222.73:1521/cdb1";
         OracleDataSource ods = new OracleDataSource();
-        ods.setURL("jdbc:oracle:oci:@" + database);
+        ods.setURL("jdbc:oracle:thin:@" + database);
         ods.setUser(user);
         ods.setPassword(password);
         Connection conn = ods.getConnection();
