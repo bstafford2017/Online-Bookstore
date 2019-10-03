@@ -53,7 +53,7 @@
             <button type="button" class="col-sm-2 btn btn-outline-primary">Search</button>
         </form>
         <div id="table"></div>
-        <form method="post" action="https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/clear.cgi">
+        <form method="post" action="https://www.undcemcs02.und.edu/~benjamin.stafford/cgi-bin/clear.cgi">
             <button type="button" class="col-sm-2 btn btn-outline-primary">Remove all books</button>
         </form>
 
@@ -61,7 +61,7 @@
             function searchSubmit(){
                 $.ajax({
                     type: "post",
-                    url: "https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/searchbook.cgi",
+                    url: "https://www.undcemcs02.und.edu/~benjamin.stafford/cgi-bin/searchbook.cgi",
                     success: function(){
                         console.log("Success of AJAX");
                     },
