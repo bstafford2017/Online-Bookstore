@@ -21,7 +21,8 @@ public class Create {
             Arrays.stream(args).forEach(x -> query += x.trim() + " ");
             query += ");";
             ResultSet rset = stmt.executeQuery(query);
-            System.out.println("<script> alert(\"You submitted " + query + "\");</script>");
+            System.out.println("Content-Type: text/javascript");
+            System.out.println("alert(\"You submitted " + query + "\");");
             rset.close();
             stmt.close();
         }
