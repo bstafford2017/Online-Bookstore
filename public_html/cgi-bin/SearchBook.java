@@ -19,7 +19,7 @@ public class SearchBook {
             Statement stmt = conn.createStatement();
             String query = "select (isbn, title, price, subject) from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = book.subject";
             if(args.length != 0){
-                Arrays.stream(args).forEach(x -> query += "book.isbn ='" + x.trim() + "' book.price = '" + x.trim() + "' book.title = '" +  x.trim() + "'");
+                Arrays.stream(args).forEach(x -> query = "book.isbn ='" + x.trim() + "' book.price = '" + x.trim() + "' book.title = '" +  x.trim() + "'");
             }
             query += ");";
             ResultSet rset = stmt.executeQuery(query);
