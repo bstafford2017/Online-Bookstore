@@ -14,29 +14,23 @@
         <h1 style="text-align:center;color:white;">Welcome to the bookstore!</h1>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="index.html">Bookstore</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav col-sm-12">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a id="home" class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a id="create" class="nav-link" href="create.html">Create</a>
                     </li>
-                    <li class="nav-item">
-                        <a id="modify" class="nav-link" href="modify.html">Modify</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a id="search" class="nav-link dropdown-toggle" href ="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="searchsubject.html">Search Subjects</a>
-                            <a class="dropdown-item active" href="searchbook.html">Search Books</a>
+                            <a class="dropdown-item" href="searchbook.html">Search Books</a>
                         </div>
-                    </li>
-                    <li class="nav-item ml-auto">
-                        <a id="search" class="nav-link" href="signout.html">Sign Out</a>
                     </li>
                 </ul>
             <div>
@@ -55,14 +49,30 @@
                 </div>
             </div>
         </div>
-        <form method="post" class="col-sm-8 offset-sm-1 input-group" action="https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/searchbook.cgi">
+        <form action="searchSubmit();">
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
-            <input id="search-box" name="search-box" type="text" class="col-sm-7 form-control" placeholder="(i.e. ISBN, Title, or Price)"/>
-            <button type="button" class="col-sm-2 offset-sm-1 btn btn-outline-primary">Search</button>
+            <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1 form-control" placeholder="(i.e. ISBN, Title, or Price)"/>
+            <button type="button" class="col-sm-2 btn btn-outline-primary">Search</button>
         </form>
         <div id="table"></div>
         <form method="post" action="https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/clear.cgi">
             <button type="button" class="col-sm-2 btn btn-outline-primary">Remove all books</button>
         </form>
+
+        <script src="jquery-3.4.1.min.js"></script>
+        <script>
+            function searchSubmit(){
+                $.ajax({
+                    type: "post",
+                    url: "https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/searchbook.cgi",
+                    success: function(){
+                        console.log("Success of AJAX");
+                    },
+                    error: function(){
+                        console.log("Error of AJAX");
+                    }
+                });
+            }
+        </script>
     </body>
 </html>

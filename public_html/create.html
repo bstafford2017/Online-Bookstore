@@ -13,21 +13,18 @@
             <!-- Favicon -->
             <link rel="icon" href="../favicon.png"/>
             <h1 style="text-align:center;color:white;">Welcome to the bookstore!</h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-            </button>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="index.html">Bookstore</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav col-sm-12">
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a id="home" class="nav-link" href="index.html">Home</a>
                         </li>
-                        <li class="nav-item active">
-                            <a id="create" class="nav-link" href="create.html">Create</a>
-                        </li>
                         <li class="nav-item">
-                            <a id="modify" class="nav-link" href="modify.html">Modify</a>
+                            <a id="create" class="nav-link" href="create.html">Create</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="search" class="nav-link dropdown-toggle" href ="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
@@ -35,9 +32,6 @@
                                 <a class="dropdown-item" href="searchsubject.html">Search Subjects</a>
                                 <a class="dropdown-item" href="searchbook.html">Search Books</a>
                             </div>
-                        </li>
-                        <li class="nav-item ml-auto">
-                            <a id="search" class="nav-link" href="signout.html">Sign Out</a>
                         </li>
                     </ul>
                 <div>
@@ -56,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <form class="col-sm-4 offset-sm-4" method="post" action="http://undcemcs02.und.edu/~benjamin.stafford/cgi-bin/create.cgi" style="color:white;">
+        <form class="col-sm-4 offset-sm-4" action="searchSubmit();" style="color:white;">
             <div class="form-group" >
                 <label>Book Title</label>
                 <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming"/>
@@ -79,5 +73,24 @@
             </div>
             <button id="submit" type="button" class="col-sm-2 offset-sm-5 btn btn-outline-primary">Submit</button>
         </form>
+        <script src="jquery-3.4.1.min.js"></script>
+        <script>
+            function searchSubmit(){
+                if(!$('book-title').val){
+                    $('title-error').append("Please enter a valid book title");
+                } else if(!$('price').val){
+                    $('price-error').append("Please enter a valid book price");
+                } else if(!$('isbn').val){
+                    $('isbn-error').append("Please enter a valid book isbn");
+                } else if(!$('subjects').val){
+                    $('subjects-error').append("Please enter a valid book subject");
+                } else {
+                    $.ajax({
+                        type: "post",
+                        url: "https://www.undcemcs02.und.edu/~benjamin.stafford/Online-Bookstore/public_html/cgi-bin/create.cgi"
+                    });
+                }
+            }
+        </script>
     </body>
 </html>
