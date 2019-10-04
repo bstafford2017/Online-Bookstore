@@ -7,6 +7,6 @@ $search =~ s/^\s*(\S*)\s*$/$1/;
 $search =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 
 $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom SearchBook ";
-$cmd .= $search . " ";
+$cmd = join $search, " ";
 
 system($cmd);
