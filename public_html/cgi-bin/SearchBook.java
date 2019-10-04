@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class SearchBook {
-    public static void main(String[] args) throws SQLException{
+    public static void main(String[] args) throws SQLException {
         String user     = "C##benjamin.stafford";
         String password = "stafford6248";
         String database = "65.52.222.73:1521/cdb1";
@@ -19,12 +19,16 @@ public class SearchBook {
             Statement stmt = conn.createStatement();
             String query = "select (isbn, title, price, subject) from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = book.subject";
             if(args.length != 0){
-                for(String arg : args){
-                    query = "book.isbn ='" + arg.trim() + "' book.price = '" + arg.trim() + "' book.title = '" +  arg.trim() + "'";
-                }
+                query = "book.isbn ='" + args[0].trim() + "' book.price = '" + args[0].trim() + "' book.title = '" +  args[0].trim() + "'";
             }
             query += ");";
             ResultSet rset = stmt.executeQuery(query);
+            System.out.println("Content-type: text/html");
+            System.out.println("<html><head></head><body>");
+            while(rset.next()){
+                System.out.println("<p> " + rset.getString(1) + "</p>");
+            }
+            System.out.println("</body></html>");
             rset.close();
             stmt.close();
         }
