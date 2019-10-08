@@ -19,7 +19,7 @@ public class Create {
             Statement stmt = conn.createStatement();
             String query = "insert into (title, author, isbn, subjects) values (";
             for(String value : args){
-                query = value + " "
+                query = value + " ";
             }
             ResultSet rset = stmt.executeQuery(query);
             System.out.println("Content-Type: text/javascript");
