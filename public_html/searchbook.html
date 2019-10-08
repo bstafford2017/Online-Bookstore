@@ -17,17 +17,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav col-sm-12">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a id="home" class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a id="create" class="nav-link" href="create.html">Create</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a id="search" class="nav-link dropdown-toggle" href ="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="searchsubject.html">Search Subjects</a>
-                            <a class="dropdown-item" href="searchbook.html">Search Books</a>
+                            <a class="dropdown-item active" href="searchbook.html">Search Books</a>
                         </div>
                     </li>
                 </ul>
@@ -50,11 +50,11 @@
         <form action="searchSubmit();">
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
             <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1 form-control" placeholder="(i.e. ISBN, Title, or Price)"/>
-            <button type="button" class="col-sm-2 btn btn-outline-primary">Search</button>
+            <input type="button" class="col-sm-2 btn btn-outline-primary">Search</input>
         </form>
         <div id="table"></div>
         <form method="post" action="https://www.undcemcs02.und.edu/~benjamin.stafford/cgi-bin/clear.cgi">
-            <button type="button" class="col-sm-2 btn btn-outline-primary">Remove all books</button>
+            <input type="button" class="col-sm-2 btn btn-outline-primary">Remove all books</input>
         </form>
 
         <script>
@@ -63,10 +63,10 @@
                     type: "post",
                     url: "https://www.undcemcs02.und.edu/~benjamin.stafford/cgi-bin/searchbook.cgi",
                     success: function(){
-                        console.log("Success of AJAX");
+                        alert("Success of AJAX");
                     },
                     error: function(){
-                        console.log("Error of AJAX");
+                        alert("Error of AJAX");
                     }
                 });
             }
