@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <form action="#" onsubmit="searchSubmit();">
+        <form onsubmit="searchSubmit();">
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
             <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1 form-control" placeholder="(i.e. ISBN, Title, or Price)"/>
             <button type="submit" class="col-sm-2 btn btn-outline-primary">Search</button>
@@ -60,7 +60,7 @@
         <script>
             function searchSubmit(){
                 $.ajax({
-                    type: "post",
+                    type: "get",
                     url: "https://www.undcemcs02.und.edu/~benjamin.stafford/cgi-bin/searchbook.cgi",
                     success: function(){
                         alert("Success of AJAX");
