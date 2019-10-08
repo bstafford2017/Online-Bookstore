@@ -18,8 +18,9 @@ public class Create {
         try {
             Statement stmt = conn.createStatement();
             String query = "insert into (title, author, isbn, subjects) values (";
-            Arrays.stream(args).forEach(x -> query += x.trim() + " ");
-            query += ");";
+            for(String value : args){
+                query = value + " "
+            }
             ResultSet rset = stmt.executeQuery(query);
             System.out.println("Content-Type: text/javascript");
             System.out.println("alert(\"You submitted " + query + "\");");
