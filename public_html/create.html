@@ -13,15 +13,15 @@
             <h1 style="text-align:center;color:white;">Welcome to the bookstore!</h1>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="index.html">Bookstore</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <input class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                </button>
+            </input>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav col-sm-12">
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a id="home" class="nav-link" href="index.html">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a id="create" class="nav-link" href="create.html">Create</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -35,9 +35,9 @@
                 <div>
             </nav>
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     
         <!-- Content-->
         <div id="header"></div>
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <form class="col-sm-4 offset-sm-4" action="searchSubmit();" style="color:white;">
+        <form method="post" class="col-sm-4 offset-sm-4" action="#" onsubmit="searchSubmit();" style="color:white;">
             <div class="form-group" >
                 <label>Book Title</label>
                 <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming"/>
@@ -69,7 +69,7 @@
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Software Development"/>
                 <small id="subjects-error" class="form-text text-muted" style="color: red;"></small>
             </div>
-            <button id="submit" type="button" class="col-sm-2 offset-sm-5 btn btn-outline-primary">Submit</button>
+            <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-outline-primary">Submit</button>
         </form>
         <script>
             function searchSubmit(){

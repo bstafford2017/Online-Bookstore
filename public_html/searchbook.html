@@ -17,17 +17,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav col-sm-12">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a id="home" class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a id="create" class="nav-link" href="create.html">Create</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a id="search" class="nav-link dropdown-toggle" href ="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="searchsubject.html">Search Subjects</a>
-                            <a class="dropdown-item" href="searchbook.html">Search Books</a>
+                            <a class="dropdown-item active" href="searchbook.html">Search Books</a>
                         </div>
                     </li>
                 </ul>
@@ -47,14 +47,14 @@
                 </div>
             </div>
         </div>
-        <form action="searchSubmit();">
+        <form method="get" onsubmit="searchSubmit();">
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
             <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1 form-control" placeholder="(i.e. ISBN, Title, or Price)"/>
-            <button type="button" class="col-sm-2 btn btn-outline-primary">Search</button>
+            <button type="submit" class="col-sm-2 btn btn-outline-primary">Search</button>
         </form>
         <div id="table"></div>
         <form method="post" action="https://www.undcemcs02.und.edu/~benjamin.stafford/cgi-bin/clear.cgi">
-            <button type="button" class="col-sm-2 btn btn-outline-primary">Remove all books</button>
+            <button type="submit" class="col-sm-2 btn btn-outline-primary">Remove all books</button>
         </form>
 
         <script>
@@ -65,8 +65,9 @@
                     success: function(){
                         console.log("Success of AJAX");
                     },
-                    error: function(){
-                        console.log("Error of AJAX");
+                    error: function(data){
+                        alert(data);
+                        alert("Error of AJAX");
                     }
                 });
             }

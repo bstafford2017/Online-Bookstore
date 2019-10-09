@@ -10,3 +10,5 @@ $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom SearchBook ";
 $cmd = join $search, " ";
 
 system($cmd);
+
+print($cmd);

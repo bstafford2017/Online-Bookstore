@@ -23,10 +23,10 @@
                     <li class="nav-item">
                         <a id="create" class="nav-link" href="create.html">Create</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a id="search" class="nav-link dropdown-toggle" href ="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="searchsubject.html">Search Subjects</a>
+                            <a class="dropdown-item active" href="searchsubject.html">Search Subjects</a>
                             <a class="dropdown-item" href="searchbook.html">Search Books</a>
                         </div>
                     </li>
@@ -47,9 +47,9 @@
                 </div>
             </div>
         </div>
-        <form method="post" class="col-sm-10 offset-sm-2 input-group" action="cgi-bin/searchsubjects.cgi">
+        <form method="post" class="col-sm-10 offset-sm-2 input-group" action="cgi-bin/searchsubject.cgi">
             <input id="search-box" name="search-box" type="text" class="col-sm-7 form-control" placeholder="Search for a subject . . ."/>
-            <button type="button" class="col-sm-2 offset-sm-1 btn btn-outline-primary">Search</button>
+            <button type="submit" class="col-sm-2 offset-sm-1 btn btn-outline-primary">Search</button>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
         </form>
     </body>
