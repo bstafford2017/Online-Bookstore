@@ -17,7 +17,7 @@ public class SearchBook {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select (isbn, title, price, subject) from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = book.subject";
+            String query = "select isbn, title, price, subject from book inner join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = book.subject";
             if(args.length != 0){
                 query = "book.isbn ='" + args[0].trim() + "' book.price = '" + args[0].trim() + "' book.title = '" +  args[0].trim() + "'";
             }
@@ -25,6 +25,7 @@ public class SearchBook {
             ResultSet rset = stmt.executeQuery(query);
             System.out.println("Content-type: text/html");
             System.out.println("<html><head></head><body>");
+            if(rset.next() == null) System.out.println("No results!");
             while(rset.next()){
                 System.out.println("<p> " + rset.getString(1) + "</p>");
             }
