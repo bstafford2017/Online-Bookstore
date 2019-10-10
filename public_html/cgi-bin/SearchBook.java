@@ -17,11 +17,13 @@ public class SearchBook {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select * from book inner join subjects on book.isbn = subjects.isbn inner join subject on subject.subject_id = book.subject";
+            String query = "select book.isbn, book.title, book.price, subject.subject_name";
+            query += "from book inner join subjects on book.isbn = subjects.isbn inner join subject on subject.subject_id = book.subject";
             if(args.length != 0){
-                query = "where book.isbn ='" + args[0].trim() + "' book.price = '" + args[0].trim() + "' book.title = '" +  args[0].trim() + "'";
+                query = "where book.isbn =" + args[0].trim() + " or book.price = " + args[0].trim() + " or book.title = " +  args[0].trim() + " or subject.subject_name = " + args[0].trim();
             }
-            query += ");";
+            query += ";";
+            System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
             System.out.println("Content-type: text/html");
             System.out.println("<html><head></head><body>");
