@@ -2,6 +2,8 @@
 use CGI; 
 $query = new CGI;
 $search = $query->param('search-box');
+print $query->header("text/javascript");
+print $search
 
 $search =~ s/^\s*(\S*)\s*$/$1/;
 $search =~ s/;|>|>>|<|\*|\?|\&|\|//g;

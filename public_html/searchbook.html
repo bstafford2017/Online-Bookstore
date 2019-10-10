@@ -62,8 +62,9 @@
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/searchbook.cgi",
-                    success: function(){
-                        console.log("Success of AJAX");
+                    success: function(data){
+                        alert(data);
+                        alert("Success of AJAX");
                     },
                     error: function(data){
                         alert(data);
