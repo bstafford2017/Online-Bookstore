@@ -22,7 +22,6 @@ public class SearchBook {
             if(args.length != 0){
                 query = query + "where book.isbn =" + args[0].trim() + " or book.price = " + args[0].trim() + " or book.title = " +  args[0].trim() + " or subject.subject_name = " + args[0].trim();
             }
-            System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
             int rowCounter = 0;
             while(rset.next()){
