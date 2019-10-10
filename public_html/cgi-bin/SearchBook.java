@@ -25,7 +25,7 @@ public class SearchBook {
             ResultSet rset = stmt.executeQuery(query);
             System.out.println("Content-type: text/html");
             System.out.println("<html><head></head><body>");
-            if(rset.next() == null) System.out.println("No results!");
+            if(!rset.next()) System.out.println("No results!");
             while(rset.next()){
                 System.out.println("<p> " + rset.getString(1) + "</p>");
             }
