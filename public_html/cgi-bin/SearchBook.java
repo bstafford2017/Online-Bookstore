@@ -20,7 +20,7 @@ public class SearchBook {
             String query = "select book.isbn, book.title, book.price, subject.subject_name ";
             query += "from book inner join subjects on book.isbn = subjects.isbn inner join subject on subject.subject_id = book.subject ";
             if(args.length != 0){
-                query = "where book.isbn =" + args[0].trim() + " or book.price = " + args[0].trim() + " or book.title = " +  args[0].trim() + " or subject.subject_name = " + args[0].trim();
+                query = query + "where book.isbn =" + args[0].trim() + " or book.price = " + args[0].trim() + " or book.title = " +  args[0].trim() + " or subject.subject_name = " + args[0].trim();
             }
             System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
