@@ -24,8 +24,6 @@ public class SearchBook {
             }
             System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
-            System.out.println("Content-type: text/html");
-            System.out.println("<html><head></head><body>");
             int rowCounter = 0;
             while(rset.next()){
                 System.out.println("<p> " + rset.getString(1) + "</p>");
@@ -34,7 +32,6 @@ public class SearchBook {
             if(rowCounter == 0){
                 System.out.println("<p>No results!</p>");
             }
-            System.out.println("</body></html>");
             rset.close();
             stmt.close();
         }
