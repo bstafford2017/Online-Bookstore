@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <form method="get" onsubmit="searchSubmit();">
+        <form id="form" action="cgi-bin/searchbook.cgi">
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
             <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1 form-control" placeholder="(i.e. ISBN, Title, or Price)"/>
             <button type="submit" class="col-sm-2 btn btn-outline-primary">Search</button>
@@ -58,10 +58,14 @@
         </form>
 
         <script>
-            function searchSubmit(){
+             $("#form").submit(function(e){
+                e.preventDefault();
+                var form = $(this);
+                var url = form.attr('action');
                 $.ajax({
-                    type: "post",
-                    url: "cgi-bin/searchbook.cgi",
+                    type: "get",
+                    url: url,
+                    data: form.serialize(),
                     success: function(data){
                         alert(data);
                         alert("Success of AJAX");
@@ -71,7 +75,7 @@
                         alert("Error of AJAX");
                     }
                 });
-            }
+            });
         </script>
     </body>
 </html>
