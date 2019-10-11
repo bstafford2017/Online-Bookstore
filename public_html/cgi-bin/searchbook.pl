@@ -18,7 +18,6 @@ $search =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 
 $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom SearchBook ";
 $cmd = "$cmd $search";
-print($cmd);
 system($cmd);
 
 print <<EndofHTML;
