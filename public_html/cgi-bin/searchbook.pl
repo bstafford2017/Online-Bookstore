@@ -16,7 +16,7 @@ EndofHTML
 $search =~ s/^\s*(\S*)\s*$/$1/;
 $search =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 
-$cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom /home/benjamin.stafford/cgi-bin/SearchBook";
+$cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom /home/benjamin.stafford/public_html/cgi-bin/SearchBook";
 $cmd = "$cmd $search";
 system($cmd);
 
