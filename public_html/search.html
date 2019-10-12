@@ -63,7 +63,7 @@
                     },
                     error: function(data){
                         alert(data +"Error of AJAX");
-                        $('#form').html(data);
+                        $('#form').append(data);
                     }
                 });
             });
