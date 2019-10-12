@@ -63,7 +63,6 @@
                     },
                     error: function(data){
                         alert(data +"Error of AJAX");
-                        $('#form').append(data);
                     }
                 });
             });
@@ -74,7 +73,7 @@
                     type: "get",
                     url: "cgi-bin/subject.cgi",
                     success: function(data){
-                        $('#subject').append(data);
+                        $('html').append(data);
                     },
                     error: function(data){
                         alert(JSON.stringify(data) + "Error with loading subjects");
