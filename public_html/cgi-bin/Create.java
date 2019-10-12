@@ -17,13 +17,31 @@ public class Create {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "insert into (title, author, isbn, subjects) values (";
-            for(String value : args){
-                query = value + " ";
+            /* Each have a value
+               Assumed order is: {isbn, title, price, subject1, subject2, ...} */
+            
+            // Loop through all subjects
+            for(int i = 3; i < args.length; i++){
+                String getSubjectId = "select * from subject where subject_name = " + arg[i] + ")";
+                ResultSet rset = stmt.executeQuery(getSubjectId);
+                String subjectId = rset.getString(1);
+                // If subject is already in table
+                if(rset.next()){
+                    // Only needs to be inserted into subjects (joining table)
+                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + arg[0] + ", '" + subjectId + "')";
+                    stmt.executeQuery(insertSubjects);
+                } else {
+                    // Insert into subject (stores names)
+                    String insertSubject = "insert into subject(subject_name) values ('" + arg[i] + "')";
+                    stmt.executeQuery(insertSubject);
+                    // Insert into subjects (joining table)
+                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + arg[0] + ", '" + subjectId + "')";
+                    stmt.executeQuery(insertSubjects);
+                }
             }
-            ResultSet rset = stmt.executeQuery(query);
-            System.out.println("Content-Type: text/javascript");
-            System.out.println("alert(\"You submitted " + query + "\");");
+            // Finally, insert into books table
+            String insertBook = "insert into (isbn, title, price) values (" + arg[0] + ", '" + arg[1] + "', " + arg[2] + ")";
+            stmt.executeQuery(insertBook);
             rset.close();
             stmt.close();
         }

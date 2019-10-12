@@ -5,7 +5,7 @@ import oracle.jdbc.pool.OracleDataSource;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class SearchSubject {
+public class Clear {
     public static void main(String[] args) throws SQLException{
         String user     = "C##benjamin.stafford";
         String password = "stafford6248";
@@ -17,19 +17,17 @@ public class SearchSubject {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select (isbn, title, price, subject) from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = book.subject);";
-            if(args.length != 0){
-                for(String arg : args){
-                    query = "book.isbn ='" + arg.trim() + "' book.price = '" + arg.trim() + "' book.title = '" +  arg.trim() + "'";
-                }            }
-            query += ");";
-            ResultSet rset = stmt.executeQuery(query);
+            ResultSet rset = stmt.executeQuery("select subject_name from subject");
+            System.out.println("Content-type: text/html\n");
+            while(rset.next()){
+                System.out.println("<input type=\"checkbox\" name=\"subject\">" +  rset.getString(1) + "</input>");
+            }
             rset.close();
             stmt.close();
         }
         catch (SQLException ex) {
             System.out.println(ex);
         }
-        conn.close( );
+        conn.close();
     }
 }
