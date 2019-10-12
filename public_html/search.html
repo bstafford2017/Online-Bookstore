@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <form id="form" action="cgi-bin/searchbook.cgi">
+        <form id="form" action="cgi-bin/search.cgi">
             <div id="subject" class="form-text"></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
             <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1 form-control" placeholder="(i.e. ISBN, Title, or Price)"/>
@@ -78,7 +78,7 @@
                         $('subject').append(data);
                     },
                     error: function(data){
-                        alert(data + "Error in AJAX");
+                        alert(data + "Error with loading subjects");
                     }
                 });
             });
