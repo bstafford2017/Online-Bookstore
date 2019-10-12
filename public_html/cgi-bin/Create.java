@@ -21,9 +21,10 @@ public class Create {
                Assumed order is: {isbn, title, price, subject1, subject2, ...} */
             
             // Loop through all subjects
+            Resultset rset = null;
             for(int i = 3; i < args.length; i++){
                 String getSubjectId = "select * from subject where subject_name = " + args[i] + ")";
-                ResultSet rset = stmt.executeQuery(getSubjectId);
+                rset = stmt.executeQuery(getSubjectId);
                 String subjectId = rset.getString(1);
                 // If subject is already in table
                 if(rset.next()){
