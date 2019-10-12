@@ -22,25 +22,25 @@ public class Create {
             
             // Loop through all subjects
             for(int i = 3; i < args.length; i++){
-                String getSubjectId = "select * from subject where subject_name = " + arg[i] + ")";
+                String getSubjectId = "select * from subject where subject_name = " + args[i] + ")";
                 ResultSet rset = stmt.executeQuery(getSubjectId);
                 String subjectId = rset.getString(1);
                 // If subject is already in table
                 if(rset.next()){
                     // Only needs to be inserted into subjects (joining table)
-                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + arg[0] + ", '" + subjectId + "')";
+                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", '" + subjectId + "')";
                     stmt.executeQuery(insertSubjects);
                 } else {
                     // Insert into subject (stores names)
-                    String insertSubject = "insert into subject(subject_name) values ('" + arg[i] + "')";
+                    String insertSubject = "insert into subject(subject_name) values ('" + args[i] + "')";
                     stmt.executeQuery(insertSubject);
                     // Insert into subjects (joining table)
-                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + arg[0] + ", '" + subjectId + "')";
+                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", '" + subjectId + "')";
                     stmt.executeQuery(insertSubjects);
                 }
             }
             // Finally, insert into books table
-            String insertBook = "insert into (isbn, title, price) values (" + arg[0] + ", '" + arg[1] + "', " + arg[2] + ")";
+            String insertBook = "insert into (isbn, title, price) values (" + args[0] + ", '" + args[1] + "', " + args[2] + ")";
             stmt.executeQuery(insertBook);
             rset.close();
             stmt.close();
