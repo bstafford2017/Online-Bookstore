@@ -10,6 +10,24 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            // Get all subjects on load
+            $.ajax({
+                type: "get",
+                url: "cgi-bin/subject.cgi",
+                success: function(data){
+                    $(function(){
+                        $('html').append(data);
+                    });
+                },
+                error: function(data){
+                    $(function(){
+                        alert(JSON.stringify(data) + "Error with loading subjects");
+                        $('#subject').append(data);
+                    });
+                }
+            });
+        </script>
     </head>
     <body>
         <!-- Nav Bar-->
@@ -17,13 +35,13 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="index.html">Bookstore</a>
             <ul class="navbar-nav col-sm-12">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a id="home" class="nav-link" href="index.html">Home</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a id="create" class="nav-link" href="create.html">Create</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item">
                     <a class="nav-link" href="search.html">Search Books</a>
                 </li>
             </ul>
@@ -41,7 +59,7 @@
         <form id="form" action="cgi-bin/search.cgi">
             <div id="subject" class="form-text"></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
-            <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1 form-control" placeholder="(i.e. ISBN, Title, or Price)"/>
+            <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1 form-control" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
             <button type="submit" class="col-sm-2 btn btn-outline-primary">Search</button>
         </form>
         <div id="table"></div>
@@ -49,8 +67,8 @@
             <button type="submit" class="col-sm-2 btn btn-outline-primary">Clear all</button>
         </form>
 
-        <script>
-             $("#form").submit(function(e){
+        <script type="text/javascript">
+            $("#form").submit(function(e){
                 e.preventDefault();
                 var form = $(this);
                 var url = form.attr('action');
@@ -64,21 +82,6 @@
                     },
                     error: function(data){
                         alert(data +"Error of AJAX");
-                    }
-                });
-            });
-
-            // Get all subjects on load
-            $(function(){
-                $.ajax({
-                    type: "get",
-                    url: "cgi-bin/subject.cgi",
-                    success: function(data){
-                        $('html').append(data);
-                    },
-                    error: function(data){
-                        alert(JSON.stringify(data) + "Error with loading subjects");
-                        $('#subject').append(data);
                     }
                 });
             });

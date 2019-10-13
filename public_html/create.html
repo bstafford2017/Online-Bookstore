@@ -51,12 +51,12 @@
             </div>
             <div class="form-group">
                 <label>ISBN</label>
-                <input id="isbn" name="isbn" type="text" class="form-control" placeholder="i.e. 12345678"/>
+                <input id="isbn" name="isbn" type="text" class="form-control" placeholder="i.e. 0123456789"/>
                 <small id="isbn-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <div class="form-group">
                 <label>Subjects</label>
-                <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Software Development"/>
+                <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Software Development, Computer Science, etc."/>
                 <small id="subjects-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-outline-primary">Submit</button>
@@ -74,7 +74,13 @@
                 } else {
                     $.ajax({
                         type: "post",
-                        url: "cgi-bin/create.cgi"
+                        url: "cgi-bin/create.cgi",
+                        success: function(data){
+                            alert("Success in AJAX");
+                        },
+                        error: function(){
+                            alert("Error in AJAX");
+                        }
                     });
                 }
             }
