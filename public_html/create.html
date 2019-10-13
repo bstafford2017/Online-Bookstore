@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <form method="post" class="col-sm-4 offset-sm-4" action="#" onsubmit="searchSubmit();" style="color:white;">
+        <form id="form" class="col-sm-4 offset-sm-4" style="color:white;">
             <div class="form-group" >
                 <label>Book Title</label>
                 <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming"/>
@@ -62,7 +62,8 @@
             <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-outline-primary">Submit</button>
         </form>
         <script>
-            function searchSubmit(){
+            $('#form').submit(function (e){
+                e.preventDefault();
                 if(!$('book-title').val){
                     $('title-error').append("Please enter a valid book title");
                 } else if(!$('price').val){
@@ -83,7 +84,7 @@
                         }
                     });
                 }
-            }
+            });
         </script>
     </body>
 </html>
