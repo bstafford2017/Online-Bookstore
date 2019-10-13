@@ -55,7 +55,7 @@
                 var form = $(this);
                 var url = form.attr('action');
                 $.ajax({
-                    type: "get",
+                    type: "post",
                     url: url,
                     data: form.serialize(),
                     success: function(data){

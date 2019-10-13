@@ -19,8 +19,13 @@ public class Subject {
             Statement stmt = conn.createStatement();
             ResultSet rset = stmt.executeQuery("select subject_name from subject");
             System.out.println("Content-type: text/html\n");
+            int rowCounter = 0;
             while(rset.next()){
                 System.out.println("<input type=\"checkbox\" name=\"subject\">" +  rset.getString(1) + "</input>");
+                rowCounter++;
+            }
+            if(rowCounter == 0){
+                System.out.println("<html><body><p>No results!</p></body></html>");
             }
             rset.close();
             stmt.close();
