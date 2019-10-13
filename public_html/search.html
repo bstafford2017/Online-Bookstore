@@ -54,6 +54,7 @@
                 e.preventDefault();
                 var form = $(this);
                 var url = form.attr('action');
+                console.log(url);
                 $.ajax({
                     type: "post",
                     url: url,
@@ -65,7 +66,6 @@
                         alert(data +"Error of AJAX");
                     }
                 });
-                console.log(url);
             });
 
             // Get all subjects on load
