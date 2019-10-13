@@ -15,7 +15,9 @@ $isbn =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 $subjects =~ s/^\s*(\S*)\s*$/$1/;
 $subjects =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 
+$compile = "/usr/bin/javac Create.java";
+system($compile);
+
 $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
 $cmd .= join $title, " ", $author, " ", $isbn, " ", $subjects;
-
 system($cmd);

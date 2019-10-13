@@ -15,6 +15,9 @@ EndofHTML
 $search =~ s/^\s*(\S*)\s*$/$1/ if defined($search);
 $search =~ s/;|>|>>|<|\*|\?|\&|\|//g if defined($search);
 
+my $compile = "/usr/bin/javac Search.java";
+system($compile);
+
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Search";
 $cmd = "$cmd $search" if defined($search);
 system($cmd);

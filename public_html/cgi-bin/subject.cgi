@@ -5,5 +5,5 @@ CLASSPATH=$CLASSPATH:/usr/lib/oracle/12.1/client64/lib/ojdbc7.jar
 CLASSPATH=$CLASSPATH:/usr/lib/oracle/12.1/client64/lib/ottclasses.zip
 export CLASSPATH
 
-/usr/bin/javac -Djava.security.egd=file:/dev/./urandom Subject.java
+/usr/bin/javac Subject.java
 /usr/bin/java -Djava.security.egd=file:/dev/./urandom Subject
