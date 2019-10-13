@@ -17,7 +17,7 @@ public class Create {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            if(args.length != 4){
+            if(args.length < 4){
                 System.out.println("Content-type: text/html\n");
                 System.out.println("<html><body><p>Invalid number of argments</p></body></html>");
                 System.exit(0);
