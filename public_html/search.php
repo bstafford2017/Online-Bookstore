@@ -39,10 +39,10 @@
         <form id="form" action="cgi-bin/search.cgi">
             <div id="subject" class="form-text"></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
-            <input id="search-box" name="search-box" type="text" class="col-sm-7" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
+            <input id="search-box" name="search-box" type="text" class="col-sm-7 col-sm-offset-2" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
             <button type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Search</button>
         </form>
-        <table class="table table-striped thead-dark">
+        <table class="table table-striped thead-dark col-sm-8 col-sm-offset-2">
             <thead>
                 <tr>
                     <th scope="col">ISBN</th>
@@ -55,7 +55,7 @@
                 
             </tbody>
         </table>
-        <button id="clear" type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Clear all</button>
+        <button id="clear" type="submit" style="display: inline" class="col-sm-2 col-sm-offset-5 btn btn-dark">Clear all</button>
 
         <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
