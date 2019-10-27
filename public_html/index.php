@@ -10,7 +10,7 @@
             include 'navbar.php';
         ?>
         <h2 style="text-align:center;">Welcome to the bookstore!<h2>
-        <p><a id="source">View Source</a></p>
+        <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
         <?php
             include 'footer.php';

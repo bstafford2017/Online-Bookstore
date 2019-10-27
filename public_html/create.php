@@ -41,7 +41,7 @@
             </div>
             <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Submit</button>
         </form>
-        <p><a id="source">View Source</a></p>
+        <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
         <?php
             include 'footer.php';

@@ -45,7 +45,7 @@
         <div id="table"></div>
         <button id="clear" type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Clear all</button>
 
-        <p><a id="source">View Source</a></p>
+        <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
         <?php
             include 'navbar.php';
