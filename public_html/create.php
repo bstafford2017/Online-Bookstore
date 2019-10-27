@@ -41,16 +41,25 @@
             </div>
             <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Submit</button>
         </form>
-        <p><a href="" name="source">View Source</a></p>
+        <p><a id="source">View Source</a></p>
+        <div id="display-source"></div>
         <?php
-            include 'source.php';
-            viewSource('create.php');
-            viewSource('cgi-bin/create.cgi');
-            viewSource('cgi-bin/create.pl');
-            viewSource('cgi-bin/Create.java');
             include 'footer.php';
         ?>
         <script>
+            $('#source').click(function(){
+                $.ajax({
+                    type: "post";
+                    url: "cgi-bin/source.cgi",
+                    data: {filename: "search"},
+                    success: function(data){
+                        $('display-source').append(data);
+                    },
+                    error: function(data){
+                        $('display-source').append(data);
+                    }
+                });
+            });
             $('#form').submit(function (e){
                 e.preventDefault();
                 if(!$('book-title').val()){

@@ -45,16 +45,25 @@
         <div id="table"></div>
         <button id="clear" type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Clear all</button>
 
-        <p><a name="source">View Source</a></p>
+        <p><a id="source">View Source</a></p>
+        <div id="display-source"></div>
         <?php
-            include 'source.php';
-            viewSource('search.php');
-            viewSource('cgi-bin/search.cgi');
-            viewSource('cgi-bin/search.pl');
-            viewSource('cgi-bin/Search.java');
             include 'navbar.php';
         ?>
         <script type="text/javascript">
+            $('#source').click(function(){
+                $.ajax({
+                    type: "post";
+                    url: "cgi-bin/source.cgi",
+                    data: {filename: "search"},
+                    success: function(data){
+                        $('display-source').append(data);
+                    },
+                    error: function(data){
+                        $('display-source').append(data);
+                    }
+                });
+            });
             $("#form").submit(function(e){
                 e.preventDefault();
                 var form = $(this);
@@ -73,7 +82,7 @@
                 });
             });
 
-            $('#clear').onclick(function(){
+            $('#clear').click(function(){
                 var form = $(this);
                 var url = form.attr('action');
                 console.log(url);

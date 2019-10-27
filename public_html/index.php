@@ -10,11 +10,25 @@
             include 'navbar.php';
         ?>
         <h2 style="text-align:center;">Welcome to the bookstore!<h2>
-        <p><a href="" name="source">View Source</a></p>
+        <p><a id="source">View Source</a></p>
+        <div id="display-source"></div>
         <?php
-            include 'source.php';
-            viewSource('index.php');
             include 'footer.php';
         ?>
+        <script>
+            $('#source').click(function(){
+                $.ajax({
+                    type: "post";
+                    url: "cgi-bin/source.cgi",
+                    data: {filename: "search"},
+                    success: function(data){
+                        $('display-source').append(data);
+                    },
+                    error: function(data){
+                        $('display-source').append(data);
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
