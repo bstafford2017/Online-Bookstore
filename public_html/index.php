@@ -23,12 +23,12 @@
                     data: {filename: "search"},
                     success: function(data){
                         $(function(){
-                            $('display-source').append(data);
+                            $('display-source').append(JSON.stringify(data));
                         });
                     },
                     error: function(data){
                         $(function(){
-                            $('display-source').append(data);
+                            $('display-source').append(JSON.stringify(data));
                         });
                     }
                 });
