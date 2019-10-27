@@ -40,12 +40,12 @@
         <form id="form" action="cgi-bin/search.cgi">
             <div id="subject" class="form-text"></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
-            <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1 form-control" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
-            <button type="submit" class="col-sm-2 btn btn-dark">Search</button>
+            <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
+            <button type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Search</button>
         </form>
         <div id="table"></div>
         <form method="post" action="cgi-bin/clear.cgi">
-            <button type="submit" class="col-sm-2 btn btn-dark">Clear all</button>
+            <button type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Clear all</button>
         </form>
 
         <script type="text/javascript">
@@ -59,10 +59,10 @@
                     url: url,
                     data: form.serialize(),
                     success: function(data){
-                        $('html').append(data);
+                        $('body').append(data);
                     },
                     error: function(data){
-                        alert(data +"Error of AJAX");
+                        $('body').append(data);
                     }
                 });
             });
