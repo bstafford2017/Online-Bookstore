@@ -6,10 +6,10 @@ my $query = new CGI;
 my $filename = $query->param('filename');
 print("Content-type: text/plain\n");
 
-if($filename == 'search'){
+if($filename eq 'search'){
     system("/bin/cat search.cgi search.pl Search.java");
-} elsif($filename == 'create'){
+} elsif($filename eq 'create'){
     system("/bin/cat create.cgi create.pl Create.java");
-} elsif($filename == 'index'){
+} elsif($filename eq 'index'){
     system("/bin/cat index.php");
 }
