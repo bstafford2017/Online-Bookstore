@@ -18,7 +18,7 @@
         <script>
             $('#source').click(function(){
                 $.ajax({
-                    type: "post";
+                    type: "post",
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
