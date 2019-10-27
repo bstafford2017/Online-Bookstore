@@ -3,7 +3,23 @@ import java.io.*;
 import oracle.jdbc.*;
 import oracle.jdbc.pool.OracleDataSource;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.stream.Stream;
+
+class Tuple {
+    int isbn;
+    String title;
+    double price;
+    String subjects;
+
+    public Tuple(int isbn, String title, double price, String subjects){
+        this.isbn = isbn;
+        this.title = title;
+        this.price = price;
+        this.subjects = subjects;
+    }
+}
 
 public class Search {
     public static void main(String[] args) throws SQLException {
@@ -23,17 +39,25 @@ public class Search {
                 query = query + "where book.isbn =" + args[0].trim() + " or book.price = " + args[0].trim() + " or book.title = '" +  args[0].trim() + "' or subject.subject_name = '" + args[0].trim() + "'";
             }
             ResultSet rset = stmt.executeQuery(query);
-            int rowCounter = 0;
+            LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
-                System.out.println("<tr id=\" + rowCounter + \">");
-                System.out.println("<td>" + rset.getString(1) + "</td>");
-                System.out.println("<td><a href=\"#\">" + rset.getString(2) + "</a></td>");
-                System.out.println("<td>" + rset.getString(3) + "</td>");
-                System.out.println("<td>" + rset.getString(4) + "</td></tr>");
-                rowCounter++;
+                if(!Search.containsOrAdd(list, rset.getString(4), Integer.parseInt(rset.getString(1)))){
+                    list.add(new Tuple(Integer.parseInt(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
+                }
             }
-            if(rowCounter == 0){
+            if(list.size() == 0){
                 System.out.println("<p>No results!</p>");
+            }
+            Iterator<Tuple> it = list.iterator();
+            int rowCounter = 0;
+            while(it.hasNext()){
+                Tuple current = it.next();
+                System.out.println("<tr id=\"" + rowCounter + "\">");
+                System.out.println("<td id=\"isbn\">" + current.isbn + "</td>");
+                System.out.println("<td id=\"title\"><a href=\"javascript:submit();\">" + current.title + "</a></td>");
+                System.out.println("<td id=\"price\">" + current.price + "</td>");
+                System.out.println("<td id=\"subjects\">" + current.subjects + "</td></tr>");
+                rowCounter++;
             }
             rset.close();
             stmt.close();
@@ -42,5 +66,32 @@ public class Search {
             System.out.println(ex);
         }
         conn.close();
+    }
+
+    // True = added to list (already in list)
+    // False = not in list (add to list)
+    public static boolean containsOrAdd(LinkedList<Tuple> list, String subject, int isbn){
+        // Check if 'subject' is in list
+        Iterator<Tuple> it = list.iterator();
+        boolean flag = false;
+        while(it.hasNext()){
+            Tuple current = it.next();
+            if(current.isbn == isbn && current.subjects.contains(subject){
+                flag = true;
+            }
+        }
+        
+        // If not in list, return to insert into list
+        if(!flag) return false;
+
+        // If in in list, add 'subject' into isbn's record
+        Iterator<Tuple> newit = list.iterator();
+        while(it.hasNext()){
+            Tuple current = newit.next();
+            if(current.isbn == isbn){
+                current.subjects += subject;
+                return true;
+            }
+        }
     }
 }
