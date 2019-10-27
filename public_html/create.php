@@ -21,22 +21,22 @@
         <form id="form" class="col-sm-4 offset-sm-4">
             <div class="form-group" >
                 <label>Book Title</label>
-                <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming"/>
+                <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming" required/>
                 <small id="title-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <div class="form-group">
                 <label>Price</label>
-                <input id="price" name="author" type="text" class="form-control" placeholder="i.e. 12.99"/>
+                <input id="price" name="author" type="text" class="form-control" placeholder="i.e. 12.99" required/>
                 <small id="price-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <div class="form-group">
                 <label>ISBN</label>
-                <input id="isbn" name="isbn" type="text" class="form-control" placeholder="i.e. 0123456789"/>
+                <input id="isbn" name="isbn" type="text" class="form-control" placeholder="i.e. 0123456789" required/>
                 <small id="isbn-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <div class="form-group">
                 <label>Subjects</label>
-                <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering"/>
+                <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering" required/>
                 <small id="subjects-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <input id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Search">
