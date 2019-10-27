@@ -8,8 +8,8 @@ print("Content-type: text/plain\n");
 
 if($filename == 'search'){
     system("/bin/cat search.cgi search.pl Search.java");
-} else if($filename == 'create'){
+} elsif($filename == 'create'){
     system("/bin/cat create.cgi create.pl Create.java");
-} else if($filename == 'index'){
+} elsif($filename == 'index'){
     system("/bin/cat index.php");
 }
