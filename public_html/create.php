@@ -41,6 +41,9 @@
             </div>
             <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-outline-primary">Submit</button>
         </form>
+        <?php
+            include 'footer.php';
+        ?>
         <script>
             $('#form').submit(function (e){
                 e.preventDefault();

@@ -1,4 +1,7 @@
         </table>
+        <?php
+            include 'footer.php';
+        ?>
         <script type="text/javascript">
         function submit(){
 

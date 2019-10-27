@@ -9,7 +9,9 @@
         <?php
             include 'navbar.php';
         ?>
-        
-        
+        <h2 style="text-align:center;">Welcome to the bookstore!<h2>
+        <?php
+            include 'footer.php';
+        ?>
     </body>
 </html>
