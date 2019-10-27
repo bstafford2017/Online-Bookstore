@@ -25,7 +25,7 @@ public class Search {
             ResultSet rset = stmt.executeQuery(query);
             int rowCounter = 0;
             while(rset.next()){
-                System.out.println("<tr id=" + rowCounter + ">");
+                System.out.println("<tr id=\" + rowCounter + \">");
                 System.out.println("<td>" + rset.getString(1) + "</td>");
                 System.out.println("<td><a href=\"#\">" + rset.getString(2) + "</a></td>");
                 System.out.println("<td>" + rset.getString(3) + "</td>");

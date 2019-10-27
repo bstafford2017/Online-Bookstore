@@ -1,0 +1,52 @@
+<!doctype html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="./favicon.png"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title id="title">Search books</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            // Get all subjects on load
+            $.ajax({
+                type: "get",
+                url: "cgi-bin/subject.cgi",
+                success: function(data){
+                    $(function(){
+                        $('html').append(data);
+                    });
+                },
+                error: function(data){
+                    $(function(){
+                        alert(JSON.stringify(data) + "Error with loading subjects");
+                        $('#subject').append(data);
+                    });
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <!-- Nav Bar-->
+        <h1 style="text-align:center;color:white;">Welcome to the bookstore!</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Bookstore</a>
+            <ul class="navbar-nav col-sm-12">
+                <li class="nav-item">
+                    <a id="home" class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a id="create" class="nav-link" href="create.html">Create</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="search.html">Search Books</a>
+                </li>
+            </ul>
+        </nav>
+    
+        <!-- Content-->
+        <table>
+            
