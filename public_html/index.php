@@ -18,7 +18,7 @@
         <script>
             $('#source').click(function(){
                 $.ajax({
-                    type: "post",
+                    type: "get",
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
@@ -27,7 +27,7 @@
                         });
                     },
                     error: function(data){
-                        $$(function(){
+                        $(function(){
                             $('display-source').append(data);
                         });
                     }
