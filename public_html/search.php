@@ -57,10 +57,14 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
-                        $('display-source').append(data);
+                        $(function(){
+                            $('display-source').append(data);
+                        });
                     },
                     error: function(data){
-                        $('display-source').append(data);
+                        $(function(){
+                            $('display-source').append(data);
+                        });
                     }
                 });
             });
@@ -74,11 +78,14 @@
                     url: url,
                     data: form.serialize(),
                     success: function(data){
-                        $('body').append(data);
+                        $(function(){
+                            $('body').append(data);
+                        });
                     },
                     error: function(data){
-                        $('body').append(data);
-                    }
+                        $(function(){
+                            $('body').append(data);
+                        });                    }
                 });
             });
 
