@@ -60,7 +60,7 @@
         <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
         <?php
-            include 'navbar.php';
+            include 'footer.php';
         ?>
         <script type="text/javascript">
             $('#source').click(function(){
