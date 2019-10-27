@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <form id="form" class="col-sm-4 offset-sm-4" style="color:white;">
+        <form id="form" class="col-sm-4 offset-sm-4">
             <div class="form-group" >
                 <label>Book Title</label>
                 <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming"/>
@@ -36,11 +36,12 @@
             </div>
             <div class="form-group">
                 <label>Subjects</label>
-                <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Software Development, Computer Science, etc."/>
+                <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering"/>
                 <small id="subjects-error" class="form-text text-muted" style="color: red;"></small>
             </div>
             <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Submit</button>
         </form>
+        <p><a href="" name="source">View Source</a></p>
         <?php
             include 'source.php';
             viewSource('create.php');
@@ -52,13 +53,13 @@
         <script>
             $('#form').submit(function (e){
                 e.preventDefault();
-                if(!$('book-title').val){
+                if(!$('book-title').val()){
                     $('title-error').append("Please enter a valid book title");
-                } else if(!$('price').val){
+                } else if(!$('price').val()){
                     $('price-error').append("Please enter a valid book price");
-                } else if(!$('isbn').val){
+                } else if(!$('isbn').val()){
                     $('isbn-error').append("Please enter a valid book isbn");
-                } else if(!$('subjects').val){
+                } else if(!$('subjects').val()){
                     $('subjects-error').append("Please enter a valid book subject");
                 } else {
                     $.ajax({

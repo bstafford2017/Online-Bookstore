@@ -39,7 +39,7 @@
         <form id="form" action="cgi-bin/search.cgi">
             <div id="subject" class="form-text"></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
-            <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
+            <input id="search-box" name="search-box" type="text" class="col-sm-7" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
             <button type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Search</button>
         </form>
         <div id="table"></div>
