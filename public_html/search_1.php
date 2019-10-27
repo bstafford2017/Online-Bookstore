@@ -3,6 +3,7 @@
         <?php 
             include 'required.php';
         ?>
+        <style>html {background-color: rgb(200,200,200);}</style>
         <title id="title">Search books</title>
         <script type="text/javascript">
             // Get all subjects on load
