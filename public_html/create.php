@@ -65,17 +65,13 @@
                 });
             });
             $('#submit').click(function(){
-                console.log(!$('book-title').value);
-                console.log(!$('price').value);
-                console.log(!$('isbn').value);
-                console.log(!$('subjects').value);
-                if(!$('book-title').value){
+                if(!$('book-title').val()length == 0){
                     $('title-error').append("Please enter a valid book title");
-                } else if(!$('price').value){
+                } else if(!$('price').val()length == 0){
                     $('price-error').append("Please enter a valid book price");
-                } else if(!$('isbn').value){
+                } else if(!$('isbn').val()length == 0){
                     $('isbn-error').append("Please enter a valid book isbn");
-                } else if(!$('subjects').value){
+                } else if(!$('subjects').val()length == 0){
                     $('subjects-error').append("Please enter a valid book subject");
                 } else {
                     $.ajax({
