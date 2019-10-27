@@ -1,4 +1,4 @@
-<style>p {font-size: 8px;}</style>
+<style>p {font-size: 8px;text-align: center;} hr {width:80%;}</style>
 <hr>
-<p style="text-align:center;">Created by Benjamin Stafford &copy 2019<p>
-<p style="text-align:center;">University of North Dakota</p>
+<p>Created by Benjamin Stafford &copy 2019<p>
+<p>University of North Dakota</p>
