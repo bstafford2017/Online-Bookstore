@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm" style="text-align: center;">
-                    <h2 id="create-title" style="padding:10px; color:white; ">Create a book submission</h2>
+                    <h2 id="create-title" style="padding:10px;">Create a book submission</h2>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Software Development, Computer Science, etc."/>
                 <small id="subjects-error" class="form-text text-muted" style="color: red;"></small>
             </div>
-            <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-outline-primary">Submit</button>
+            <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Submit</button>
         </form>
         <?php
             include 'footer.php';

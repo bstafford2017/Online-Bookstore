@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm" style="text-align: center;">
-                    <h2 id="search-title" style="padding:10px; color:white;">Search for a book</h2>
+                    <h2 id="search-title" style="padding:10px;">Search for a book</h2>
                 </div>
             </div>
         </div>
@@ -41,11 +41,11 @@
             <div id="subject" class="form-text"></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
             <input id="search-box" name="search-box" type="text" class="col-sm-7 offset-sm-1 form-control" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
-            <button type="submit" class="col-sm-2 btn btn-outline-primary">Search</button>
+            <button type="submit" class="col-sm-2 btn btn-dark">Search</button>
         </form>
         <div id="table"></div>
         <form method="post" action="cgi-bin/clear.cgi">
-            <button type="submit" class="col-sm-2 btn btn-outline-primary">Clear all</button>
+            <button type="submit" class="col-sm-2 btn btn-dark">Clear all</button>
         </form>
 
         <script type="text/javascript">
