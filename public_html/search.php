@@ -44,13 +44,28 @@
             <button type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Search</button>
         </form>
         <div id="table"></div>
-        <form method="post" action="cgi-bin/clear.cgi">
-            <button type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Clear all</button>
-        </form>
+        <button id="clear" type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Clear all</button>
 
         <script type="text/javascript">
             $("#form").submit(function(e){
                 e.preventDefault();
+                var form = $(this);
+                var url = form.attr('action');
+                console.log(url);
+                $.ajax({
+                    type: "post",
+                    url: url,
+                    data: form.serialize(),
+                    success: function(data){
+                        $('body').append(data);
+                    },
+                    error: function(data){
+                        $('body').append(data);
+                    }
+                });
+            });
+
+            $('#clear').onclick(function(){
                 var form = $(this);
                 var url = form.attr('action');
                 console.log(url);
