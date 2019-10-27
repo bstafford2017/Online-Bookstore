@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-left: 5%;margin-right: 5%;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-left: 10%;margin-right: 10%;">
     <a class="navbar-brand" href="index.html">Bookstore</a>
     <ul class="navbar-nav col-sm-12">
         <li class="nav-item">

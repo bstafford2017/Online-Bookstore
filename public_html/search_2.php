@@ -1,6 +1,10 @@
         </table>
+        <p><a name="source">View Source</a></p>
         <?php
-            include 'footer.php';
+            include 'source.php';
+            viewSource('search_1.php');
+            viewSource('search_2.php');
+            include 'navbar.php';
         ?>
         <script type="text/javascript">
         function submit(){

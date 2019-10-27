@@ -27,7 +27,6 @@
         <?php
             include 'navbar.php';
         ?>
-    
         <!-- Content-->
         <div id="header"></div>
         <div class="container">
@@ -46,6 +45,15 @@
         <div id="table"></div>
         <button id="clear" type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Clear all</button>
 
+        <p><a name="source">View Source</a></p>
+        <?php
+            include 'source.php';
+            viewSource('search.php');
+            viewSource('cgi-bin/search.cgi');
+            viewSource('cgi-bin/search.pl');
+            viewSource('cgi-bin/Search.java');
+            include 'navbar.php';
+        ?>
         <script type="text/javascript">
             $("#form").submit(function(e){
                 e.preventDefault();

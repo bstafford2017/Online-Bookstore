@@ -42,6 +42,11 @@
             <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Submit</button>
         </form>
         <?php
+            include 'source.php';
+            viewSource('create.php');
+            viewSource('cgi-bin/create.cgi');
+            viewSource('cgi-bin/create.pl');
+            viewSource('cgi-bin/Create.java');
             include 'footer.php';
         ?>
         <script>

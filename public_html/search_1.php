@@ -24,10 +24,6 @@
         </script>
     </head>
     <body>
-        <?php
-            include 'navbar.php';
-        ?>
-    
         <!-- Content-->
         <table>
             
