@@ -42,7 +42,19 @@
             <input id="search-box" name="search-box" type="text" class="col-sm-7" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
             <button type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Search</button>
         </form>
-        <div id="table"></div>
+        <table class="table table-striped thead-dark">
+            <thead>
+                <tr>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Subject(s)</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                
+            </tbody>
+        </table>
         <button id="clear" type="submit" style="display: inline" class="col-sm-2 btn btn-dark">Clear all</button>
 
         <p><a id="source" href="#">View Source</a></p>
@@ -79,12 +91,12 @@
                     data: form.serialize(),
                     success: function(data){
                         $(function(){
-                            $('body').append(data);
+                            $('table-body').append(data);
                         });
                     },
                     error: function(data){
                         $(function(){
-                            $('body').append(data);
+                            $('table-body').append(data);
                         });                    }
                 });
             });
