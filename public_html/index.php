@@ -3,7 +3,6 @@
         <?php 
             include 'required.php';
         ?>
-        <style>html {background-color: rgb(200,200,200);}</style>
         <title id="title">Home</title>
     </head>
     <body>
