@@ -1,7 +1,7 @@
 <!doctype html>
     <head>
         <?php 
-            include 'required';
+            include 'required.php';
         ?>
         <title id="title">Search books</title>
         <script type="text/javascript">

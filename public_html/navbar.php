@@ -1,5 +1,4 @@
 <!-- Navbar -->
-<h1 style="text-align:center;color:white;">Welcome to the bookstore!</h1>
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="index.html">Bookstore</a>
     <ul class="navbar-nav col-sm-12">
