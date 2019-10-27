@@ -39,7 +39,7 @@
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering"/>
                 <small id="subjects-error" class="form-text text-muted" style="color: red;"></small>
             </div>
-            <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Submit</button>
+            <input id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Search">
         </form>
         <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
@@ -64,8 +64,8 @@
                     }
                 });
             });
-            $('#form').submit(function (e){
-                e.preventDefault();
+            $('#submit').click(function(){
+                console.log(!$('book-title').val());
                 if(!$('book-title').val()){
                     $('title-error').append("Please enter a valid book title");
                 } else if(!$('price').val()){
