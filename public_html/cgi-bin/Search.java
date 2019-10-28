@@ -81,8 +81,8 @@ public class Search {
             }
         }
         
-        // If not in list, return to insert into list
-        if(!flag) return false;
+        // If in list, return avoid inserting into list
+        if(flag) return false;
 
         // If in in list, add 'subject' into isbn's record
         Iterator<Tuple> newit = list.iterator();
