@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <form id="form" class="col-sm-4 offset-sm-3">
+        <form id="form" class="col-sm-4 offset-sm-4">
             <div class="form-group" >
                 <label>Book Title</label>
                 <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming" required/>
@@ -54,12 +54,12 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
-                        $(function(){
+                        $(function(data){
                             $('display-source').append(JSON.stringify(data));
                         });
                     },
                     error: function(data){
-                        $(function(){
+                        $(function(data){
                             $('display-source').append(JSON.stringify(data));
                         });
                     }
@@ -73,7 +73,7 @@
                     success: function(data){
                         alert("Success in AJAX");
                     },
-                    error: function(){
+                    error: function(data){
                         alert("Error in AJAX");
                     }
                 });

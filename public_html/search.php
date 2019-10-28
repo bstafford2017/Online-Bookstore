@@ -70,12 +70,12 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
-                        $(function(){
+                        $(function(data){
                             $('display-source').append(JSON.stringify(data));
                         });
                     },
                     error: function(data){
-                        $(function(){
+                        $(function(data){
                             $('display-source').append(JSON.stringify(data));
                         });
                     }
@@ -91,12 +91,12 @@
                     url: url,
                     data: form.serialize(),
                     success: function(data){
-                        $(function(){
+                        $(function(data){
                             $('table-body').append(data);
                         });
                     },
                     error: function(data){
-                        $(function(){
+                        $(function(data){
                             $('table-body').append(data);
                         });                    }
                 });
