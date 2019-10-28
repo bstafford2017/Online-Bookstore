@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <form id="form" class="col-sm-4 offset-sm-4">
+        <form id="form" class="col-sm-4 offset-sm-3">
             <div class="form-group" >
                 <label>Book Title</label>
                 <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming" required/>
@@ -65,27 +65,16 @@
                 });
             });
             $('#submit').click(function(){
-                alert($('book-title').val().length);
-                if($('book-title').val().length == 0){
-                    $('title-error').append("Please enter a valid book title");
-                } else if($('price').val().length == 0){
-                    $('price-error').append("Please enter a valid book price");
-                } else if($('isbn').val().length == 0){
-                    $('isbn-error').append("Please enter a valid book isbn");
-                } else if($('subjects').val().length == 0){
-                    $('subjects-error').append("Please enter a valid book subject");
-                } else {
-                    $.ajax({
-                        type: "post",
-                        url: "cgi-bin/create.cgi",
-                        success: function(data){
-                            alert("Success in AJAX");
-                        },
-                        error: function(){
-                            alert("Error in AJAX");
-                        }
-                    });
-                }
+                $.ajax({
+                    type: "post",
+                    url: "cgi-bin/create.cgi",
+                    success: function(data){
+                        alert("Success in AJAX");
+                    },
+                    error: function(){
+                        alert("Error in AJAX");
+                    }
+                });
             });
         </script>
     </body>

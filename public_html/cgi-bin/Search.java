@@ -52,11 +52,11 @@ public class Search {
             int rowCounter = 0;
             while(it.hasNext()){
                 Tuple current = it.next();
-                System.out.println("<tr id=\"" + rowCounter + "\">");
+                System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
                 System.out.println("<td id=\"isbn\">" + current.isbn + "</td>");
-                System.out.println("<td id=\"title\"><a href=\"javascript:submit();\">" + current.title + "</a></td>");
-                System.out.println("<td id=\"price\">" + current.price + "</td>");
-                System.out.println("<td id=\"subjects\">" + current.subjects + "</td></tr>");
+                System.out.println("<td id=\"title\" scope=\"col\"><a href=\"javascript:submit();\">" + current.title + "</a></td>");
+                System.out.println("<td id=\"price\" scope=\"col\">" + current.price + "</td>");
+                System.out.println("<td id=\"subjects\" scope=\"col\">" + current.subjects + "</td></tr>");
                 rowCounter++;
             }
             rset.close();
@@ -76,7 +76,7 @@ public class Search {
         boolean flag = false;
         while(it.hasNext()){
             Tuple current = it.next();
-            if(current.isbn == isbn && current.subjects.contains(subject){
+            if(current.isbn == isbn && current.subjects.contains(subject)){
                 flag = true;
             }
         }
