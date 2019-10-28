@@ -63,7 +63,8 @@
             include 'footer.php';
         ?>
         <script type="text/javascript">
-            $('#source').click(function(){
+            $('#source').click(function(e){
+                e.preventDefault();
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
@@ -101,7 +102,8 @@
                 });
             });
 
-            $('#clear').click(function(){
+            $('#clear').click(function(e){
+                e.preventDefault();
                 var form = $(this);
                 var url = form.attr('action');
                 console.log(url);

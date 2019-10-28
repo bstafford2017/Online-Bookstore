@@ -47,7 +47,8 @@
             include 'footer.php';
         ?>
         <script>
-            $('#source').click(function(){
+            $('#source').click(function(e){
+                e.preventDefault();
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
@@ -64,7 +65,8 @@
                     }
                 });
             });
-            $('#submit').click(function(){
+            $('#submit').click(function(e){
+                e.preventDefault();
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/create.cgi",
