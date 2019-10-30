@@ -42,7 +42,7 @@
             <input id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Search">
         </form>
         <p><a id="source" href="#">View Source</a></p>
-        <div id="display-source"></div>
+        <p id="display-source"></p>
         <?php
             include 'footer.php';
         ?>

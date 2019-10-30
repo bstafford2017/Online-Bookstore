@@ -11,7 +11,7 @@
         ?>
         <h2 style="text-align:center;">Welcome to the bookstore!<h2>
         <p><a id="source" href="#">View Source</a></p>
-        <div id="display-source"></div>
+        <p id="display-source"></p>
         <?php
             include 'footer.php';
         ?>
