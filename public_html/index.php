@@ -23,10 +23,10 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
-                        alert(data);
+                        alert(JSON.stringify(data));
                     },
                     error: function(data){
-                        alert(data);
+                        alert(JSON.stringify(data));
                     }
                 });
             });
