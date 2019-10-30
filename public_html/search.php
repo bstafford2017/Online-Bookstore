@@ -58,7 +58,7 @@
         <button id="clear" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Clear all</button>
 
         <p><a id="source" href="#">View Source</a></p>
-        <p id="display-source"></p>
+        <div id="display-source"></div>
         <?php
             include 'footer.php';
         ?>
@@ -70,10 +70,10 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
-                        $('display-source').append(JSON.stringify(data));
+                        $('display-source').append("<p>" + JSON.stringify(data) + "</p>");
                     },
                     error: function(data){
-                        $('display-source').append(JSON.stringify(data));
+                        $('display-source').append("<p>" + JSON.stringify(data) + "</p>");
                     }
                 });
             });
