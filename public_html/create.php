@@ -54,14 +54,10 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
-                        $(function(data){
-                            $('display-source').append(JSON.stringify(data));
-                        });
+                        $('display-source').append(JSON.stringify(data));
                     },
                     error: function(data){
-                        $(function(data){
-                            $('display-source').append(JSON.stringify(data));
-                        });
+                        $('display-source').append(JSON.stringify(data));
                     }
                 });
             });
