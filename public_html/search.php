@@ -11,12 +11,11 @@
                 url: "cgi-bin/subject.cgi",
                 success: function(data){
                     $(function(){
-                        $('html').append(data);
+                        $('#subject').append(data);
                     });
                 },
                 error: function(data){
                     $(function(){
-                        alert(JSON.stringify(data) + "Error with loading subjects");
                         $('#subject').append(data);
                     });
                 }
