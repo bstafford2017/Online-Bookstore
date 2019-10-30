@@ -1,2 +1,2 @@
-#!/usr/bin/bash
+#!/bin/bash
 /usr/bin/perl source.pl
