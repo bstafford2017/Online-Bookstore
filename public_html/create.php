@@ -69,26 +69,32 @@
                 let title = $('#title').val();
                 let price = $('#price').val();
                 let subjects = $('#subjects').val();
-                if(isbn){
+                if(isbn.length == 0){
                     $('#isbn-error').append("Error with ISBN");
-                } else if(title){
-                    $('#title-error').append("Error with Title");
-                } else if(price){
-                    $('#price-error').append("Error with Price");
-                } else if(subjects){
-                    $('#subjects-error').append("Error with subjects");
-                } else {
-                    $.ajax({
-                        type: "post",
-                        url: "cgi-bin/create.cgi",
-                        success: function(data){
-                            $('#success').append("Successfully created book!");                    
-                        },
-                        error: function(data){
-                            $('#error').append("Error when creating book!");                    
-                        }
-                    });
+                    return;
                 }
+                if(title.length == 0){
+                    $('#title-error').append("Error with Title");
+                    return;
+                }
+                if(price.length == 0){
+                    $('#price-error').append("Error with Price");
+                    return;
+                }
+                if(subjects.length == 0){
+                    $('#subjects-error').append("Error with subjects");
+                    return;
+                }
+                $.ajax({
+                    type: "post",
+                    url: "cgi-bin/create.cgi",
+                    success: function(data){
+                        $('#success').append("Successfully created book!");                    
+                    },
+                    error: function(data){
+                        $('#error').append("Error when creating book!");                    
+                    }
+                });
             });
         </script>
     </body>
