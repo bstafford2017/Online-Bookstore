@@ -54,11 +54,14 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
-                        $('display-source').append("<p>" + JSON.stringify(data) + "</p>");
+                        $(function(data){
+                            $('display-source').append("<p>" + JSON.stringify(data) + "</p>");
+                        });
                     },
                     error: function(data){
-                        $('display-source').append("<p>" + JSON.stringify(data) + "</p>");
-                    }
+                        $(function(data){
+                            $('display-source').append("<p>" + JSON.stringify(data) + "</p>");
+                        });                    }
                 });
             });
             $('#submit').click(function(e){
