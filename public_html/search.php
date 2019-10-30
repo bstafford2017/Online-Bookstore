@@ -86,14 +86,11 @@
                     url: url,
                     data: form.serialize(),
                     success: function(data){
-                        $(function(data){
-                            $('table-body').append(data);
-                        });
+                        $('#table-body').append(data);
                     },
                     error: function(data){
-                        $(function(data){
-                            $('table-body').append(data);
-                        });                    }
+                        $('#table-body').append(data);
+                    }
                 });
             });
 

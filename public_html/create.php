@@ -41,6 +41,8 @@
             </div>
             <input id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Search">
         </form>
+        <p id="success" style="color: green;"></p>
+        <p id="error" style="color: red;"></p>
         <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
         <?php
@@ -67,10 +69,10 @@
                     type: "post",
                     url: "cgi-bin/create.cgi",
                     success: function(data){
-                        alert("Success in AJAX");
+                        $('#success').append("Sucessfully created book!");                    
                     },
                     error: function(data){
-                        alert("Error in AJAX");
+                        $('#error').append("Error when creating book!");                    
                     }
                 });
             });
