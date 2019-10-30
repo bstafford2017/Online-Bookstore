@@ -70,24 +70,25 @@
                 let price = $('#price').val();
                 let subjects = $('#subjects').val();
                 if(isbn){
-                    $('#isbn').append("Error with ISBN");
+                    $('#isbn-error').append("Error with ISBN");
                 } else if(title){
-                    $('#title').append("Error with Title");
+                    $('#title-error').append("Error with Title");
                 } else if(price){
-                    $('#price').append("Error with Price");
+                    $('#price-error').append("Error with Price");
                 } else if(subjects){
-                    $('#subjects').append("Error with subjects");
-                } 
-                $.ajax({
-                    type: "post",
-                    url: "cgi-bin/create.cgi",
-                    success: function(data){
-                        $('#success').append("Sucessfully created book!");                    
-                    },
-                    error: function(data){
-                        $('#error').append("Error when creating book!");                    
-                    }
-                });
+                    $('#subjects-error').append("Error with subjects");
+                } else {
+                    $.ajax({
+                        type: "post",
+                        url: "cgi-bin/create.cgi",
+                        success: function(data){
+                            $('#success').append("Successfully created book!");                    
+                        },
+                        error: function(data){
+                            $('#error').append("Error when creating book!");                    
+                        }
+                    });
+                }
             });
         </script>
     </body>
