@@ -65,6 +65,19 @@
             });
             $('#submit').click(function(e){
                 e.preventDefault();
+                let isbn = $('#isbn').val();
+                let title = $('#title').val();
+                let price = $('#price').val();
+                let subjects = $('#subjects').val();
+                if(isbn){
+                    $('#isbn').append("Error with ISBN");
+                } else if(title){
+                    $('#title').append("Error with Title");
+                } else if(price){
+                    $('#price').append("Error with Price");
+                } else if(subjects){
+                    $('#subjects').append("Error with subjects");
+                } 
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/create.cgi",
