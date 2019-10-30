@@ -71,18 +71,17 @@
                 let subjects = $('#subjects').val();
                 if(isbn.length == 0){
                     $('#isbn-error').append("Error with ISBN");
-                    return;
                 }
                 if(title.length == 0){
                     $('#title-error').append("Error with Title");
-                    return;
                 }
                 if(price.length == 0){
                     $('#price-error').append("Error with Price");
-                    return;
                 }
                 if(subjects.length == 0){
                     $('#subjects-error').append("Error with subjects");
+                }
+                if(isbn.length == 0 || title.length == 0 || price.length == 0 || subjects.length == 0){
                     return;
                 }
                 $.ajax({
