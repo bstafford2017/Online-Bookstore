@@ -4,7 +4,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <ul class="navbar-nav col-sm-12">
+    <ul class="navbar-nav col-sm-12 collapse navbar-collapse">
         <li class="nav-item">
             <a id="home" class="nav-link" href="index.php">Home</a>
         </li>
