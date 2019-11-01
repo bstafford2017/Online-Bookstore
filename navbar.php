@@ -4,15 +4,17 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <ul class="navbar-nav col-sm-12 collapse navbar-collapse">
-        <li class="nav-item">
-            <a id="home" class="nav-link" href="index.php">Home</a>
-        </li>
-        <li class="nav-item">
-            <a id="create" class="nav-link" href="create.php">Create</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="search.php">Search</a>
-        </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav col-sm-12">
+            <li class="nav-item">
+                <a id="home" class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a id="create" class="nav-link" href="create.php">Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="search.php">Search</a>
+            </li>
+        </ul>
+    </div>
 </nav>
