@@ -36,7 +36,7 @@ public class Search {
             String query = "select book.isbn, book.title, book.price, subject.subject_name ";
             query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
             if(args.length != 0){
-                query = query + "where book.title = '" + args[0].trim() + "' or subject.subject_name = '" + args[0].trim() + "' or book.isbn = " +  args[0].trim() + " or book.price = " + args[0].trim();
+                query = query + "where book.title like '%" + args[0].trim() + "%' or subject.subject_name like '%" + args[0].trim() + "%' or book.isbn like '%" +  args[0].trim() + "%' or book.price like '%" + args[0].trim() + "%'";
             }
             System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
