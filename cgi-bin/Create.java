@@ -26,7 +26,10 @@ public class Create {
                 String getSubjectId = "select subject_id from subject where subject_name = '" + args[i] + "'";
                 System.out.println(getSubjectId);
                 rset = stmt.executeQuery(getSubjectId);
-                String subjectId = rset.getString(1);
+                String subjectId = "";
+                if(rset.next()){
+                    subjectId = rset.getString(1);
+                }
                 if(subjectId == null || subjectId.equals("")) break;
                 // If subject is already in table
                 if(rset.next()){
