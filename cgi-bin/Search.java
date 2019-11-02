@@ -34,10 +34,11 @@ public class Search {
         try {
             Statement stmt = conn.createStatement();
             String query = "select book.isbn, book.title, book.price, subject.subject_name ";
-            query += "from book inner join subjects on book.isbn = subjects.isbn inner join subject on subject.subject_id = subjects.s_id ";
+            query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
             if(args.length != 0){
-                query = query + "where book.isbn =" + args[0].trim() + " or book.price = " + args[0].trim() + " or book.title = '" +  args[0].trim() + "' or subject.subject_name = '" + args[0].trim() + "'";
+                query = query + "where book.isbn = " + args[0].trim() + " or book.price = " + args[0].trim() + " or book.title = '" +  args[0].trim() + "' or subject.subject_name = '" + args[0].trim() + "'";
             }
+            System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
