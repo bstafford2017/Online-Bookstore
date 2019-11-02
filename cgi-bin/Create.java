@@ -60,6 +60,6 @@ public class Create {
         catch (SQLException ex) {
             System.out.println(ex);
         }
-        conn.close( );
+        conn.close();
     }
 }

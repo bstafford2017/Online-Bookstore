@@ -24,7 +24,9 @@ $price =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 $isbn =~ s/^\s*(\S*)\s*$/$1/;
 $isbn =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 #$allSubjects =~ s/^\s*(\S*)\s*$/$1/;
-$allSubjects =~ s/;|>|>>|<|\*|\?|\&|\|//g;
+#$allSubjects =~ s/;|>|>>|<|\*|\?|\&|\|//g;
+
+print($title . $price . $isbn . $subjects);
 
 my $compile = "/usr/bin/javac Create.java";
 system($compile);
