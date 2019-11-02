@@ -60,11 +60,14 @@
                     price.push($(this).parents('tr').find('#price').val());
                 });
 
-                let json = "[";
+                let json = "?";
                 for(let i = 0; i < isbn.length; i++){
-                    json = json + "'" + isbn[i] + "': '" + price[i] + "'";
+                    if(isbn.length == i - 1){
+                        json = json + isbn[i] + "=" + price[i] + "&";
+                    } else {
+                        json = json + isbn[i] + "=" + price[i];
+                    }
                 }
-                json = json + "]"
 
                 $.ajax({
                 type: "get",
