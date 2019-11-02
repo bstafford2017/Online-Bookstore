@@ -4,7 +4,6 @@ import oracle.jdbc.*;
 import oracle.jdbc.pool.OracleDataSource;
 import java.util.Arrays;
 import java.util.stream.Stream;
-import org.apache.commons.lang.StringUtils;
 
 public class Create {
     public static void main(String[] args) throws SQLException{
