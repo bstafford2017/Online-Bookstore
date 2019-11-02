@@ -64,7 +64,6 @@
                 });
             });
             $('#submit').click(function(e){
-                e.preventDefault();
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/create.cgi",
