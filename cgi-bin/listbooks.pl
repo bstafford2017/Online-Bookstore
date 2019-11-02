@@ -7,5 +7,4 @@ my $compile = "/usr/bin/javac ListBooks.java";
 system($compile);
 
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom ListBooks ";
-$cmd = $cmd . $isbn;
 system($cmd);
