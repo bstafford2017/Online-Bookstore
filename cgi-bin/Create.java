@@ -29,7 +29,7 @@ public class Create {
                 if(rset.next()){
                     // Only needs to be inserted into subjects (joining table)
                     String subjectId = rset.getString(1);
-                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", '" + subjectId + "')";
+                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", " + subjectId + ")";
                     System.out.println(insertSubjects);
                     stmt.executeQuery(insertSubjects);
                 } else {
@@ -51,7 +51,7 @@ public class Create {
                 }
                 rset.close();
             }
-            // Finally, insert into books table
+            // Finally, insert into books table\
             args[1] = args[1].replaceAll("-", " ");
             String insertBook = "insert into book(isbn, title, price) values (" + args[0] + ", '" + args[1] + "', " + args[2] + ")";
             System.out.println(insertBook);
