@@ -22,8 +22,6 @@
                     method: "GET",
                     url: "cgi-bin/source.cgi",
                     data: {"filename": "search"},
-			dataType: "html",
-			contentType: "application/json; charset=utf-8",
                     success: function(data){
                         $('#display-source').append("<p>" + JSON.stringify(data) + "</p>");
                     },
