@@ -7,7 +7,6 @@ my $title = $query->param('book-title');
 my $price = $query->param('price');
 my $isbn = $query->param('isbn');
 my $subjects = $query->param('subjects');
-print("Content-type: text/html\n\n");
 
 if(!defined $title && !defined $price && !defined $isbn && !defined $subjects){
     exit(0);
@@ -30,4 +29,3 @@ system($compile);
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
 $cmd = $cmd . " " . $isbn . " " . $title . " " . $price . " " . $subjects;
 system($cmd);
-print($cmd);
