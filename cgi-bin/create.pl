@@ -25,13 +25,7 @@ my $compile = "/usr/bin/javac Create.java";
 system($compile);
 
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
-print("\n");
-print($title);
-print($author);
-print($isbn);
-print($subjects);
-print("\n");
-$cmd .= join $title, " ", $author, " ", $isbn, " ", $subjects;
+$cmd = $title . " " . $author . " " . $isbn . " " . $subjects;
 print("Content-type: text/html\n\n");
 system($cmd);
 print($cmd);
