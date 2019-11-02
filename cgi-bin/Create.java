@@ -23,7 +23,7 @@ public class Create {
             // Loop through all subjects
             ResultSet rset = null;
             for(int i = 3; i < args.length; i++){
-                String getSubjectId = "select subject_id from subject where subject_name = " + args[i] + ")";
+                String getSubjectId = "select subject_id from subject where subject_name = '" + args[i] + "')";
                 rset = stmt.executeQuery(getSubjectId);
                 String subjectId = rset.getString(1);
                 if(subjectId == null || subjectId.equals("")) break;
@@ -37,7 +37,7 @@ public class Create {
                     String insertSubject = "insert into subject(subject_name) values ('" + args[i] + "')";
                     stmt.executeQuery(insertSubject);
                     // Insert into subjects (joining table)
-                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", '" + subjectId + "')";
+                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", " + subjectId + ")";
                     stmt.executeQuery(insertSubjects);
                 }
             }
