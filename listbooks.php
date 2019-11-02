@@ -60,7 +60,7 @@
                     price.push($(this).parents('tr').find('#price').val());
                 });
 
-                let json = "?";
+                let json = "";
                 for(let i = 0; i < isbn.length; i++){
                     json = json + isbn[i] + "=" + price[i] + "&";
                 }
