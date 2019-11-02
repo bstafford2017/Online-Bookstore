@@ -23,12 +23,12 @@
                     url: "cgi-bin/source.cgi",
                     data: {"filename": "search"},
                     success: function(data){
-                        $('#display-source').empty();    
-                        $('#display-source').html(data);
+                        $('html').empty();    
+                        $('html').html(data);
                     },
                     error: function(data){
-                        $('#display-source').empty();    
-                        $('#display-source').html(data);
+                        $('html').empty();    
+                        $('html').html(data);
                     }
                 });
             });
