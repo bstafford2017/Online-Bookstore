@@ -11,5 +11,5 @@ system($cmd);
 
 my @names = $query->param;
 foreach my $name (@names) {
-    $cmd = $cmd . " " . $name . " " . query->param($name);
+    $cmd = $cmd . " " . $name . " " . $query->param($name);
 }
