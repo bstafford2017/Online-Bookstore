@@ -12,6 +12,7 @@ my $allSubjects = "";
 for my $i (@subject){
     $allSubjects = $allSubjects . " " . $i;
 }
+print($allSubjects);
 
 if(!defined $title && !defined $price && !defined $isbn && !defined $subjects){
     exit(0);
