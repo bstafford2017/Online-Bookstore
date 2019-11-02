@@ -23,7 +23,7 @@ public class Create {
             // Loop through all subjects
             ResultSet rset = null;
             for(int i = 3; i < args.length; i++){
-                String getSubjectId = "select subject_id from subject where subject_name = '" + args[i] + "')";
+                String getSubjectId = "select subject_id from subject where subject_name = '" + args[i];
                 System.out.println(getSubjectId);
                 rset = stmt.executeQuery(getSubjectId);
                 String subjectId = rset.getString(1);
