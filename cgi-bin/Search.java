@@ -8,12 +8,12 @@ import java.util.Iterator;
 import java.util.stream.Stream;
 
 class Tuple {
-    int isbn;
+    long isbn;
     String title;
     double price;
     String subjects;
 
-    public Tuple(int isbn, String title, double price, String subjects){
+    public Tuple(long isbn, String title, double price, String subjects){
         this.isbn = isbn;
         this.title = title;
         this.price = price;
@@ -41,8 +41,8 @@ public class Search {
             ResultSet rset = stmt.executeQuery(query);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
-                if(!Search.containsOrAdd(list, rset.getString(4), Integer.parseInt(rset.getString(1)))){
-                    list.add(new Tuple(Integer.parseInt(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
+                if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
+                    list.add(new Tuple(Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
                 }
             }
             if(list.size() == 0){
@@ -70,7 +70,7 @@ public class Search {
 
     // True = added to list (already in list)
     // False = not in list (add to list)
-    public static boolean containsOrAdd(LinkedList<Tuple> list, String subject, int isbn){
+    public static boolean containsOrAdd(LinkedList<Tuple> list, String subject, long isbn){
         // Check if 'subject' is in list
         Iterator<Tuple> it = list.iterator();
         boolean flag = false;
