@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use CGI; 
 my $query = new CGI;
-my $filename = $query->param('filename');
+my $filename = $query->param('name');
 print("Content-type: text/plain\n\n");
 
 if(! defined $filename){

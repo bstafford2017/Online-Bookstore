@@ -50,20 +50,20 @@
             include 'footer.php';
         ?>
         <script type="text/javascript">
-            let array = [];
-            $("input:checkbox[name='check']:checked").each(function()
-            {
-                array.push(this.val());
-            });
-            alert(array);
             $('#form').submit(function(e){
                 e.preventDefault();
+                let values = "";
+                $("input:checkbox[name='check']:checked").each(function()
+                {
+                    values = values + " " + $(this).val();
+                });
+                alert(values.toString());
+                 
                 let form = $('#form');
-                alert(form.serialize());
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
-                data: array,
+                data: {"books": array}
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
