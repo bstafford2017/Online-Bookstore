@@ -27,14 +27,10 @@ $isbn =~ s/^\s*(\S*)\s*$/$1/;
 $isbn =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 #$allSubjects =~ s/^\s*(\S*)\s*$/$1/;
 #$allSubjects =~ s/;|>|>>|<|\*|\?|\&|\|//g;
-print("Content-type: text/html\n\n");
-
-print($title . $price . $isbn . $subjects);
-
+# Test later if put in this code above
 my $compile = "/usr/bin/javac Create.java";
 system($compile);
 
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
 $cmd = $cmd . " " . $isbn . " " . $title . " " . $price . " " . $allSubjects;
 system($cmd);
-print($cmd);

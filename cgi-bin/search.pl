@@ -8,7 +8,7 @@ my $search = $query->param('search-box');
 $search =~ s/^\s*(\S*)\s*$/$1/ if defined($search);
 $search =~ s/;|>|>>|<|\*|\?|\&|\|//g if defined($search);
 
-print("Content-type: text/html\n");
+print("Content-type: text/html\n\n");
 
 my $compile = "/usr/bin/javac Search.java";
 system($compile);
