@@ -51,6 +51,7 @@
         ?>
         <script type="text/javascript">
             $('#submit').click(function(e){
+                e.preventDefault();
                 let isbn = "";
                 let price = "";
                 $("input:checkbox[name='check']:checked").each(function()
