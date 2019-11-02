@@ -21,7 +21,7 @@ public class ListBooks {
             int rowCounter = 0;
             while(rset.next()){
                 System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
-                System.out.println("<td id=\"checkbox\" scope=\"col\"><input type=\"checkbox\" id=\"" + rset.getString(1) + "\"/></td>");
+                System.out.println("<td scope=\"col\"><input type=\"checkbox\" name=\"check\" value=\"" + rset.getString(1) + "\"/></td>");
                 System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + rset.getString(1) + "\">" + rset.getString(2) + "</a></td>");
                 System.out.println("<td id=\"price\" scope=\"col\"><input type=\"text\" value=\"" + rset.getString(3) + "\"/></td></tr>");
                 rowCounter++;

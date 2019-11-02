@@ -50,8 +50,14 @@
             include 'footer.php';
         ?>
         <script type="text/javascript">
+            let array = [];
+            $("input:checkbox[name='check']:checked").each(function()
+            {
+                array.push(this.val());
+            });
             $('#form').submit(function(){
                 let form = $('#form');
+                console.log(form.serialize());
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
