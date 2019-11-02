@@ -40,20 +40,21 @@ public class Create {
                     // Get subject ID of new insert
                     String getNewId = "select subject_id from subject where subject_name = '" + args[i] + "'";
                     System.out.println(getNewId);
-                    Result newSet = stmt.executeQuery(getNewId);
+                    ResultSet newSet = stmt.executeQuery(getNewId);
                     if(newSet.next()){
                         // Insert into subjects (joining table)
                         String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", " + newSet.getString(1) + ")";
                         System.out.println(insertSubjects);
                         stmt.executeQuery(insertSubjects);
                     }
+                    newSet.close();
                 }
+                rset.close();
             }
             // Finally, insert into books table
             String insertBook = "insert into book(isbn, title, price) values (" + args[0] + ", '" + args[1] + "', " + args[2] + ")";
             System.out.println(insertBook);
             stmt.executeQuery(insertBook);
-            rset.close();
             stmt.close();
         }
         catch (SQLException ex) {
