@@ -57,7 +57,7 @@
             });
             $('#form').submit(function(){
                 let form = $('#form');
-                console.log(form.serialize());
+                alert(form.serialize());
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
