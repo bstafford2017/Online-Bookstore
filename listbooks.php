@@ -54,6 +54,7 @@
                 e.preventDefault();
                 let isbn = "";
                 let price = "";
+                console.log($("input:checkbox:checked").val());
                 $("input:checkbox:checked").each(function()
                 {
                     isbn.push($(this).val());
