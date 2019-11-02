@@ -62,12 +62,10 @@
 
                 let json = "?";
                 for(let i = 0; i < isbn.length; i++){
-                    if(isbn.length == i - 1){
-                        json = json + isbn[i] + "=" + price[i];
-                    } else {
-                        json = json + isbn[i] + "=" + price[i] + "&";
-                    }
+                    json = json + isbn[i] + "=" + price[i] + "&";
                 }
+                // Remove last &
+                json = json.substring(0, json.length - 1)
 
                 $.ajax({
                 type: "get",
