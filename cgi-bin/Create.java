@@ -24,6 +24,7 @@ public class Create {
             ResultSet rset = null;
             for(int i = 3; i < args.length; i++){
                 String getSubjectId = "select subject_id from subject where subject_name = '" + args[i] + "')";
+                System.out.println(getSubjectId);
                 rset = stmt.executeQuery(getSubjectId);
                 String subjectId = rset.getString(1);
                 if(subjectId == null || subjectId.equals("")) break;
@@ -31,18 +32,22 @@ public class Create {
                 if(rset.next()){
                     // Only needs to be inserted into subjects (joining table)
                     String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", '" + subjectId + "')";
+                    System.out.println(insertSubjects);
                     stmt.executeQuery(insertSubjects);
                 } else {
                     // Insert into subject (stores names)
                     String insertSubject = "insert into subject(subject_name) values ('" + args[i] + "')";
+                    System.out.println(insertSubject);
                     stmt.executeQuery(insertSubject);
                     // Insert into subjects (joining table)
                     String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", " + subjectId + ")";
+                    System.out.println(insertSubjects);
                     stmt.executeQuery(insertSubjects);
                 }
             }
             // Finally, insert into books table
             String insertBook = "insert into (isbn, title, price) values (" + args[0] + ", '" + args[1] + "', " + args[2] + ")";
+            System.out.println(insertBook);
             stmt.executeQuery(insertBook);
             rset.close();
             stmt.close();
