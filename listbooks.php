@@ -56,7 +56,7 @@
                 $("input:checkbox[name='check']:checked").each(function()
                 {
                     isbn.push($(this).val());
-                    price.push($(this).parents('tr').find("#price").val(););
+                    price.push($(this).closest('tr').find("td:last").val());
                 });
                 alert(isbn.toString());
                 alert(price.toString());
