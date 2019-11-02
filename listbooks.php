@@ -59,10 +59,7 @@
                     isbn.push($(this).val());
                     price.push($(this).parents('tr').find('#price').val());
                 });
-                console.log(isbn.toString());
-                console.log(price.toString());
 
-                let form = $('#form');
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
