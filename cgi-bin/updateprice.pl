@@ -6,7 +6,7 @@ my $query = new CGI;
 
 print("Content-type: text/plain\n\n");
 my @names = $query->param;
-foreach $name (@names) {
+foreach my $name (@names) {
     print($name) . " ";
     if ( $name =~ /\_/) { 
         next;
