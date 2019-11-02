@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <form id="form" class="col-sm-4 offset-sm-4">
+        <form class="col-sm-4 offset-sm-4" method="get" action="cgi-bin/create.cgi">
             <div class="form-group" >
                 <label>Book Title</label>
                 <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming" required/>
@@ -63,7 +63,7 @@
                     }
                 });
             });
-            $('#submit').click(function(e){
+            /*$('#submit').click(function(e){
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/create.cgi",
@@ -74,7 +74,7 @@
                         $('#error').append("Error when creating book!");                    
                     }
                 });
-            });
+            });*/
         </script>
     </body>
 </html>
