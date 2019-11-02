@@ -5,7 +5,7 @@ import oracle.jdbc.pool.OracleDataSource;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class ListBooks {
+public class UpdatePrice {
     public static void main(String[] args) throws SQLException{
         String user     = "C##benjamin.stafford";
         String password = "stafford6248";
@@ -22,7 +22,6 @@ public class ListBooks {
             for(int i = 0; i < args.length; i += 2){
                 stmt.executeQuery("update book set book.price = " + args[i + 1] + " where book.isbn = " + args[i]);
             }
-            rset.close();
             stmt.close();
         }
         catch (SQLException ex) {
