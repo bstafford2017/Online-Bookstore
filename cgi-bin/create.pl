@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use CGI; 
-$query = new CGI;
+my $query = new CGI;
 my $title = $query->param('book-title');
 my $author = $query->param('price');
 my $isbn = $query->param('isbn');
@@ -21,10 +21,10 @@ $isbn =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 $subjects =~ s/^\s*(\S*)\s*$/$1/;
 $subjects =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 
-$compile = "/usr/bin/javac Create.java";
+my $compile = "/usr/bin/javac Create.java";
 system($compile);
 
-$cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
+my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
 print($title);
 print($author);
 print($isbn);
