@@ -67,7 +67,7 @@
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
-                data: {isbn: },
+                data: {isbn: price},
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
