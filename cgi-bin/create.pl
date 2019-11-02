@@ -34,3 +34,4 @@ system($compile);
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
 $cmd = $cmd . " " . $isbn . " " . $title . " " . $price . " " . $allSubjects;
 system($cmd);
+print($cmd);
