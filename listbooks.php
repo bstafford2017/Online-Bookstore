@@ -55,7 +55,8 @@
             {
                 array.push(this.val());
             });
-            $('#form').submit(function(){
+            $('#form').submit(function(e){
+                e.preventDefault();
                 let form = $('#form');
                 alert(form.serialize());
                 $.ajax({
