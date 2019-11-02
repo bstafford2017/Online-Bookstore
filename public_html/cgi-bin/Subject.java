@@ -18,7 +18,7 @@ public class Subject {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rset = stmt.executeQuery("select subject_name from subject");
-            System.out.println("Content-type: text/html");
+            System.out.println("Content-type: text/html\n\n");
             int rowCounter = 0;
             while(rset.next()){
                 System.out.println("<input type=\"checkbox\" name=\"subject\">" +  rset.getString(1) + "</input>");
