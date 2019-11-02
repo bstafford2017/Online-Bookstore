@@ -55,7 +55,7 @@ public class Search {
                 Tuple current = it.next();
                 System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
                 System.out.println("<td id=\"isbn\">" + current.isbn + "</td>");
-                System.out.println("<td id=\"title\" scope=\"col\"><a href=\"hyperlink.cgi?isbn=" + current.isbn + "\">" + current.title + "</a></td>");
+                System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + current.isbn + "\">" + current.title + "</a></td>");
                 System.out.println("<td id=\"price\" scope=\"col\">" + current.price + "</td>");
                 System.out.println("<td id=\"subjects\" scope=\"col\">" + current.subjects + "</td></tr>");
                 rowCounter++;
