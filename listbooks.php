@@ -40,7 +40,7 @@
                     
                 </tbody>
             </table>
-            <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Update<button>
+            <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Update</button>
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
