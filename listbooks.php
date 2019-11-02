@@ -27,7 +27,7 @@
             include 'navbar.php';
         ?>
         <!-- Content-->
-        <form id="form" method="get" action="cgi-bin/updateprice.pl">
+        <form id="form">
             <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
                 <thead>
                     <tr>
@@ -40,7 +40,7 @@
                     
                 </tbody>
             </table>
-            <input type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Update"/>
+            <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Update"/>
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
@@ -50,19 +50,22 @@
             include 'footer.php';
         ?>
         <script type="text/javascript">
-            /*$('#form').submit(function(e){
-                e.preventDefault();
-                let values = "";
+            $('#submit').click(function(e){
+                let isbn = "";
+                let price = "";
                 $("input:checkbox[name='check']:checked").each(function()
                 {
-                    values = values + " " + $(this).val();
+                    isbn.push($(this).val());
+                    price.push($(this).parents('tr').find("#price").val(););
                 });
+                alert(isbn.toString());
+                alert(price.toString());
 
                 let form = $('#form');
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
-                data: {"books": values}
+                data: {isbn: price}
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
