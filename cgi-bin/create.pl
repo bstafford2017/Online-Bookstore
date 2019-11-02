@@ -7,13 +7,7 @@ my $title = $query->param('book-title');
 my $price = $query->param('price');
 my $isbn = $query->param('isbn');
 my $subjects = $query->param('subjects');
-my @subject = split(' ', $subjects);
-my $allSubjects = "";
-for my $i (@subject){
-    $allSubjects = $allSubjects . " " . $i;
-}
 print("Content-type: text/html\n\n");
-print($allSubjects);
 
 if(!defined $title && !defined $price && !defined $isbn && !defined $subjects){
     exit(0);
