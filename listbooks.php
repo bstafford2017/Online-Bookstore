@@ -74,10 +74,12 @@
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
+                    $('#success').append(data);
                 },
                 error: function(data){
                     $('#error').empty();
                     $('#error').append("Error: " + data);
+                    $('#error').append(data);
                 }
                 });
             });

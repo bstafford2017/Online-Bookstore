@@ -1,6 +1,5 @@
 #!/usr/bin/perl
 use strict;
-use warnings;
 use CGI; 
 my $query = new CGI;
 my $search = $query->param('search-box');
