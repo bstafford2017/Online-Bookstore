@@ -87,6 +87,7 @@
                     url: url,
                     data: form.serialize(),
                     success: function(data){
+                        alert(data);
                         $('#table-body').empty();                
                         $('#table-body').append(data);
                     },
