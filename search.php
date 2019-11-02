@@ -67,7 +67,15 @@
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
-                    data: {filename: "search"}
+                    data: {filename: "search"},
+                    success: function(data){
+                        $('#display-source').empty();    
+                        $('#display-source').html(data);
+                    },
+                    error: function(data){
+                        $('#display-source').empty();    
+                        $('#display-source').html(data);
+                    }
                 });
             });
             $("#form").submit(function(e){
