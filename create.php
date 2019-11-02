@@ -22,22 +22,22 @@
             <div class="form-group" >
                 <label>Book Title</label>
                 <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming" required/>
-                <small id="title-error" class="form-text text-muted" style="color: red;"></small>
+                <p id="title-error" class="form-text text-muted" style="color: red;"></p>
             </div>
             <div class="form-group">
                 <label>Price</label>
                 <input id="price" name="author" type="text" class="form-control" placeholder="i.e. 12.99" required/>
-                <small id="price-error" class="form-text text-muted" style="color: red;"></small>
+                <p id="price-error" class="form-text text-muted" style="color: red;"></p>
             </div>
             <div class="form-group">
                 <label>ISBN</label>
                 <input id="isbn" name="isbn" type="text" class="form-control" placeholder="i.e. 0123456789" required/>
-                <small id="isbn-error" class="form-text text-muted" style="color: red;"></small>
+                <p id="isbn-error" class="form-text text-muted" style="color: red;"></p>
             </div>
             <div class="form-group">
                 <label>Subjects</label>
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering" required/>
-                <small id="subjects-error" class="form-text text-muted" style="color: red;"></small>
+                <p id="subjects-error" class="form-text text-muted" style="color: red;"></p>
             </div>
             <input id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Search">
         </form>
