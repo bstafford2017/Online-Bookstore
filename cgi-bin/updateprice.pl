@@ -7,10 +7,6 @@ my $query = new CGI;
 print("Content-type: text/plain\n\n");
 my @names = $query->param;
 foreach my $name (@names) {
-    print($name) . " ";
-    if ( $name =~ /\_/) { 
-        next;
-    } else {
-        print "<p> ".$name."\t=\t".$query->param($name) . "</p>\n";
-    }
+    print($name);
+    print "<p> " . $name . "\t=\t" . $query->param($name) . "</p>\n";
 }
