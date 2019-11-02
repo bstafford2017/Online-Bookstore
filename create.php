@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label>Price</label>
-                <input id="price" name="author" type="text" class="form-control" placeholder="i.e. 12.99" required/>
+                <input id="price" name="price" type="text" class="form-control" placeholder="i.e. 12.99" required/>
                 <p id="price-error" class="form-text text-muted" style="color: red;"></p>
             </div>
             <div class="form-group">

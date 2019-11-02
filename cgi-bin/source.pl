@@ -5,7 +5,7 @@ use CGI;
 my $query = new CGI;
 my $filename = $query->param('filename');
 print("Content-type: text/html\n\n");
-print("<!doctype html><head></head><body>");
+print("<!doctype html><head>Source</head><body><p>");
 if(! defined $filename){
     exit(0);
 }
@@ -16,4 +16,4 @@ if($filename eq 'search'){
 } elsif($filename eq 'index'){
     system("/bin/cat index.php");
 }
-print("</body></html>");
+print("</p></body></html>");
