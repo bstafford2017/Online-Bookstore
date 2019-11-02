@@ -20,6 +20,12 @@ public class Create {
             /* Each have a value
                Assumed order is: {isbn, title, price, subject1, subject2, ...} */
             
+            // Insert into books table
+            args[1] = args[1].replaceAll("-", " ");
+            String insertBook = "insert into book(isbn, title, price) values (" + args[0] + ", '" + args[1] + "', " + args[2] + ")";
+            System.out.println(insertBook);
+            stmt.executeQuery(insertBook);
+
             // Loop through all subjects
             for(int i = 3; i < args.length; i++){
                 String getSubjectId = "select subject_id from subject where subject_name = '" + args[i] + "'";
@@ -51,11 +57,6 @@ public class Create {
                 }
                 rset.close();
             }
-            // Finally, insert into books table\
-            args[1] = args[1].replaceAll("-", " ");
-            String insertBook = "insert into book(isbn, title, price) values (" + args[0] + ", '" + args[1] + "', " + args[2] + ")";
-            System.out.println(insertBook);
-            stmt.executeQuery(insertBook);
             stmt.close();
         }
         catch (SQLException ex) {
