@@ -40,7 +40,7 @@
                     
                 </tbody>
             </table>
-            <button type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Update</button>
+            <input type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Update"/>
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
@@ -58,7 +58,7 @@
                     values = values + " " + $(this).val();
                 });
                 alert(values.toString());
-                 
+
                 let form = $('#form');
                 $.ajax({
                 type: "get",
