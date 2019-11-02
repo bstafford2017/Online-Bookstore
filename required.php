@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 
 <!-- Favicon -->
-<link rel="icon" href="./favicon.png"/>
+<link rel="icon" href="favicon.png"/>
 
 <!-- jQuery first, then Popper.js, Bootstrap JS, then Bootstrap -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
