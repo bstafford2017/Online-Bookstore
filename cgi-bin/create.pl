@@ -25,7 +25,7 @@ my $compile = "/usr/bin/javac Create.java";
 system($compile);
 
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
-$cmd = $title . " " . $author . " " . $isbn . " " . $subjects;
+$cmd = $cmd . " " . $title . " " . $author . " " . $isbn . " " . $subjects;
 print("Content-type: text/html\n\n");
 system($cmd);
 print($cmd);
