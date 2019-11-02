@@ -5,7 +5,7 @@ import oracle.jdbc.pool.OracleDataSource;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class Subject {
+public class ListBooks {
     public static void main(String[] args) throws SQLException{
         String user     = "C##benjamin.stafford";
         String password = "stafford6248";
@@ -17,11 +17,13 @@ public class Subject {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rset = stmt.executeQuery("select subject_name from subject");
-            System.out.println("Content-type: text/html\n\n");
+            ResultSet rset = stmt.executeQuery("select isbn, title, price from book");
             int rowCounter = 0;
             while(rset.next()){
-                System.out.println("<input type=\"checkbox\" name=\"subject\">" +  rset.getString(1) + "</input>");
+                System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
+                System.out.println("<td id=\"checkbox\" scope=\"col\"><input type=\"checkbox\" id=\"" + rset.getString(1) + "\"/></td>");
+                System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + rset.getString(1) + "\">" + rset.getString(2) + "</a></td>");
+                System.out.println("<td id=\"price\" scope=\"col\"><input type=\"text\" value=\"" + rset.getString(3) + "\"/></td></tr>");
                 rowCounter++;
             }
             if(rowCounter == 0){
