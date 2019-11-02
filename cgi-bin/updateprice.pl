@@ -3,9 +3,9 @@ use strict;
 use CGI; 
 my $query = new CGI;
 
-print("Content-type: text/html\n\n");
-my @names = $query->param;
-foreach my $name (@names) {
-    print($name);
-    print "<p> " . $name . "\t=\t" . $query->param($name) . "</p>\n";
-}
+my $compile = "/usr/bin/javac Hyperlink.java";
+system($compile);
+
+my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Hyperlink ";
+$cmd = $cmd . $isbn;
+system($cmd);
