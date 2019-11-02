@@ -1,10 +1,16 @@
 #!/usr/bin/perl
+use strict;
+use warnings;
 use CGI; 
 $query = new CGI;
-$title = $query->param('book-title');
-$author = $query->param('price');
-$isbn = $query->param('isbn');
-$subjects = $query->param('subjects');
+my $title = $query->param('book-title');
+my $author = $query->param('price');
+my $isbn = $query->param('isbn');
+my $subjects = $query->param('subjects');
+
+if(!defined $title && !defined $author && !defined $isbn && !defined $subjects){
+    exit(0);
+}
 
 $title =~ s/^\s*(\S*)\s*$/$1/;
 $title =~ s/;|>|>>|<|\*|\?|\&|\|//g;
@@ -19,6 +25,10 @@ $compile = "/usr/bin/javac Create.java";
 system($compile);
 
 $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
+print($title);
+print($author);
+print($isbn);
+print($subjects);
 $cmd .= join $title, " ", $author, " ", $isbn, " ", $subjects;
 print("Content-type: text/html\n\n");
 system($cmd);
