@@ -68,12 +68,6 @@
                     type: "get",
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
-                    success: function(data){
-                        $('#display-source').append("<p>" + data + "</p>");
-                   },
-                    error: function(data){
-                        $('#display-source').append("<p>" + data + "</p>");
-                   }
                 });
             });
             $("#form").submit(function(e){
