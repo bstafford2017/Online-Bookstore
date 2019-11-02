@@ -60,10 +60,16 @@
                     price.push($(this).parents('tr').find('#price').val());
                 });
 
+                let json = "[";
+                for(let i = 0; i < isbn.length; i++){
+                    json = json + "'" + isbn[i] + "': '" + price[i] + "'";
+                }
+                json = json + "]"
+
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
-                data: {isbn: price},
+                data: json,
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
