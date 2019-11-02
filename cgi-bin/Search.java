@@ -37,6 +37,7 @@ public class Search {
             query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
             if(args.length != 0){
                 query = query + "where book.isbn = " + args[0].trim() + " or book.price = " + args[0].trim() + " or book.title = '" +  args[0].trim() + "' or subject.subject_name = '" + args[0].trim() + "'";
+                query = query + "where book.title = '" + args[0].trim() + "' or subject.subject_name = '" + args[0].trim() + "' or book.isbn = " +  args[0].trim() + " or book.price = " + args[0].trim();
             }
             System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
