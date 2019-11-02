@@ -20,4 +20,6 @@ system($compile);
 
 $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
 $cmd .= join $title, " ", $author, " ", $isbn, " ", $subjects;
+print("Content-type: text/html\n\n");
 system($cmd);
+print($cmd);
