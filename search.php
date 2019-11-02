@@ -41,7 +41,7 @@
             <input id="search-box" name="search-box" type="text" class="col-sm-6 offset-sm-2" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
             <button type="submit" class="col-sm-2 btn btn-dark">Search</button>
         </form>
-        <table class="table table-striped table-dark col-sm-6 offset-sm-3">
+        <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="padding-top: 5%;">
             <thead>
                 <tr>
                     <th scope="col">ISBN</th>
