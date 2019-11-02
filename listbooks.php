@@ -58,7 +58,7 @@
                 $("input:checkbox:checked").each(function()
                 {
                     isbn.push($(this).val());
-                    price.push($(this).closest('tr').find("td:last").val());
+                    price.push($(this).closest('tr').find("td:last:input").val());
                 });
                 console.log(isbn.toString());
                 console.log(price.toString());
@@ -67,7 +67,7 @@
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
-                data: {isbn: price},
+                data: {isbn: },
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
