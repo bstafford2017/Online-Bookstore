@@ -55,6 +55,7 @@
             {
                 array.push(this.val());
             });
+            alert(array);
             $('#form').submit(function(e){
                 e.preventDefault();
                 let form = $('#form');
@@ -62,7 +63,7 @@
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
-                data: form.serialize(),
+                data: array,
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
