@@ -76,7 +76,7 @@
                     $('#error').append("Error: " + data);
                 }
                 });
-            });*/
+            });
         </script>
     </body>
 </html>
