@@ -19,8 +19,9 @@ public class UpdatePrice {
             Args = {isbn-1, price-1, isbn-2, price-2, ... }*/
         try {
             Statement stmt = conn.createStatement();
-            for(int i = 0; i < args.size(); i += 2){
+            for(int i = 0; i < args.length; i += 2){
                 stmt.executeQuery("update book set book.price = " + args[i + 1] + " where book.isbn = " + args[i]);
+                System.out.println(i + "update book set book.price = " + args[i + 1] + " where book.isbn = " + args[i]);
             }
             stmt.close();
         }
