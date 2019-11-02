@@ -54,7 +54,7 @@
                 e.preventDefault();
                 let isbn = "";
                 let price = "";
-                $("input:checkbox[name='check']:checked").each(function()
+                $("input:checkbox:checked").each(function()
                 {
                     isbn.push($(this).val());
                     price.push($(this).closest('tr').find("td:last").val());
