@@ -3,10 +3,10 @@ use strict;
 use CGI; 
 my $query = new CGI;
 
-my $compile = "/usr/bin/javac ListBooks.java";
+my $compile = "/usr/bin/javac UpdatePrice.java";
 system($compile);
 
-my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom ListBooks ";
+my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom UpdatePrice ";
 system($cmd);
 
 my @names = $query->param;
