@@ -38,7 +38,6 @@ public class Search {
             if(args.length != 0){
                 query = query + "where book.title like '%" + args[0].trim() + "%' or subject.subject_name like '%" + args[0].trim() + "%' or book.isbn like '%" +  args[0].trim() + "%' or book.price like '%" + args[0].trim() + "%'";
             }
-            System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){

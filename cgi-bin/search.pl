@@ -20,4 +20,3 @@ system($compile);
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Search ";
 $cmd = $cmd . $search;
 system($cmd);
-print($cmd);
