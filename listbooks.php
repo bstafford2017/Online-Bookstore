@@ -8,7 +8,7 @@
             // Get all subjects on load
             $.ajax({
                 type: "get",
-                url: "cgi-bin/subject.cgi",
+                url: "cgi-bin/listbooks.cgi",
                 success: function(data){
                     $(function(){
                         $('#table-body').append(data);
@@ -42,7 +42,8 @@
             </table>
             <button type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Update</button>
         </form>
-
+        <p id="success" style="color: green;"></p>
+        <p id="error" style="color: red;"></p>
         <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
         <?php
@@ -53,13 +54,15 @@
                 let form = $('#form');
                 $.ajax({
                 type: "get",
-                url: "cgi-bin/subject.cgi",
+                url: "cgi-bin/updateprice.cgi",
                 data: form.serialize(),
                 success: function(data){
-                    $('#table-body').append(data);
+                    $('#success').empty();
+                    $('#success').append("Success!");
                 },
                 error: function(data){
-                    $('#table-body').append(data);
+                    $('#error').empty();
+                    $('#error').append("Error: " + data);
                 }
                 });
             });
