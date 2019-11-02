@@ -15,6 +15,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="search.php">Search</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="listbooks.php">List Books</a>
+            </li>
         </ul>
     </div>
 </nav>
