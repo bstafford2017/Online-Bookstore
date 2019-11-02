@@ -41,7 +41,7 @@
             <input id="search-box" name="search-box" type="text" class="col-sm-6 offset-sm-2" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
             <button type="submit" class="col-sm-2 btn btn-dark">Search</button>
         </form>
-        <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="padding-top: 5%;">
+        <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
             <thead>
                 <tr>
                     <th scope="col">ISBN</th>
@@ -74,15 +74,16 @@
                 e.preventDefault();
                 var form = $(this);
                 var url = form.attr('action');
-                console.log(url);
                 $.ajax({
                     type: "post",
                     url: url,
                     data: form.serialize(),
                     success: function(data){
+                        $('#table-body').empty();                
                         $('#table-body').append(data);
                     },
                     error: function(data){
+                        $('#table-body').empty();    
                         $('#table-body').append(data);
                     }
                 });
