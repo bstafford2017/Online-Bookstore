@@ -17,6 +17,8 @@ if(!defined $title && !defined $price && !defined $isbn && !defined $subjects){
     exit(0);
 }
 
+$title =~ s/\s/-/g;
+
 $title =~ s/^\s*(\S*)\s*$/$1/;
 $title =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 $price =~ s/^\s*(\S*)\s*$/$1/;

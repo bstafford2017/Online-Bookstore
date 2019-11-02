@@ -52,6 +52,7 @@ public class Create {
                 rset.close();
             }
             // Finally, insert into books table
+            args[1] = args[1].replaceAll("-", " ");
             String insertBook = "insert into book(isbn, title, price) values (" + args[0] + ", '" + args[1] + "', " + args[2] + ")";
             System.out.println(insertBook);
             stmt.executeQuery(insertBook);
