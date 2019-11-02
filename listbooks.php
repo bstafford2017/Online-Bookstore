@@ -27,7 +27,7 @@
             include 'navbar.php';
         ?>
         <!-- Content-->
-        <form id="form">
+        <form id="form" method="get" action="cgi-bin/updateprice.pl">
             <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
                 <thead>
                     <tr>
@@ -50,20 +50,19 @@
             include 'footer.php';
         ?>
         <script type="text/javascript">
-            $('#form').submit(function(e){
+            /*$('#form').submit(function(e){
                 e.preventDefault();
                 let values = "";
                 $("input:checkbox[name='check']:checked").each(function()
                 {
                     values = values + " " + $(this).val();
                 });
-                alert(values.toString());
 
                 let form = $('#form');
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
-                data: {"books": array}
+                data: {"books": values}
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
@@ -73,7 +72,7 @@
                     $('#error').append("Error: " + data);
                 }
                 });
-            });
+            });*/
         </script>
     </body>
 </html>
