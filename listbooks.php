@@ -57,7 +57,7 @@
                 $("input:checkbox:checked").each(function()
                 {
                     isbn.push($(this).val());
-                    price.push($(this).parent().find('#price').val());
+                    price.push($(this).parent().parent().find('#price').val());
                 });
                 console.log(isbn.toString());
                 console.log(price.toString());
