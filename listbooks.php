@@ -59,8 +59,8 @@
                     isbn.push($(this).val());
                     price.push($(this).closest('tr').find("td:last").val());
                 });
-                alert(isbn.toString());
-                alert(price.toString());
+                console.log(isbn.toString());
+                console.log(price.toString());
 
                 let form = $('#form');
                 $.ajax({
