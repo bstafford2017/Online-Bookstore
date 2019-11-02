@@ -57,6 +57,7 @@
                 console.log($("input:checkbox:checked").val());
                 $("input:checkbox:checked").each(function()
                 {
+                    console.log($(this).val());
                     isbn.push($(this).val());
                     price.push($(this).closest('tr').find("td:last:input").val());
                 });
