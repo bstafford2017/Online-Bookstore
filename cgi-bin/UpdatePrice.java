@@ -21,11 +21,13 @@ public class UpdatePrice {
             Statement stmt = conn.createStatement();
             for(int i = 0; i < args.length; i += 2){
                 stmt.executeUpdate("update book set book.price = " + args[i + 1] + " where book.isbn = " + args[i]);
+                System.out.println("update book set book.price = " + args[i + 1] + " where book.isbn = " + args[i]);
             }
             stmt.close();
         }
         catch (SQLException ex) {
             System.out.println(ex);
+            System.out.println(ex.getStackTrace());
         }
         conn.close();
     }
