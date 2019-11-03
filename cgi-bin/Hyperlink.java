@@ -17,7 +17,7 @@ public class Hyperlink {
             Statement stmt = conn.createStatement();
             String query = "select book.isbn, book.title, book.price from book where isbn = " + args[0].trim();
             ResultSet rset = stmt.executeQuery(query);
-            while(set.next()){
+            while(rset.next()){
                 System.out.println(rset.getString(1) + "\n" + rset.getString(2) + "\n" + rset.getString(3));
             }
             rset.close();
