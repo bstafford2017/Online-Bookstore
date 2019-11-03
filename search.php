@@ -86,6 +86,7 @@
                 });
                 let json = "";
                 if(subject.toString() != undefined || subject.toString() == ""){
+                    console.log(subject.toString());
                     json = "subject" + "=" + subject.toString();
                     json = json.replace(",", "+");
                     json = json.replace(" ", "-");
