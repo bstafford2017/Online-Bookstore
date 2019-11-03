@@ -14,7 +14,9 @@ print("Content-type: text/html\n\n");
 my $compile = "/usr/bin/javac Hyperlink.java";
 system($compile);
 
+print("<!doctype html><head>Source</head><body>");
+
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Hyperlink ";
 $cmd = $cmd . $isbn;
 system($cmd);
-print($cmd);
+print("</body></html>");
