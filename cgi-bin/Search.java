@@ -32,8 +32,8 @@ public class Search {
         ods.setPassword(password);
         Connection conn = ods.getConnection();
         try {
-            Statement stmt = conn.createStatement();
-            for(int i = 0; i < args.length; i++){
+            int counter = 0;
+            do {
                 String query = "select book.isbn, book.title, book.price, subject.subject_name ";
                 query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
                 if(args.length != 0){
@@ -61,7 +61,8 @@ public class Search {
                     System.out.println("<td id=\"subjects\" scope=\"col\">" + current.subjects + "</td></tr>");
                     rowCounter++;
                 }
-            }
+                counter++;
+            } while(counter < args.length);
             rset.close();
             stmt.close();
         }
