@@ -5,8 +5,6 @@
         ?>
         <title id="title">Search books</title>
         <script type="text/javascript">
-            // Get all subjects on load
-            window.sourceFlag = false;
             $.ajax({
                 type: "get",
                 url: "cgi-bin/subject.cgi",
@@ -14,7 +12,6 @@
                 success: function(data){
                     $(function(){
                         $('#subject').append(data);
-                        window.sourceFlag = true;
                     });
                 },
                 error: function(data){
