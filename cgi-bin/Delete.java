@@ -15,7 +15,7 @@ public class Delete {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate("delete from books where isbn = " + args[0]);
+            stmt.executeUpdate("delete from book where isbn = " + args[0].trim());
             stmt.close();
         }
         catch (SQLException ex) {
