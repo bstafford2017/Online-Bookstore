@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 use strict;
+use warnings;
 use CGI; 
 my $query = new CGI;
 my $title = $query->param('book-title');
