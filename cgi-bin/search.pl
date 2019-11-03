@@ -14,9 +14,6 @@ if(!defined $subject){
     exit(0);
 }
 
-# Fix for subjects with spaces
-$subject =~ s/-/ /g;
-
 $search =~ s/^\s*(\S*)\s*$/$1/;
 $search =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 
