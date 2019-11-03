@@ -85,7 +85,7 @@
                     subject.push($(this).val());
                 });
                 let json = "";
-                if(subject.toString() != undefined){
+                if(subject.toString() != undefined || subject.toString() == ""){
                     json = "subject" + "=" + subject.toString();
                     json = json.replace(",", "+");
                 }
