@@ -84,7 +84,7 @@
                     subject.push($(this).val());
                 });
 
-                let json = json + "subject" + "=" + subject.toString() + "&search" + $('search-box').val();
+                let json = "subject" + "=" + subject.toString() + "&search" + $('search-box').val();
                 json = json.replace(", ", "+");
                 console.log(json);
                 $.ajax({
