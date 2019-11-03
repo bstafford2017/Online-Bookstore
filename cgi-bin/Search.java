@@ -31,6 +31,7 @@ public class Search {
         ods.setUser(user);
         ods.setPassword(password);
         Connection conn = ods.getConnection();
+        Statement stmt = conn.createStatement();
         try {
             int counter = 0;
             do {
