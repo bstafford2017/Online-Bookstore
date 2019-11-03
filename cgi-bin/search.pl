@@ -3,7 +3,8 @@ use strict;
 use warnings;
 use CGI; 
 my $query = new CGI;
-my $search = $query->param('search-box');
+my $search = $query->param('search');
+my $subject = $query->param('subject');
 
 if(!defined $search){
     exit(0);
@@ -18,5 +19,6 @@ my $compile = "/usr/bin/javac Search.java";
 system($compile);
 
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Search ";
-$cmd = $cmd . $search;
+$cmd = $cmd . $search . " " . $subject;
 system($cmd);
+print($cmd);

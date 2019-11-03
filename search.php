@@ -88,6 +88,7 @@
                 if(subject.toString() != undefined || subject.toString() == ""){
                     json = "subject" + "=" + subject.toString();
                     json = json.replace(",", "+");
+                    json = json.repalce(" ", "+");
                 }
                 if($('#search-box').val() != ""){
                     json = json + "&search=" + $('#search-box').val();
