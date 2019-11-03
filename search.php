@@ -34,8 +34,8 @@
                 </div>
             </div>
         </div>
-        <form id="form" action="cgi-bin/search.cgi">
-            <div id="subject" class="col-sm-8 offset-sm-2 bg-dark"><p>Subjects:</p></div>
+        <form id="form">
+            <div id="subject" class="col-sm-8 offset-sm-2 bg-dark text-white"><h3>Subjects:</h3></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
             <input id="search-box" name="search-box" type="text" class="col-sm-6 offset-sm-2" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
             <button type="submit" class="col-sm-2 btn btn-dark">Search</button>
@@ -79,12 +79,17 @@
             });
             $("#form").submit(function(e){
                 e.preventDefault();
-                var form = $(this);
-                var url = form.attr('action');
+                let subject = [];
+                $("input:checkbox:checked").each(function(){
+                    subject.push($(this).val());
+                });
+
+                let json = json + "subject" + "=" + subject.toString() + "&search" + $('search-box').val();
+                alert(json);
                 $.ajax({
-                    type: "post",
-                    url: url,
-                    data: form.serialize(),
+                    type: "get",
+                    url: "cgi-bin/search.cgi",
+                    data: json,
                     success: function(data){
                         $('#table-body').empty();                
                         $('#table-body').append(data);

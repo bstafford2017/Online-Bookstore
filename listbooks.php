@@ -65,7 +65,7 @@
                     json = json + isbn[i] + "=" + price[i] + "&";
                 }
                 // Remove last &
-                json = json.substring(0, json.length - 1)
+                json = json.substring(0, json.length - 1);
 
                 $.ajax({
                 type: "get",
@@ -87,7 +87,6 @@
                 $("input:checkbox:checked").each(function(){
                     isbn.push($(this).val());
                 });
-
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/delete.cgi",
