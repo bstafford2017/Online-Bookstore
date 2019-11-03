@@ -33,32 +33,34 @@ public class Search {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select book.isbn, book.title, book.price, subject.subject_name ";
-            query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
-            if(args.length != 0){
-                query = query + "where book.title like '%" + args[0].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[0].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[0].trim().replace("-", " ") + "%' or book.price like '%" + args[0].trim().replace("-", " ") + "%'";
-            }
-            System.out.println(query);
-            ResultSet rset = stmt.executeQuery(query);
-            LinkedList<Tuple> list = new LinkedList<>();
-            while(rset.next()){
-                if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
-                    list.add(new Tuple(Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
+            for(int i = 0; i < args.length; i++){
+                String query = "select book.isbn, book.title, book.price, subject.subject_name ";
+                query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
+                if(args.length != 0){
+                    query = query + "where book.title like '%" + args[0].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[0].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[0].trim().replace("-", " ") + "%' or book.price like '%" + args[0].trim().replace("-", " ") + "%'";
                 }
-            }
-            if(list.size() == 0){
-                System.out.println("<p>No results!</p>");
-            }
-            Iterator<Tuple> it = list.iterator();
-            int rowCounter = 0;
-            while(it.hasNext()){
-                Tuple current = it.next();
-                System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
-                System.out.println("<td id=\"isbn\">" + current.isbn + "</td>");
-                System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + current.isbn + "\">" + current.title + "</a></td>");
-                System.out.println("<td id=\"price\" scope=\"col\">" + current.price + "</td>");
-                System.out.println("<td id=\"subjects\" scope=\"col\">" + current.subjects + "</td></tr>");
-                rowCounter++;
+                System.out.println(query);
+                ResultSet rset = stmt.executeQuery(query);
+                LinkedList<Tuple> list = new LinkedList<>();
+                while(rset.next()){
+                    if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
+                        list.add(new Tuple(Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
+                    }
+                }
+                if(list.size() == 0){
+                    System.out.println("<p>No results!</p>");
+                }
+                Iterator<Tuple> it = list.iterator();
+                int rowCounter = 0;
+                while(it.hasNext()){
+                    Tuple current = it.next();
+                    System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
+                    System.out.println("<td id=\"isbn\">" + current.isbn + "</td>");
+                    System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + current.isbn + "\">" + current.title + "</a></td>");
+                    System.out.println("<td id=\"price\" scope=\"col\">" + current.price + "</td>");
+                    System.out.println("<td id=\"subjects\" scope=\"col\">" + current.subjects + "</td></tr>");
+                    rowCounter++;
+                }
             }
             rset.close();
             stmt.close();
