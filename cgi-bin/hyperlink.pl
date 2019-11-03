@@ -5,6 +5,10 @@ use CGI;
 my $query = new CGI;
 my $isbn = $query->param('isbn');
 
+if(! defined $isbn){
+    exit(0);
+}
+
 print("Content-type: text/html\n\n");
 
 my $compile = "/usr/bin/javac Hyperlink.java";
