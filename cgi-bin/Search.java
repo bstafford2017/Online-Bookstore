@@ -62,8 +62,8 @@ public class Search {
                     rowCounter++;
                 }
                 counter++;
+                rset.close();
             } while(counter < args.length);
-            rset.close();
             stmt.close();
         }
         catch (SQLException ex) {
