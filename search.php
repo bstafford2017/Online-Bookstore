@@ -103,7 +103,6 @@
                         type: "get",
                         url: "cgi-bin/search.cgi",
                         data: json,
-                        async: false,
                         success: function(data){
                             $('#table-body').empty();                
                             $('#table-body').append(data);
