@@ -27,7 +27,6 @@
             include 'navbar.php';
         ?>
         <!-- Content-->
-        <div id="header"></div>
         <div class="container">
             <div class="row">
                 <div class="col-sm" style="text-align: center;">
@@ -36,7 +35,7 @@
             </div>
         </div>
         <form id="form" action="cgi-bin/search.cgi">
-            <div id="subject" class="form-text"></div>
+            <div id="subject" class="card card-body"><p>Subjects:</p></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
             <input id="search-box" name="search-box" type="text" class="col-sm-6 offset-sm-2" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
             <button type="submit" class="col-sm-2 btn btn-dark">Search</button>
