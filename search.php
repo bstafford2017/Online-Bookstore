@@ -86,7 +86,6 @@
                 });
                 let json = "";
                 if(subject.length != 0){
-                    console.log(subject.toString());
                     json = "subject" + "=" + subject.toString();
                     json = json.replace(",", "+");
                     json = json.replace(" ", "-");
@@ -94,7 +93,6 @@
                 if($('#search-box').val() != ""){
                     json = json + "&search=" + $('#search-box').val();
                 }
-                console.log(json);
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/search.cgi",
