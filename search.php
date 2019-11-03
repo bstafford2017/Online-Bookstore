@@ -35,7 +35,7 @@
             </div>
         </div>
         <form id="form" action="cgi-bin/search.cgi">
-            <div id="subject"><p>Subjects:</p></div>
+            <div id="subject" class="col-sm-6 offset-sm-2"><p>Subjects:</p></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
             <input id="search-box" name="search-box" type="text" class="col-sm-6 offset-sm-2" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
             <button type="submit" class="col-sm-2 btn btn-dark">Search</button>
