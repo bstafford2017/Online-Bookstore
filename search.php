@@ -85,7 +85,8 @@
                 });
 
                 let json = json + "subject" + "=" + subject.toString() + "&search" + $('search-box').val();
-                alert(json);
+                json = json.replace(", ", "+");
+                console.log(json);
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/search.cgi",
