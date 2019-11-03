@@ -8,7 +8,6 @@
             $.ajax({
                 type: "get",
                 url: "cgi-bin/subject.cgi",
-                async: false,
                 success: function(data){
                     $(function(){
                         $('#subject').append(data);
