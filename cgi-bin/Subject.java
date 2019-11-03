@@ -21,7 +21,8 @@ public class Subject {
             System.out.println("Content-type: text/html\n\n");
             int rowCounter = 0;
             while(rset.next()){
-                System.out.println("<input type=\"checkbox\" name=\"subject\">" +  rset.getString(1) + "</input>");
+                System.out.println("<input class=\"form-check-input\" type=\"checkbox\" name=\"subject\" id=\"defaultCheck" + rowCounter + "\" value=\"\"/>");
+                System.out.println("<label class=\"form-check-label\" for=\"defaultCheck" + rowCounter +"\">" + rset.getString(1)+ "</label>");
                 rowCounter++;
             }
             if(rowCounter == 0){
