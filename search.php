@@ -77,15 +77,21 @@
                     }
                 });
             });
+            
             $("#search").click(function(e){
                 e.preventDefault();
                 let subject = [];
                 $("input:checkbox:checked").each(function(){
                     subject.push($(this).val());
                 });
-
-                let json = "subject" + "=" + subject.toString() + "&search" + $('search-box').val();
-                json = json.replace(", ", "+");
+                let json = "";
+                if(subject.toString() != undefined){
+                    json = "subject" + "=" + subject.toString();
+                    json = json.replace(",", "+");
+                }
+                if($('search-box').val() != undefined){
+                    json = json + "&search=" + $('search-box').val();
+                }
                 console.log(json);
                 $.ajax({
                     type: "get",
