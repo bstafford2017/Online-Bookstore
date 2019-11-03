@@ -6,6 +6,9 @@ my $query = new CGI;
 my $search = $query->param('search');
 my $subject = $query->param('subject');
 
+# Fix for subjects with spaces
+$subject =~ s/-/\s/g;
+
 if(!defined $search){
     exit(0);
 }
