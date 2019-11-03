@@ -13,3 +13,4 @@ system($compile);
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Hyperlink ";
 $cmd = $cmd . $isbn;
 system($cmd);
+print($cmd);
