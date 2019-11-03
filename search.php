@@ -89,8 +89,8 @@
                     json = "subject" + "=" + subject.toString();
                     json = json.replace(",", "+");
                 }
-                if($('search-box').val() != ""){
-                    json = json + "&search=" + $('search-box').val();
+                if($('#search-box').val() != ""){
+                    json = json + "&search=" + $('#search-box').val();
                 }
                 console.log(json);
                 $.ajax({
