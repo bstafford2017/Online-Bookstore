@@ -6,18 +6,21 @@
         <title id="title">Search books</title>
         <script type="text/javascript">
             // Get all subjects on load
+            window.sourceFlag = false;
             $.ajax({
                 type: "get",
                 url: "cgi-bin/subject.cgi",
                 success: function(data){
                     $(function(){
                         $('#subject').append(data);
+                        window.sourceFlag = true;
                     });
                 },
                 error: function(data){
                     $(function(){
                         $('#subject').append(data);
                     });
+
                 }
             });
         </script>
@@ -79,7 +82,8 @@
             });
             
             $("#search").click(function(e){
-                $(function(){
+                // If success of 'source' has been executed
+                if(window.sourceFlag){
                     e.preventDefault();
                     let subject = [];
                     $("input:checkbox:checked").each(function(){
@@ -107,7 +111,7 @@
                             $('#table-body').append(data);
                         }
                     });
-                });
+                }
             });
 
             $('#clear').click(function(e){
