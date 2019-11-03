@@ -79,32 +79,34 @@
             });
             
             $("#search").click(function(e){
-                e.preventDefault();
-                let subject = [];
-                $("input:checkbox:checked").each(function(){
-                    subject.push($(this).val());
-                });
-                let json = "";
-                if(subject.toString() != undefined || subject.toString() == ""){
-                    json = "subject" + "=" + subject.toString();
-                    json = json.replace(",", "+");
-                }
-                if($('#search-box').val() != ""){
-                    json = json + "&search=" + $('#search-box').val();
-                }
-                console.log(json);
-                $.ajax({
-                    type: "get",
-                    url: "cgi-bin/search.cgi",
-                    data: json,
-                    success: function(data){
-                        $('#table-body').empty();                
-                        $('#table-body').append(data);
-                    },
-                    error: function(data){
-                        $('#table-body').empty();    
-                        $('#table-body').append(data);
+                $(function(){
+                    e.preventDefault();
+                    let subject = [];
+                    $("input:checkbox:checked").each(function(){
+                        subject.push($(this).val());
+                    });
+                    let json = "";
+                    if(subject.toString() != undefined || subject.toString() == ""){
+                        json = "subject" + "=" + subject.toString();
+                        json = json.replace(",", "+");
                     }
+                    if($('#search-box').val() != ""){
+                        json = json + "&search=" + $('#search-box').val();
+                    }
+                    console.log(json);
+                    $.ajax({
+                        type: "get",
+                        url: "cgi-bin/search.cgi",
+                        data: json,
+                        success: function(data){
+                            $('#table-body').empty();                
+                            $('#table-body').append(data);
+                        },
+                        error: function(data){
+                            $('#table-body').empty();    
+                            $('#table-body').append(data);
+                        }
+                    });
                 });
             });
 
