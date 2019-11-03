@@ -40,7 +40,8 @@
                     
                 </tbody>
             </table>
-            <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Update</button>
+            <button id="update" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Update</button>
+            <button id="delete" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Delete</button>
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
@@ -50,12 +51,11 @@
             include 'footer.php';
         ?>
         <script type="text/javascript">
-            $('#submit').click(function(e){
+            $('#update').click(function(e){
                 e.preventDefault();
                 let isbn = [];
                 let price = [];
-                $("input:checkbox:checked").each(function()
-                {
+                $("input:checkbox:checked").each(function(){
                     isbn.push($(this).val());
                     price.push($(this).parents('tr').find('#price').val());
                 });
@@ -71,6 +71,27 @@
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
                 data: json,
+                success: function(data){
+                    $('#success').empty();
+                    $('#success').append("Success!");
+                },
+                error: function(data){
+                    $('#error').empty();
+                    $('#error').append("Error: " + data);
+                }
+                });
+            });
+            $('#delete').click(function(e){
+                e.preventDefault();
+                let isbn = [];
+                $("input:checkbox:checked").each(function(){
+                    isbn.push($(this).val());
+                });
+
+                $.ajax({
+                type: "get",
+                url: "cgi-bin/delete.cgi",
+                data: {"isbn": isbn},
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
