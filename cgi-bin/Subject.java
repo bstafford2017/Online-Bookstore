@@ -22,7 +22,7 @@ public class Subject {
             int rowCounter = 0;
             while(rset.next()){
                 System.out.println("<div class=\"form-check form-check-inline\">");
-                System.out.println("<input class=\"form-check-input\" type=\"checkbox\" name=\"subject\" id=\"defaultCheck" + rowCounter + "\" value=\"" + rset.getString(1) + "\">");
+                System.out.println("<input class=\"form-check-input\" type=\"checkbox\" name=\"subject\" id=\"defaultCheck" + rowCounter + "\" value=\"" + rset.getString(1) + "\"/>");
                 rowCounter++;
             }
             if(rowCounter == 0){
