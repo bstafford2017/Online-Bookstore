@@ -34,20 +34,24 @@ public class Search {
         Statement stmt = conn.createStatement();
         try {
             String query = "select book.isbn, book.title, book.price, subject.subject_name ";
-            query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id where ";
-            for(int i = 0; i < arg.length; i++){
-                query = query + "(book.title like '%" + args[counter].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[counter].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[counter].trim().replace("-", " ") + "%' or book.price like '%" + args[counter].trim().replace("-", " ") + "%')";
+            query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
+            for(int i = 0; i < args.length; i++){
+                if(i == 0){
+                    query += "where ";
+                }
+                query = query + "(book.title like '%" + args[i].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[i].trim().replace("-", " ") + "%' or book.price like '%" + args[i].trim().replace("-", " ") + "%')";
                 // Always add 'and' to end if not the last iteration
-                if(i < arg.length - 1){
+                if(i < args.length - 1){
                     query += " and ";
                 }
             }
+            System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
-                if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
+                //if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
                     list.add(new Tuple(Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
-                }
+                //}
             }
             if(list.size() == 0){
                 System.out.println("<p>No results!</p>");

@@ -3,6 +3,7 @@ import java.util.LinkedList;
 import java.io.*;
 import oracle.jdbc.*;
 import oracle.jdbc.pool.OracleDataSource;
+import java.util.*;
 
 public class Delete {
     public static void main(String[] args) throws SQLException{
@@ -17,6 +18,12 @@ public class Delete {
         try {
             // Get list of all subject's in isbn record
             Statement stmt = conn.createStatement();
+            for(int i = 0; i < args.length; i++){
+                String query = "delete from (select * from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id) ";
+                query = query + "where book.isbn = " + args[i].trim();
+                stmt.executeUpdate(query);
+            }
+            /*stmt.executeUpdate("delete from book where isbn = " + args[0].trim());
             String query = "select subject.subject_name ";
             query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
             query = query + "where isbn = " + args[0].trim();
@@ -30,21 +37,20 @@ public class Delete {
             ListIterator<String> it = allSubjects.listIterator();
             while(it.hasNext()){
                 String current = it.next();
-                String query = "count(select subject.subject_name ";
-                query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
-                query = query + "where isbn = " + args[0].trim() + ")";
-                ResultSet set = stmt.executeQuery(query);
+                String newQuery = "count(select subject.subject_name ";
+                newQuery += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
+                newQuery = newQuery + "where isbn = " + args[0].trim() + ")";
+                ResultSet set = stmt.executeQuery(newQuery);
                 
                 // Delete if count of that subject is equal to 0
-                if(set.getString(1) == 0){
+                if(Integer.parseInt(set.getString(1)) == 0){
                     String getId = "select subject.subject_id from subject where subject.subject_name = " + current;
-                    ResultSet idSet = stmt.executeQuery(query);
+                    ResultSet idSet = stmt.executeQuery(getId);
                     int id = Integer.parseInt(idSet.getString(1));
                     stmt.executeUpdate("delete from subjects where s_id = " + id);
                     stmt.executeUpdate("delete from subject where subject_name = " + current);
                 }
-            }
-            stmt.executeUpdate("delete from book where isbn = " + args[0].trim());
+            }*/
             stmt.close();
         }
         catch (SQLException ex) {
