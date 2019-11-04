@@ -82,7 +82,7 @@
                         $('#success').append("Successfully created book!");                    
                     },
                     error: function(data){
-                        $('#error').append("Error when creating book!");                    
+                        $('#error').append("Error: " + data);                    
                     }
                 });
             });
