@@ -47,9 +47,9 @@ public class Search {
                 }
             }
             ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
-            ResultSet temp = stmt.executeQuery("select count(*) " + query);
-            if(temp.next()){
-                int count = Integer.parseInt(temp.getString(1));
+            ResultSet set = stmt.executeQuery("select count(*) " + query);
+            if(set.next()){
+                int count = Integer.parseInt(set.getString(1));
             }
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
@@ -72,6 +72,8 @@ public class Search {
                 System.out.println("<td id=\"subjects\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?subjects=" + current.subjects.replace(" ", "-") + "\">" + current.subjects + "</a></td></tr>");
                 rowCounter++;
             }
+            rset.close();
+            set.close();
             stmt.close();
         }
         catch (SQLException ex) {
