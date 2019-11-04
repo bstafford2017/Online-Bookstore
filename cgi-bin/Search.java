@@ -35,8 +35,7 @@ public class Search {
         Connection conn = ods.getConnection();
         Statement stmt = conn.createStatement();
         try {
-            String query = "book.isbn, book.title, book.price, subject.subject_name ";
-            query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
+            String query = "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
             for(int i = 0; i < args.length; i++){
                 if(i == 0){
                     query += "where ";
@@ -47,7 +46,7 @@ public class Search {
                     query += " and ";
                 }
             }
-            ResultSet rset = stmt.executeQuery("select " + query);
+            ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
             ResultSet temp = stmt.executeQuery("select count(*) " + query);
             int count = temp.getString(1);
             LinkedList<Tuple> list = new LinkedList<>();
