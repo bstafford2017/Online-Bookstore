@@ -44,6 +44,8 @@ public class Search {
 
                 // Get count fo matches
                 ResultSet set = stmt.executeQuery("select count(*) " + query);
+                System.out.println("select count(*) " + query);
+                System.out.println("select book.isbn, book.title, book.price, subject.subject_name " + query);
                 int count = 0;
                 while(set.next()){
                     count = Integer.parseInt(set.getString(1));
