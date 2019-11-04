@@ -48,7 +48,9 @@ public class Search {
             }
             ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
             ResultSet temp = stmt.executeQuery("select count(*) " + query);
-            int count = Integer.parseInt(temp.getString(1));
+            if(temp.next()){
+                int count = Integer.parseInt(temp.getString(1));
+            }
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
                 //if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
