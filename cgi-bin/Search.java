@@ -56,7 +56,7 @@ public class Search {
                 // Get the data from search query
                 ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
                 while(rset.next()){
-                    if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
+                    if(!Search.isbnAlreadyInList(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
                         list.add(new Tuple(count, Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
                     }
                 }
@@ -87,28 +87,16 @@ public class Search {
         conn.close();
     }
 
-    // True = added to list (already in list)
-    // False = not in list (add to list)
-    public static boolean containsOrAdd(LinkedList<Tuple> list, String subject, long isbn){
+    // True = do not add to list (already in)
+    // False = add to list (not in list yet)
+    public static boolean isbnAlreadyInList(LinkedList<Tuple> list, String subject, long isbn){
         // Check if 'subject' is in list
         Iterator<Tuple> it = list.iterator();
         boolean flag = false;
         while(it.hasNext()){
             Tuple current = it.next();
-            if(current.isbn == isbn && current.subjects.contains(subject)){
-                flag = true;
-            }
-        }
-        
-        // If in list, return avoid inserting into list
-        if(!flag) return false;
-
-        // If in in list, add 'subject' into isbn's record
-        Iterator<Tuple> newit = list.iterator();
-        while(it.hasNext()){
-            Tuple current = newit.next();
             if(current.isbn == isbn){
-                current.subjects += subject;
+                current.subject = current.subject + " " + subject;
                 return true;
             }
         }
