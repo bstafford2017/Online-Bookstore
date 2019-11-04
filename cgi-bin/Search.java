@@ -35,6 +35,7 @@ public class Search {
         Connection conn = ods.getConnection();
         Statement stmt = conn.createStatement();
         try {
+            LinkedList<Tuple> list = new LinkedList<>();
             for(int i = 0; i < args.length; i++){
                 String query = "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
                 query = query + "where book.title like '%" + args[i].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[i].trim().replace("-", " ") + "%' or book.price like '%" + args[i].trim().replace("-", " ") + "%'";
@@ -48,7 +49,6 @@ public class Search {
 
                 // Get the data from search query
                 ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
-                LinkedList<Tuple> list = new LinkedList<>();
                 while(rset.next()){
                     //if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
                         list.add(new Tuple(count, Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
@@ -59,7 +59,7 @@ public class Search {
             }
             if(list.size() == 0){
                 System.out.println("<p>No results!</p>");
-                Systerm.exit(0);
+                System.exit(0);
             }
             Iterator<Tuple> it = list.iterator();
             int rowCounter = 0;
