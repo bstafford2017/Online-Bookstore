@@ -10,9 +10,7 @@ print("Content-type: text/html\n\n");
 print("<!doctype html><head></head><body>");
 my $cmd = "";
 
-if(! defined $isbn){
-    exit(0);
-} else {
+if(defined $isbn){
     my $compile = "/usr/bin/javac Hyperlink.java";
     system($compile);
 
@@ -20,14 +18,16 @@ if(! defined $isbn){
     $cmd = $cmd . $isbn;
 }
 
-if(! defined $subjects){
-    exit(0);
-} else {
+if(defined $subjects){
     my $compile = "/usr/bin/javac Hyperlink2.java";
     system($compile);
     
     $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Hyperlink2 ";
     $cmd = $cmd . $subjects;
+}
+if(!defined $isbn && !defined $subjects){
+    print("<p>No Result</p></body></html>");
+    exit(0);
 }
 system($cmd);
 print($cmd);
