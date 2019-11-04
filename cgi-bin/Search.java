@@ -45,7 +45,6 @@ public class Search {
                     query += " and ";
                 }
             }
-            System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){

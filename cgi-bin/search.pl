@@ -20,4 +20,3 @@ if(!defined $search && !defined $subject){
     $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Search ". $search . " " . $subject;
 }
 system($cmd);
-print($cmd);
