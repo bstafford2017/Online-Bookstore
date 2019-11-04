@@ -111,18 +111,16 @@
 
             $('#clear').click(function(e){
                 e.preventDefault();
-                var form = $(this);
-                var url = form.attr('action');
+                var url = "cgi-bin/clear.cgi";
                 console.log(url);
                 $.ajax({
                     type: "post",
                     url: url,
-                    data: form.serialize(),
                     success: function(data){
-                        $('body').append(data);
+                        alert("Cleared database!");
                     },
                     error: function(data){
-                        $('body').append(data);
+                        alert("Error!");
                     }
                 });
             });
