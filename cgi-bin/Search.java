@@ -64,7 +64,7 @@ public class Search {
                 rset.close();
             }
             if(list.size() == 0){
-                System.out.println("<td></td><td></td><td><h3>No results!</h3></td>");
+                System.out.println("<td></td><td></td><td><h4>No results!</h4></td>");
                 System.exit(0);
             }
             Iterator<Tuple> it = list.iterator();
