@@ -16,7 +16,6 @@ public class Hyperlink2 {
         try {
             Statement stmt = conn.createStatement();
             String query = "select book.title, book.isbn, subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + args[0].trim().replace("-", " ") + "%'";
-            System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){
