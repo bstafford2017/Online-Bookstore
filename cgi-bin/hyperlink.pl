@@ -30,4 +30,5 @@ if(! defined $subjects){
     $cmd = $cmd . $subjects;
 }
 system($cmd);
+print($cmd);
 print("</body></html>");
