@@ -48,8 +48,6 @@ public class Search {
 
                 // Get count for matches
                 ResultSet set = stmt.executeQuery("select count(*) " + query);
-                System.out.println("select count(*) " + query);
-                System.out.println("select book.isbn, book.title, book.price, subject.subject_name " + query);
                 int count = 0;
                 while(set.next()){
                     count = Integer.parseInt(set.getString(1));
@@ -66,7 +64,7 @@ public class Search {
                 rset.close();
             }
             if(list.size() == 0){
-                System.out.println("<p>No results!</p>");
+                System.out.println("<h3>No results!</h3>");
                 System.exit(0);
             }
             Iterator<Tuple> it = list.iterator();
