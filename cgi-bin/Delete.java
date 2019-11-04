@@ -18,7 +18,12 @@ public class Delete {
         try {
             // Get list of all subject's in isbn record
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate("delete from book where isbn = " + args[0].trim());
+            for(itn i = 0; i < args.length; i++){
+                String query = "delete from (select book.isbn, book.title, book.price, subject.subject_name from book join subjects on book.isbn = subjects.isbn "
+                query = query + "where isbn = " + args[i].trim();
+                stmt.executeUpdate(query);
+            }
+            /*stmt.executeUpdate("delete from book where isbn = " + args[0].trim());
             String query = "select subject.subject_name ";
             query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
             query = query + "where isbn = " + args[0].trim();
@@ -45,7 +50,8 @@ public class Delete {
                     stmt.executeUpdate("delete from subjects where s_id = " + id);
                     stmt.executeUpdate("delete from subject where subject_name = " + current);
                 }
-            }
+            }*/
+            rset.close()
             stmt.close();
         }
         catch (SQLException ex) {
