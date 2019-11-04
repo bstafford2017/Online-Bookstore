@@ -30,5 +30,4 @@ if(!defined $isbn && !defined $subjects){
     exit(0);
 }
 system($cmd);
-print($cmd);
 print("</body></html>");
