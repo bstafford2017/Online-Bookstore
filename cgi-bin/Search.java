@@ -73,13 +73,13 @@ public class Search {
                 System.out.println("<td id=\"subjects\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?subjects=" + current.subjects.replace(" ", "-") + "\">" + current.subjects + "</a></td></tr>");
                 rowCounter++;
             }
-            rset.close();
-            set.close();
-            stmt.close();
         }
         catch (SQLException ex) {
             System.out.println(ex);
         }
+        rset.close();
+        set.close();
+        stmt.close();
         conn.close();
     }
 
