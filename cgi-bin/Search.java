@@ -92,7 +92,6 @@ public class Search {
     public static boolean isbnAlreadyInList(LinkedList<Tuple> list, String subject, long isbn){
         // Check if 'subject' is in list
         Iterator<Tuple> it = list.iterator();
-        boolean flag = false;
         while(it.hasNext()){
             Tuple current = it.next();
             if(current.isbn == isbn){
