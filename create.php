@@ -73,7 +73,7 @@
                 let subjects = $('#submit').parents('form').find('#subjects').val();
                 title = title.replace(" ", "-");
                 subjects = subjects.replace(" ", "-");
-                let json = "?isbn=" + isbn + "&title=" + title + "&price=" + price + "&subjects=" + subjects;
+                let json = "isbn=" + isbn + "&title=" + title + "&price=" + price + "&subjects=" + subjects;
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/create.cgi",
