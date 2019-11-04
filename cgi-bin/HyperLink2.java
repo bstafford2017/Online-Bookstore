@@ -15,12 +15,12 @@ public class Hyperlink2 {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select book.title, subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + args[0].trim().replace("-", " ") + "%'";
+            String query = "select book.title, book.isbn, subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + args[0].trim().replace("-", " ") + "%'";
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){
                 if(counter == 0) {
-                    System.out.println("Title: "+ rset.getString(1) + "\nSubjects: " + rset.getString(2));
+                    System.out.println("<p>Title: <a href=\"cgi-bin/hyperlink.cgi?isbn="+ rset.getString(2) + "\">" + rset.getString(1) + "</a></p><p>Subjects: " + rset.getString(3) + "</p>");
                 } else {
                     System.out.println(rset.getString(4));
                 }
