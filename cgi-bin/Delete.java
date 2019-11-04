@@ -37,7 +37,7 @@ public class Delete {
                 ResultSet set = stmt.executeQuery(newQuery);
                 
                 // Delete if count of that subject is equal to 0
-                if(set.getString(1) == 0){
+                if(Integer.parseInt(set.getString(1)) == 0){
                     String getId = "select subject.subject_id from subject where subject.subject_name = " + current;
                     ResultSet idSet = stmt.executeQuery(getId);
                     int id = Integer.parseInt(idSet.getString(1));
