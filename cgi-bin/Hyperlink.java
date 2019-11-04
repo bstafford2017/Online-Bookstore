@@ -20,9 +20,9 @@ public class Hyperlink {
             int counter = 0;
             while(rset.next()){
                 if(counter == 0) {
-                    System.out.println("<p>ISBN: "+ rset.getString(1) + "</p><p>Title: " + rset.getString(2) + "</p><p>Price: " + rset.getString(3) + "</p><p>Subjects: <a href=\"cgi-bin/hyperlink.cgi?subjects=" + rset.getString(4).replace(" ", "-") + "\"");
+                    System.out.println("<p>ISBN: "+ rset.getString(1) + "</p><p>Title: " + rset.getString(2) + "</p><p>Price: " + rset.getString(3) + "</p><p>Subjects: <a href=\"cgi-bin/hyperlink.cgi?subjects=" + rset.getString(4).replace(" ", "-") + "\">" + rset.getString(4) + "</a>");
                 } else {
-                    System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + rset.getString(4).replace(" ", "-") + "\"</a></p>");
+                    System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + rset.getString(4).replace(" ", "-") + "\"" + rset.getString(4) + "</a></p>");
                 }
                 counter++;
             }
