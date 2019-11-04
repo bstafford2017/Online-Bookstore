@@ -77,10 +77,12 @@ public class Search {
                 System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + current.isbn + "\">" + current.title + "</a></td>");
                 System.out.println("<td id=\"price\" scope=\"col\">" + current.price + "</td>");
                 Iterator<String> ito = current.subjects.iterator();
+                System.out.println("<td id=\"subjects\" scope=\"col\">");
                 while(ito.hasNext()){
                     String str = ito.next();
-                    System.out.println("<td id=\"subjects\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\">" + str + "</a></td></tr>");
+                    System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\">" + str + "</a>");
                 }
+                System.out.println("</td></tr>");
                 rowCounter++;
             }
         }
