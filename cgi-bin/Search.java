@@ -34,8 +34,11 @@ public class Search {
         Statement stmt = conn.createStatement();
         try {
             String query = "select book.isbn, book.title, book.price, subject.subject_name ";
-            query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id where ";
+            query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
             for(int i = 0; i < args.length; i++){
+                if(i == 0){
+                    query += "where ";
+                }
                 query = query + "(book.title like '%" + args[i].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[i].trim().replace("-", " ") + "%' or book.price like '%" + args[i].trim().replace("-", " ") + "%')";
                 // Always add 'and' to end if not the last iteration
                 if(i < args.length - 1){
