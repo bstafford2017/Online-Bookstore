@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <form class="col-sm-4 offset-sm-4" method="get" action="cgi-bin/create.cgi">
+        <form class="col-sm-4 offset-sm-4">
             <div class="form-group" >
                 <label>Book Title</label>
                 <input id="book-title" name="book-title" type="text" class="form-control" placeholder="i.e. Web Programming" required/>
@@ -39,7 +39,7 @@
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering" required/>
                 <p id="subjects-error" class="form-text text-muted" style="color: red;"></p>
             </div>
-            <input id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Create">
+            <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Create</button>
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
@@ -74,9 +74,8 @@
                 title = title.replace(" ", "-");
                 subjects = subjects.replace(" ", "-");
                 let json = "?isbn=" + isbn + "&title=" + title + "&price=" + price + "&subjects=" + subjects;
-                price.push($(this).parents('tr').find('#price').val());
                 $.ajax({
-                    type: "post",
+                    type: "get",
                     url: "cgi-bin/create.cgi",
                     data: json,
                     success: function(data){
