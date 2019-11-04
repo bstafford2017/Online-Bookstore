@@ -12,14 +12,14 @@ class Tuple {
     long isbn;
     String title;
     double price;
-    String subjects;
+    LinkedList<String> subjects = null;
 
-    public Tuple(int count, long isbn, String title, double price, String subjects){
+    public Tuple(int count, long isbn, String title, double price, String subject){
         this.count = count;
         this.isbn = isbn;
         this.title = title;
         this.price = price;
-        this.subjects = subjects;
+        this.subjects.add(subject);
     }
 }
 
@@ -76,7 +76,11 @@ public class Search {
                 System.out.println("<td id=\"isbn\">" + current.isbn + "</td>");
                 System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + current.isbn + "\">" + current.title + "</a></td>");
                 System.out.println("<td id=\"price\" scope=\"col\">" + current.price + "</td>");
-                System.out.println("<td id=\"subjects\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?subjects=" + current.subjects.replace(" ", "-") + "\">" + current.subjects + "</a></td></tr>");
+                Iterator<String> ito = current.subjects.iterator();
+                while(ito.hasNext()){
+                    String str = ito.next();
+                    System.out.println("<td id=\"subjects\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\">" + str + "</a></td></tr>");
+                }
                 rowCounter++;
             }
         }
@@ -95,7 +99,7 @@ public class Search {
         while(it.hasNext()){
             Tuple current = it.next();
             if(current.isbn == isbn){
-                current.subject = current.subject + " " + subject;
+                current.subjects.add(subject);
                 return true;
             }
         }
