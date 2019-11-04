@@ -46,12 +46,12 @@ public class Search {
                     query += " and ";
                 }
             }
-            ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
             ResultSet set = stmt.executeQuery("select count(*) " + query);
             int count = 0;
-            if(set.next()){
+            while(set.next()){
                 count = Integer.parseInt(set.getString(1));
             }
+            ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
                 //if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
