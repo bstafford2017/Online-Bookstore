@@ -8,12 +8,14 @@ import java.util.Iterator;
 import java.util.stream.Stream;
 
 class Tuple {
+    int count;
     long isbn;
     String title;
     double price;
     String subjects;
 
-    public Tuple(long isbn, String title, double price, String subjects){
+    public Tuple(int count, long isbn, String title, double price, String subjects){
+        this.count = count;
         this.isbn = isbn;
         this.title = title;
         this.price = price;
@@ -33,7 +35,7 @@ public class Search {
         Connection conn = ods.getConnection();
         Statement stmt = conn.createStatement();
         try {
-            String query = "select book.isbn, book.title, book.price, subject.subject_name ";
+            String query = "book.isbn, book.title, book.price, subject.subject_name ";
             query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
             for(int i = 0; i < args.length; i++){
                 if(i == 0){
@@ -45,11 +47,13 @@ public class Search {
                     query += " and ";
                 }
             }
-            ResultSet rset = stmt.executeQuery(query);
+            ResultSet rset = stmt.executeQuery("select " + query);
+            ResultSet temp = stmt.executeQuery("select count(*) " + query);
+            int count = temp.getString(1);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
                 //if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
-                    list.add(new Tuple(Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
+                    list.add(new Tuple(count, Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
                 //}
             }
             if(list.size() == 0){
@@ -66,38 +70,6 @@ public class Search {
                 System.out.println("<td id=\"subjects\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?subjects=" + current.subjects.replace(" ", "-") + "\">" + current.subjects + "</a></td></tr>");
                 rowCounter++;
             }
-
-            /*int counter = 0;
-            do {
-                String query = "select book.isbn, book.title, book.price, subject.subject_name ";
-                query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
-                if(args.length != 0){
-                    query = query + "where book.title like '%" + args[counter].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[counter].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[counter].trim().replace("-", " ") + "%' or book.price like '%" + args[counter].trim().replace("-", " ") + "%'";
-                }
-                ResultSet rset = stmt.executeQuery(query);
-                LinkedList<Tuple> list = new LinkedList<>();
-                while(rset.next()){
-                    if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
-                        list.add(new Tuple(Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
-                    }
-                }
-                if(list.size() == 0){
-                    System.out.println("<p>No results!</p>");
-                }
-                Iterator<Tuple> it = list.iterator();
-                int rowCounter = 0;
-                while(it.hasNext()){
-                    Tuple current = it.next();
-                    System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
-                    System.out.println("<td id=\"isbn\">" + current.isbn + "</td>");
-                    System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + current.isbn + "\">" + current.title + "</a></td>");
-                    System.out.println("<td id=\"price\" scope=\"col\">" + current.price + "</td>");
-                    System.out.println("<td id=\"subjects\" scope=\"col\">" + current.subjects + "</td></tr>");
-                    rowCounter++;
-                }
-                counter++;
-                rset.close();
-            } while(counter < args.length);*/
             stmt.close();
         }
         catch (SQLException ex) {
