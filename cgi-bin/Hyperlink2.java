@@ -3,7 +3,7 @@ import java.io.*;
 import oracle.jdbc.*;
 import oracle.jdbc.pool.OracleDataSource;
 
-public class Hyperlink {
+public class Hyperlink2 {
     public static void main(String[] args) throws SQLException {
         String user     = "C##benjamin.stafford";
         String password = "stafford6248";
@@ -15,14 +15,14 @@ public class Hyperlink {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select book.isbn, book.title, book.price, subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[0].trim();
+            String query = "select book.title, book.isbn, subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + args[0].trim().replace("-", " ") + "%'";
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){
                 if(counter == 0) {
-                    System.out.println("<p>ISBN: "+ rset.getString(1) + "</p><p>Title: " + rset.getString(2) + "</p><p>Price: " + rset.getString(3) + "</p><p>Subjects: <a href=\"hyperlink.cgi?subjects=" + rset.getString(4).replace(" ", "-") + "\">" + rset.getString(4) + "</a>");
+                    System.out.println("<p>Title: <a href=\"hyperlink.cgi?isbn="+ rset.getString(2) + "\">" + rset.getString(1) + "</a></p><p>Subjects: " + rset.getString(3) + "</p>");
                 } else {
-                    System.out.println("<a href=\"hyperlink.cgi?subjects=" + rset.getString(4).replace(" ", "-") + "\"" + rset.getString(4) + "</a></p>");
+                    System.out.println(rset.getString(2));
                 }
                 counter++;
             }
