@@ -38,8 +38,10 @@ public class Search {
             LinkedList<Tuple> list = new LinkedList<>();
             for(int i = 0; i < args.length; i++){
                 String query = "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
-                query = query + "where book.title like '%" + args[i].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[i].trim().replace("-", " ") + "%' or book.price like '%" + args[i].trim().replace("-", " ") + "%'";
-                
+                if(args.length > 0){
+                    query = query + "where book.title like '%" + args[i].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[i].trim().replace("-", " ") + "%' or book.price like '%" + args[i].trim().replace("-", " ") + "%'";
+                }
+
                 // Get count fo matches
                 ResultSet set = stmt.executeQuery("select count(*) " + query);
                 int count = 0;
