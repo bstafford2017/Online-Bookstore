@@ -72,7 +72,7 @@
                 let price = $('#submit').parents('form').find('#price').val();
                 let subjects = $('#submit').parents('form').find('#subjects').val();
                 title = title.replace(" ", "-");
-                //subjects = subjects.replace(" ", "-");
+                subjects = subjects.replace(" ", "+");
                 let json = "isbn=" + isbn + "&title=" + title + "&price=" + price + "&subjects=" + subjects;
                 $.ajax({
                     type: "get",
