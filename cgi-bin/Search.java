@@ -56,9 +56,9 @@ public class Search {
                 // Get the data from search query
                 ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
                 while(rset.next()){
-                    //if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
+                    if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
                         list.add(new Tuple(count, Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
-                    //}
+                    }
                 }
                 set.close();
                 rset.close();
