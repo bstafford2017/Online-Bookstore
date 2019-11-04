@@ -20,7 +20,7 @@ public class Delete {
             Statement stmt = conn.createStatement();
             for(int i = 0; i < args.length; i++){
                 String query = "delete from (select * from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id) ";
-                query = query + "where isbn = " + args[i].trim();
+                query = query + "where book.isbn = " + args[i].trim();
                 stmt.executeUpdate(query);
             }
             /*stmt.executeUpdate("delete from book where isbn = " + args[0].trim());
