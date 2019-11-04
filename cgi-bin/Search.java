@@ -36,7 +36,7 @@ public class Search {
             String query = "select book.isbn, book.title, book.price, subject.subject_name ";
             query += "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id where ";
             for(int i = 0; i < arg.length; i++){
-                query = query + "(book.title like '%" + args[counter].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[counter].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[counter].trim().replace("-", " ") + "%' or book.price like '%" + args[counter].trim().replace("-", " ") + "%')";
+                query = query + "(book.title like '%" + args[i].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[i].trim().replace("-", " ") + "%' or book.price like '%" + args[i].trim().replace("-", " ") + "%')";
                 // Always add 'and' to end if not the last iteration
                 if(i < arg.length - 1){
                     query += " and ";
