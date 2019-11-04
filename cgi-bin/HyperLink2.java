@@ -15,7 +15,7 @@ public class Hyperlink2 {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select book.title, subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name = '" + args[0].trim() + "'";
+            String query = "select book.title, subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name = '" + args[0].trim().replace("-", " ") + "'";
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){

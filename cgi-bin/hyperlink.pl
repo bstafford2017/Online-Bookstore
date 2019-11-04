@@ -23,7 +23,7 @@ if(! defined $subjects){
 } else {
     my $compile = "/usr/bin/javac Hyperlink2.java";
     system($compile);
-
+    
     my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Hyperlink2 ";
     $cmd = $cmd . $subjects;
 }
