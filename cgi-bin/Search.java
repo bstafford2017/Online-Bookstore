@@ -80,7 +80,7 @@ public class Search {
                 System.out.println("<td id=\"subjects\" scope=\"col\">");
                 while(ito.hasNext()){
                     String str = ito.next();
-                    System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\">" + str + "</a>");
+                    System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\">" + str + "</a>, ");
                 }
                 System.out.println("</td></tr>");
                 rowCounter++;
