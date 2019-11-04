@@ -12,6 +12,8 @@ if(!defined $title && !defined $price && !defined $isbn && !defined $subjects){
     exit(0);
 }
 
+print("Content-type: text/html\n\n");
+
 #$title =~ s/^\s*(\S*)\s*$/$1/;
 #$title =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 $price =~ s/^\s*(\S*)\s*$/$1/;
