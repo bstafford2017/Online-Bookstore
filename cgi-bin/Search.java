@@ -35,14 +35,14 @@ public class Search {
         Connection conn = ods.getConnection();
         Statement stmt = conn.createStatement();
         try {
-            for(int i = 0; i < args.legnth; i++){
+            for(int i = 0; i < args.length; i++){
                 String query = "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
                 query = query + "where book.title like '%" + args[i].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[i].trim().replace("-", " ") + "%' or book.price like '%" + args[i].trim().replace("-", " ") + "%'";
                 
                 // Get count fo matches
                 ResultSet set = stmt.executeQuery("select count(*) " + query);
                 int count = 0;
-                while(set.next()){
+                if(set.next()){
                     count = Integer.parseInt(set.getString(1));
                 }
 
