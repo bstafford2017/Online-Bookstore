@@ -51,7 +51,6 @@ public class Search {
             while(set.next()){
                 count = Integer.parseInt(set.getString(1));
             }
-            set.close();
             ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
@@ -74,11 +73,12 @@ public class Search {
                 System.out.println("<td id=\"subjects\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?subjects=" + current.subjects.replace(" ", "-") + "\">" + current.subjects + "</a></td></tr>");
                 rowCounter++;
             }
+            set.close();
+            rset.close();
         }
         catch (SQLException ex) {
             System.out.println(ex);
         }
-        rset.close();
         stmt.close();
         conn.close();
     }
