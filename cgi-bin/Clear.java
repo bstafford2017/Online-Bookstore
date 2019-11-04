@@ -17,14 +17,10 @@ public class Clear {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rset1 = stmt.executeQuery("truncate table subjects cascade");
-            ResultSet rset2 = stmt.executeQuery("truncate table book cascade");
-            ResultSet rset3 = stmt.executeQuery("truncate table store_users cascade");
-            ResultSet rset4 = stmt.executeQuery("truncate table subject cascade");
-            rset1.close();
-            rset2.close();
-            rset3.close();
-            rset4.close();
+            stmt.executeUpdate("truncate table subjects cascade");
+            stmt.executeUpdate("truncate table book cascade");
+            stmt.executeUpdate("truncate table store_users cascade");
+            stmt.executeUpdate("truncate table subject cascade");
             stmt.close();
         }
         catch (SQLException ex) {
