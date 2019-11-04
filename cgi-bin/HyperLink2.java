@@ -15,12 +15,12 @@ public class Hyperlink {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select book.isbn, book.title, book.price, subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[0].trim();
+            String query = "select book.title, subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name = " + args[0].trim();
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){
                 if(counter == 0) {
-                    System.out.println("ISBN: "+ rset.getString(1) + "\nTitle: " + rset.getString(2) + "\nPrice: " + rset.getString(3) + "\nSubjects: " + rset.getString(4));
+                    System.out.println("Title: "+ rset.getString(1) + "\nSubjects: " + rset.getString(2));
                 } else {
                     System.out.println(rset.getString(4));
                 }
