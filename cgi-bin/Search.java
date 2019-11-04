@@ -45,9 +45,9 @@ public class Search {
             ResultSet rset = stmt.executeQuery(query);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
-                if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
+                //if(!Search.containsOrAdd(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
                     list.add(new Tuple(Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
-                }
+                //}
             }
             if(list.size() == 0){
                 System.out.println("<p>No results!</p>");
