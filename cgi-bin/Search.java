@@ -43,7 +43,7 @@ public class Search {
                 // Get count fo matches
                 ResultSet set = stmt.executeQuery("select count(*) " + query);
                 int count = 0;
-                if(set.next()){
+                while(set.next()){
                     count = Integer.parseInt(set.getString(1));
                 }
 
