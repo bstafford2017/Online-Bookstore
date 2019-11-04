@@ -7,6 +7,7 @@ my $isbn = $query->param('isbn');
 my $subjects = $query->param('subjects');
 
 print("Content-type: text/html\n\n");
+print("<!doctype html><head></head><body>");
 my $cmd = "";
 
 if(! defined $isbn){
@@ -28,5 +29,5 @@ if(! defined $subjects){
     $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Hyperlink2 ";
     $cmd = $cmd . $subjects;
 }
-
 system($cmd);
+print("</body></html>");
