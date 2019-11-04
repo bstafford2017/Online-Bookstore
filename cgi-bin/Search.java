@@ -51,6 +51,7 @@ public class Search {
             while(set.next()){
                 count = Integer.parseInt(set.getString(1));
             }
+            set.close();
             ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
@@ -78,7 +79,6 @@ public class Search {
             System.out.println(ex);
         }
         rset.close();
-        set.close();
         stmt.close();
         conn.close();
     }
