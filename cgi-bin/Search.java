@@ -36,13 +36,17 @@ public class Search {
         Statement stmt = conn.createStatement();
         try {
             LinkedList<Tuple> list = new LinkedList<>();
-            for(int i = 0; i < args.length; i++){
+            int max = args.length;
+            if(args.length == 0){
+                max = 1;
+            }
+            for(int i = 0; i < max; i++){
                 String query = "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
                 if(args.length > 0){
                     query = query + "where book.title like '%" + args[i].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[i].trim().replace("-", " ") + "%' or book.price like '%" + args[i].trim().replace("-", " ") + "%'";
                 }
 
-                // Get count fo matches
+                // Get count for matches
                 ResultSet set = stmt.executeQuery("select count(*) " + query);
                 System.out.println("select count(*) " + query);
                 System.out.println("select book.isbn, book.title, book.price, subject.subject_name " + query);
