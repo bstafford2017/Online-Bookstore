@@ -43,6 +43,7 @@
         <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
             <thead>
                 <tr>
+                    <th scope="col">Matches</th>
                     <th scope="col">ISBN</th>
                     <th scope="col">Title</th>
                     <th scope="col">Price</th>

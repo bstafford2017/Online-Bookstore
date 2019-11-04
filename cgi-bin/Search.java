@@ -64,6 +64,7 @@ public class Search {
             while(it.hasNext()){
                 Tuple current = it.next();
                 System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
+                System.out.println("<td id=\"count\">" + current.count + "</td>");
                 System.out.println("<td id=\"isbn\">" + current.isbn + "</td>");
                 System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + current.isbn + "\">" + current.title + "</a></td>");
                 System.out.println("<td id=\"price\" scope=\"col\">" + current.price + "</td>");
