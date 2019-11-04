@@ -12,7 +12,7 @@ class Tuple {
     long isbn;
     String title;
     double price;
-    LinkedList<String> subjects = null;
+    LinkedList<String> subjects = LinkedList<>();
 
     public Tuple(int count, long isbn, String title, double price, String subject){
         this.count = count;
