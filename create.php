@@ -39,7 +39,7 @@
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering" required/>
                 <p id="subjects-error" class="form-text text-muted" style="color: red;"></p>
             </div>
-            <input id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Search">
+            <input id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark" value="Create">
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
@@ -65,10 +65,20 @@
                     }
                 });
             });
-            /*$('#submit').click(function(e){
+            $('#submit').click(function(e){
+                e.preventDefault();
+                let isbn = $('#submit').parents('form').find('#isbn').val();
+                let title = $('#submit').parents('form').find('#book-title').val();
+                let price = $('#submit').parents('form').find('#price').val();
+                let subjects = $('#submit').parents('form').find('#subjects').val();
+                title = title.replace(" ", "-");
+                subjects = subjects.replace(" ", "-");
+                let json = "?isbn=" + isbn + "&title=" + title + "&price=" + price + "&subjects=" + subjects;
+                price.push($(this).parents('tr').find('#price').val());
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/create.cgi",
+                    data: json,
                     success: function(data){
                         $('#success').append("Successfully created book!");                    
                     },
@@ -76,7 +86,7 @@
                         $('#error').append("Error when creating book!");                    
                     }
                 });
-            });*/
+            });
         </script>
     </body>
 </html>

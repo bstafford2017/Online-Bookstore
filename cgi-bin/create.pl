@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use CGI; 
 my $query = new CGI;
-my $title = $query->param('book-title');
+my $title = $query->param('title');
 my $price = $query->param('price');
 my $isbn = $query->param('isbn');
 my $subjects = $query->param('subjects');
@@ -12,10 +12,8 @@ if(!defined $title && !defined $price && !defined $isbn && !defined $subjects){
     exit(0);
 }
 
-$title =~ s/\s/-/g;
-
-$title =~ s/^\s*(\S*)\s*$/$1/;
-$title =~ s/;|>|>>|<|\*|\?|\&|\|//g;
+#$title =~ s/^\s*(\S*)\s*$/$1/;
+#$title =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 $price =~ s/^\s*(\S*)\s*$/$1/;
 $price =~ s/;|>|>>|<|\*|\?|\&|\|//g;
 $isbn =~ s/^\s*(\S*)\s*$/$1/;

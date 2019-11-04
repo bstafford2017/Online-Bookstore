@@ -22,6 +22,9 @@ public class Create {
             
             // Insert into books table
             args[1] = args[1].replaceAll("-", " ");
+            for(int i = 3; i < args.length; i++){
+                args[i] = args[i].replaceAll("-", " ");
+            }
             String insertBook = "insert into book(isbn, title, price) values (" + args[0] + ", '" + args[1] + "', " + args[2] + ")";
             stmt.executeQuery(insertBook);
 
