@@ -56,7 +56,7 @@ public class Search {
             Collections.sort(list, new Comparator<Tuple>(){
                 @Override
                 public int compare(Tuple t1, Tuple t2){
-                    return t1.count - t2.count;
+                    return t2.count - t1.count;
                 }
             });
             rset.close();
