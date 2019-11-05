@@ -23,7 +23,7 @@ public class UpdatePrice {
             stmt.close();
         }
         catch (SQLException ex) {
-            System.out.println(ex);
+            System.out.println(ex.getStackTrace());
         }
         conn.close();
     }
