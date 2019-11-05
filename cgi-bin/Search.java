@@ -49,6 +49,7 @@ public class Search {
             // Get the data from search query
             ResultSet rset = stmt.executeQuery(query);
             while(rset.next()){
+                System.out.println(Search.isbnAlreadyInList(list, rset.getString(4), Long.parseLong(rset.getString(1))));
                 if(!Search.isbnAlreadyInList(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
                     list.add(new Tuple(1, Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
                 }
