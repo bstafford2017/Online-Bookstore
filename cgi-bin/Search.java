@@ -5,7 +5,8 @@ import oracle.jdbc.pool.OracleDataSource;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Iterator;
-import java.util.stream.Stream;
+import java.util.Comparator;
+import java.util.Collections;
 
 class Tuple {
     int count;
@@ -52,6 +53,12 @@ public class Search {
                     list.add(new Tuple(1, Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
                 }
             }
+            Collections.sort(list, new Comparator<Tuple>(){
+                @Override
+                public int compare(Tuple t1, Tuple t2){
+                    return t1.count - t2.count;
+                }
+            });
             rset.close();
             if(list.size() == 0){
                 System.out.println("<td></td><td></td><td><h4>No results!</h4></td>");
