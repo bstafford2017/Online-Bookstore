@@ -19,6 +19,7 @@ public class Delete {
             // Get list of all subject's in isbn record
             Statement stmt = conn.createStatement();
             for(int i = 0; i < args.length; i++){
+                System.out.println("0 successfull");
                 stmt.executeUpdate("delete from book where exists (select * subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim() + ")");
                 System.out.println("1 successfull");
                 ResultSet set = stmt.executeQuery("select subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim());
