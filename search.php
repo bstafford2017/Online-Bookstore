@@ -43,6 +43,7 @@
         <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
             <thead>
                 <tr>
+                    <th scope="col">Matches</th>
                     <th scope="col">ISBN</th>
                     <th scope="col">Title</th>
                     <th scope="col">Price</th>
@@ -110,18 +111,16 @@
 
             $('#clear').click(function(e){
                 e.preventDefault();
-                var form = $(this);
-                var url = form.attr('action');
+                var url = "cgi-bin/clear.cgi";
                 console.log(url);
                 $.ajax({
                     type: "post",
                     url: url,
-                    data: form.serialize(),
                     success: function(data){
-                        $('body').append(data);
+                        alert("Cleared database!");
                     },
                     error: function(data){
-                        $('body').append(data);
+                        alert("Error!");
                     }
                 });
             });
