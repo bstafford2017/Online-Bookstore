@@ -85,7 +85,7 @@ public class Search {
             }
         }
         catch (SQLException ex) {
-            System.out.println(ex.getStackTrace());
+            System.out.println(ex);
         }
         stmt.close();
         conn.close();

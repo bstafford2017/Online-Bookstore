@@ -30,7 +30,7 @@ public class Hyperlink2 {
             stmt.close();
         }
         catch (SQLException ex) {
-            System.out.println(ex.getStackTrace());
+            System.out.println(ex);
         }
         conn.close();
     }
