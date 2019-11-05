@@ -19,17 +19,17 @@ public class Delete {
             // Get list of all subject's in isbn record
             Statement stmt = conn.createStatement();
             for(int i = 0; i < args.length; i++){
-                stmt.executeUpdate("delete from subject where exists (select * subject.subject_name from subjects join book on book.isbn = subjects.isbn join subject on subject.subject_id = subject.subject_id where book.isbn = " + args[i].trim() + ")");
-                ResultSet set = stmt.executeQuery("select subject.subject_name from subjects join book on book.isbn = subjects.isbn join subject on subject.subject_id = subject.subject_id where book.isbn = " + args[i].trim());
+                stmt.executeUpdate("delete from book where exists (select * subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim() + ")");
+                ResultSet set = stmt.executeQuery("select subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim());
                 while(set.next()){
                     String currentSubject = set.getString(1);
-                    ResultSet getCount = stmt.executeQuery("select count(*) from subjects join book on book.isbn = subjects.isbn join subject on subject.subject_id = subject.subject_id where subject.subject_name like'%" + currentSubject + "%'");
+                    ResultSet getCount = stmt.executeQuery("select count(*) from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + currentSubject + "%'");
                     int count = 0;
                     if(getCount.next()){
                         count = Integer.parseInt(getCount.getString(1));
                     }
                     if(count == 0){
-                        stmt.executeUpdate("delete from subjects where subject_name like '%" + currentSubject + "%'");
+                        stmt.executeUpdate("delete from subject where subject_name like '%" + currentSubject + "%'");
                     }
                 }
             }
