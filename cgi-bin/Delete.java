@@ -26,7 +26,8 @@ public class Delete {
                 while(set.next()){
                     String currentSubject = set.getString(1);
                     ResultSet getCount = stmt.executeQuery("select count(*) from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + currentSubject + "%'");
-                    int count = 0;                System.out.println("select count(*) from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + currentSubject + "%'");
+                    System.out.println("select count(*) from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + currentSubject + "%'");
+                    int count = 0;
                     if(getCount.next()){
                         count = Integer.parseInt(getCount.getString(1));
                     }
