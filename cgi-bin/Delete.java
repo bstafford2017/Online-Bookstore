@@ -20,7 +20,6 @@ public class Delete {
             Statement stmt = conn.createStatement();
             for(int i = 0; i < args.length; i++){
                 stmt.executeUpdate("delete from book where exists (select subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim() + ")");
-                System.out.println("delete from book where exists (select subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim() + ")");
                 ResultSet set = stmt.executeQuery("select subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim());
                 System.out.println("select subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim());
                 while(set.next()){
