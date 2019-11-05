@@ -49,7 +49,7 @@ public class Search {
             // Get the data from search query
             ResultSet rset = stmt.executeQuery(query);
             while(rset.next()){
-                if(!Search.isbnAlreadyInList(list, Long.parseLong(rset.getString(1)))){
+                if(!Search.isbnAlreadyInList(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
                     list.add(new Tuple(1, Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
                 }
             }
@@ -76,7 +76,7 @@ public class Search {
                 System.out.println("<td id=\"subjects\" scope=\"col\">");
                 while(ito.hasNext()){
                     String str = ito.next();
-                    System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\">" + str + "</a>, ");
+                    System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\">" + str + "</a> ");
                 }
                 System.out.println("</td></tr>");
             }
@@ -91,12 +91,13 @@ public class Search {
     // True = do not add to list (already in)
     // False = add to list (not in list yet)
     // Increments count if found in list
-    public static boolean isbnAlreadyInList(LinkedList<Tuple> list, long isbn){
+    public static boolean isbnAlreadyInList(LinkedList<Tuple> list, String subject, long isbn){
         // Check if 'subject' is in list
         Iterator<Tuple> it = list.iterator();
         while(it.hasNext()){
             Tuple current = it.next();
             if(current.isbn == isbn){
+                current.subjects.add(subject);
                 current.count += 1;
                 return true;
             }
