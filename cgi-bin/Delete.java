@@ -32,7 +32,7 @@ public class Delete {
                         newstmt.executeUpdate("delete from subject where subject_name like '%" + currentSubject + "%'");
                     }
                 }
-                stmt.executeUpdate("delete from book where exists (select subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim() + ")");
+                stmt.executeUpdate("delete from book where book.isbn = " + args[i].trim());
             }
             stmt.close();
         }
