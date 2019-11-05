@@ -28,7 +28,7 @@ public class Delete {
                     while(getCount.next()){
                         count = Integer.parseInt(getCount.getString(1));
                     }
-                    if(count == 0){
+                    if(count == 1){
                         newstmt.executeUpdate("delete from subject where subject_name like '%" + currentSubject + "%'");
                     }
                 }
