@@ -117,10 +117,12 @@
                     type: "get",
                     url: url,
                     success: function(data){
-                        $('#alert').append('<div class="alert alert-success" role="alert">Successfully cleared the database!</div>');
+                        $('#alert').empty();
+                        $('#alert').append('<div class="alert alert-success" class="col-sm-8 offset-sm-2" role="alert">Successfully cleared the database!</div>');
                     },
                     error: function(data){
-                        $('#alert').append('<div class="alert alert-danger" role="alert">Error when attempting to clear the database!</div>');
+                        $('#alert').empty();
+                        $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Error when attempting to clear the database!</div>');
                     }
                 });
             });
