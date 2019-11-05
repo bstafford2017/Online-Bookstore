@@ -27,7 +27,7 @@ public class Subject {
                 rowCounter++;
             }
             if(rowCounter == 0){
-                System.out.println("<h5>No results!</h5>");
+                System.out.println("<center><h5>No results!</h5></center>");
             }
             rset.close();
             stmt.close();
