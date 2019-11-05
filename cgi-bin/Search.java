@@ -37,11 +37,11 @@ public class Search {
         Statement stmt = conn.createStatement();
         try {
             LinkedList<Tuple> list = new LinkedList<>();
-            String query = "select book.isbn, book.title, book.price, subject.subject_name from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
+            String query = "select book.isbn, book.title, book.price, subject.subject_name from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id where ";
             
             // Add all subjects to be 'OR'ed in query
             for(int i = 0; i < args.length; i++){
-                query = query + "where subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%'";
+                query = query + " subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' ";
                 if(i < args.length - 1){
                     query += " or ";
                 }
