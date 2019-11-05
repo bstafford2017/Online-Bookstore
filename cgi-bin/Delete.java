@@ -19,21 +19,20 @@ public class Delete {
             // Get list of all subject's in isbn record
             Statement stmt = conn.createStatement();
             for(int i = 0; i < args.length; i++){
-                System.out.println("0 successfull");
                 stmt.executeUpdate("delete from book where exists (select * subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim() + ")");
-                System.out.println("1 successfull");
+                System.out.println("delete from book where exists (select * subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim() + ")");
                 ResultSet set = stmt.executeQuery("select subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim());
-                System.out.println("2 successfull");
+                System.out.println("select subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where book.isbn = " + args[i].trim());
                 while(set.next()){
                     String currentSubject = set.getString(1);
                     ResultSet getCount = stmt.executeQuery("select count(*) from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + currentSubject + "%'");
-                    int count = 0;                System.out.println("3 successfull");
+                    int count = 0;                System.out.println("select count(*) from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + currentSubject + "%'");
                     if(getCount.next()){
                         count = Integer.parseInt(getCount.getString(1));
                     }
                     if(count == 0){
                         stmt.executeUpdate("delete from subject where subject_name like '%" + currentSubject + "%'");
-                        System.out.println("4 successfull");
+                        System.out.println("delete from subject where subject_name like '%" + currentSubject + "%'");
                     }
                 }
             }
