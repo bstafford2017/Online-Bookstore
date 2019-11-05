@@ -36,42 +36,31 @@ public class Search {
         Statement stmt = conn.createStatement();
         try {
             LinkedList<Tuple> list = new LinkedList<>();
-            int max = args.length;
-            if(args.length == 0){
-                max = 1;
+            String query = "select book.isbn, book.title, book.price, subject.subject_name from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
+            
+            // Add all subjects to be 'OR'ed in query
+            for(int i = 0; i < args.length; i++){
+                query = query + "where subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%'";
+                if(i < args.length - 1){
+                    query += " or ";
+                }
             }
-            for(int i = 0; i < max; i++){
-                String query = "from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
-                if(args.length > 0){
-                    query = query + "where book.title like '%" + args[i].trim().replace("-", " ") + "%' or subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' or book.isbn like '%" +  args[i].trim().replace("-", " ") + "%' or book.price like '%" + args[i].trim().replace("-", " ") + "%'";
+            // Get the data from search query
+            ResultSet rset = stmt.executeQuery(query);
+            while(rset.next()){
+                if(!Search.isbnAlreadyInList(list, Long.parseLong(rset.getString(1)))){
+                    list.add(new Tuple(1, Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
                 }
-
-                // Get count for matches
-                ResultSet set = stmt.executeQuery("select count(*) " + query);
-                int count = 0;
-                while(set.next()){
-                    count = Integer.parseInt(set.getString(1));
-                }
-
-                // Get the data from search query
-                ResultSet rset = stmt.executeQuery("select book.isbn, book.title, book.price, subject.subject_name " + query);
-                while(rset.next()){
-                    if(!Search.isbnAlreadyInList(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
-                        list.add(new Tuple(count, Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
-                    }
-                }
-                set.close();
-                rset.close();
             }
+            rset.close();
             if(list.size() == 0){
                 System.out.println("<td></td><td></td><td><h4>No results!</h4></td>");
                 System.exit(0);
             }
             Iterator<Tuple> it = list.iterator();
-            int rowCounter = 0;
             while(it.hasNext()){
                 Tuple current = it.next();
-                System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
+                System.out.println("<tr scope=\"col\">");
                 System.out.println("<td id=\"count\">" + current.count + "</td>");
                 System.out.println("<td id=\"isbn\">" + current.isbn + "</td>");
                 System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + current.isbn + "\">" + current.title + "</a></td>");
@@ -83,7 +72,6 @@ public class Search {
                     System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\">" + str + "</a>, ");
                 }
                 System.out.println("</td></tr>");
-                rowCounter++;
             }
         }
         catch (SQLException ex) {
@@ -95,13 +83,14 @@ public class Search {
 
     // True = do not add to list (already in)
     // False = add to list (not in list yet)
-    public static boolean isbnAlreadyInList(LinkedList<Tuple> list, String subject, long isbn){
+    // Increments count if found in list
+    public static boolean isbnAlreadyInList(LinkedList<Tuple> list, long isbn){
         // Check if 'subject' is in list
         Iterator<Tuple> it = list.iterator();
         while(it.hasNext()){
             Tuple current = it.next();
             if(current.isbn == isbn){
-                current.subjects.add(subject);
+                current.count += 1;
                 return true;
             }
         }
