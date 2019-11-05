@@ -20,6 +20,7 @@ public class Clear {
             stmt.executeUpdate("delete from subjects");
             stmt.executeUpdate("delete from subject");
             stmt.executeUpdate("delete from book");
+            System.out.println("Content-type: text/html\n\n");
             stmt.close();
         }
         catch (SQLException ex) {
