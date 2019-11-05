@@ -113,7 +113,7 @@
                 var url = "cgi-bin/clear.cgi";
                 console.log(url);
                 $.ajax({
-                    type: "post",
+                    type: "get",
                     url: url,
                     success: function(data){
                         alert("Cleared database!");
