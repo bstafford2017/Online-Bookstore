@@ -27,7 +27,7 @@ public class ListBooks {
                 rowCounter++;
             }
             if(rowCounter == 0){
-                System.out.println("<tr><td></td><td><h3>No results!</h3></td>");
+                System.out.println("<tr><td></td><td><h3>No results!</h3></td></tr>");
             }
             rset.close();
             stmt.close();
