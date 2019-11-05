@@ -41,7 +41,7 @@ public class Search {
             // Add all subjects to be 'OR'ed in query
             for(int i = 0; i < args.length; i++){
                 if(i == 0){
-                    query += "where"
+                    query += "where";
                 }
                 query = query + " subject.subject_name like '%" + args[i].trim().replace("-", " ") + "%' ";
                 if(i < args.length - 1){
