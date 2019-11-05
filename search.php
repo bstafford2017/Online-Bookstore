@@ -38,7 +38,7 @@
             <div id="subject" class="col-sm-8 offset-sm-2 bg-dark text-white" style="margin-bottom: 2%;"><h3 style="text-align:center;">Subjects:</h3></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
             <button id="search" type="submit" class="col-sm-2 offset-sm-3 btn btn-dark">Search</button>
-            <button id="clear" type="submit" class="col-sm-2 offset-sm-3 btn btn-dark">Clear all</button>
+            <button id="clear" type="submit" class="col-sm-2 offset-sm-2 btn btn-dark">Clear all</button>
         </form>
         <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
             <thead>
