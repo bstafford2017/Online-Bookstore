@@ -87,10 +87,17 @@
                 $("input:checkbox:checked").each(function(){
                     isbn.push($(this).val());
                 });
+                let json = "";
+                for(let i = 0; i < isbn.length; i++){
+                    json = json + "isbn=" + price[i] + "&";
+                }
+                // Remove last &
+                json = json.substring(0, json.length - 1);
+
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/delete.cgi",
-                data: {"isbn": isbn},
+                data: json,
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
