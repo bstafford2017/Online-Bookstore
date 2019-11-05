@@ -18,6 +18,7 @@
                 </div>
             </div>
         </div>
+        <div id="alert"></div>
         <form class="col-sm-4 offset-sm-4">
             <div class="form-group" >
                 <label>Book Title</label>
@@ -79,10 +80,12 @@
                     url: "cgi-bin/create.cgi",
                     data: json,
                     success: function(data){
-                        $('#success').append("Successfully created book!");                    
+                        $('#alert').empty();
+                        $('#alert').append('<div class="alert alert-success" class="col-sm-8 offset-sm-2" role="alert">Successfully created book!</div>');                    
                     },
                     error: function(data){
-                        $('#error').append("Error: " + data);                    
+                        $('#alert').empty();
+                        $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Error when attempting to create book!</div>');                   
                     }
                 });
             });
