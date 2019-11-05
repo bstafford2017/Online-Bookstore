@@ -48,7 +48,7 @@ public class Search {
                 }
             }
             ResultSet rset = stmt.executeQuery("select " + query);
-            ResultSet temp = stmt.executeQuery("select count(*) " + query);
+            ResultSet temp = stmt.executeQuery("select count(subject.subject_name) " + query);
             int count = temp.getString(1);
             LinkedList<Tuple> list = new LinkedList<>();
             while(rset.next()){
