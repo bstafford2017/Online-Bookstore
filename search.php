@@ -34,6 +34,8 @@
                 </div>
             </div>
         </div>
+        <div id="alert" class="alert alert-success" role="alert"></div>
+        <div id="alert-error" class="alert alert-danger" role="alert"></div>
         <form id="form">
             <div id="subject" class="col-sm-8 offset-sm-2 bg-dark text-white" style="margin-bottom: 2%;"><h3 style="text-align:center;">Subjects:</h3></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
@@ -116,10 +118,10 @@
                     type: "get",
                     url: url,
                     success: function(data){
-                        alert("Cleared database!");
+                        $('#alert').append('Successfully cleared the database!');
                     },
                     error: function(data){
-                        alert("Error!");
+                        $('#alert-error').append('Error when attempting to clear the database!');
                     }
                 });
             });
