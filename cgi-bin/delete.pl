@@ -15,4 +15,5 @@ my @names = $query->param;
 foreach my $name (@names) {
     $cmd = $cmd . " " . $name . " " . $query->param($name);
 }
+print($cmd);
 system($cmd);

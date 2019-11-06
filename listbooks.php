@@ -101,6 +101,7 @@
                 success: function(data){
                     $('#success').empty();
                     $('#success').append("Success!");
+                    alert(data);
                 },
                 error: function(data){
                     $('#error').empty();
