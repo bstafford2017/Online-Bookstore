@@ -20,12 +20,13 @@ public class Hyperlink2 {
             int counter = 0;
             while(rset.next()){
                 if(counter == 0) {
-                    System.out.println("<p>Title: <a href=\"hyperlink.cgi?isbn="+ rset.getString(2) + "\">" + rset.getString(1) + "</a></p><p>Subjects: " + rset.getString(3) + "</p>");
+                    System.out.println("<p>ISBN: "+ rset.getString(1) + "</p><p>Title: " + rset.getString(2) + "</p><p>Price: " + rset.getString(3) + "</p><p>Subjects: <a href=\"hyperlink.cgi?subjects=" + rset.getString(4).replace(" ", "-") + "\">" + rset.getString(4) + "</a> ");
                 } else {
-                    System.out.println(rset.getString(2));
+                    System.out.println("<a href=\"hyperlink.cgi?subjects=" + rset.getString(4).replace(" ", "-") + "\"" + rset.getString(4) + "</a>");
                 }
                 counter++;
             }
+            System.out.println("</p>");
             rset.close();
             stmt.close();
         }
