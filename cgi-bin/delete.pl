@@ -13,7 +13,7 @@ print("Content-type: text/html\n\n");
 
 my @names = $query->param;
 foreach my $name (@names) {
-    $cmd = $cmd . " " . $name . " " . $query->param($name);
+    $cmd = $cmd . " " . $query->param($name);
 }
 print($cmd);
 system($cmd);
