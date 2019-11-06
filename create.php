@@ -68,7 +68,7 @@
                 });
             });
             $('#submit').click(function(e){
-                e.preventDefault();
+                //e.preventDefault();
                 let isbn = $('#submit').parents('form').find('#isbn').val();
                 let title = $('#submit').parents('form').find('#book-title').val();
                 let price = $('#submit').parents('form').find('#price').val();
