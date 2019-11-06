@@ -19,10 +19,10 @@ if(defined $isbn){
 }
 
 if(defined $subjects){
-    my $compile = "/usr/bin/javac Hyperlink2.java";
+    my $compile = "/usr/bin/javac HyperlinkV2.java";
     system($compile);
     
-    $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Hyperlink2 ";
+    $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom HyperlinkV2 ";
     $cmd = $cmd . $subjects;
 }
 if(!defined $isbn && !defined $subjects){
