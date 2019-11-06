@@ -34,15 +34,17 @@
                 </div>
             </div>
         </div>
+        <div id="alert"></div>
         <form id="form">
             <div id="subject" class="col-sm-8 offset-sm-2 bg-dark text-white" style="margin-bottom: 2%;"><h3 style="text-align:center;">Subjects:</h3></div>
             <small id="search-error" class="form-text text-muted" style="color: red;"></small>
-            <input id="search-box" name="search-box" type="text" class="col-sm-6 offset-sm-2" placeholder="(i.e. ISBN, Title, Price or Subject)"/>
-            <button id="search" type="submit" class="col-sm-2 btn btn-dark">Search</button>
+            <button id="clear" type="submit" class="col-sm-2 offset-sm-3 btn btn-dark">Clear all</button>
+            <button id="search" type="submit" class="col-sm-2 offset-sm-2 btn btn-dark">Search</button>
         </form>
         <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
             <thead>
                 <tr>
+                    <th scope="col">Matches</th>
                     <th scope="col">ISBN</th>
                     <th scope="col">Title</th>
                     <th scope="col">Price</th>
@@ -53,7 +55,6 @@
                 
             </tbody>
         </table>
-        <button id="clear" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Clear all</button>
 
         <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
@@ -110,18 +111,18 @@
 
             $('#clear').click(function(e){
                 e.preventDefault();
-                var form = $(this);
-                var url = form.attr('action');
+                var url = "cgi-bin/clear.cgi";
                 console.log(url);
                 $.ajax({
-                    type: "post",
+                    type: "get",
                     url: url,
-                    data: form.serialize(),
                     success: function(data){
-                        $('body').append(data);
+                        $('#alert').empty();
+                        $('#alert').append('<div class="alert alert-success" class="col-sm-8 offset-sm-2" role="alert">Successfully cleared the database!</div>');
                     },
                     error: function(data){
-                        $('body').append(data);
+                        $('#alert').empty();
+                        $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Error when attempting to clear the database!</div>');
                     }
                 });
             });

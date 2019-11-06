@@ -27,14 +27,13 @@ public class ListBooks {
                 rowCounter++;
             }
             if(rowCounter == 0){
-                System.out.println("<p>No results!</p>");
+                System.out.println("<td></td><td><center><h4>No results!</h4></center></td>");
             }
             rset.close();
             stmt.close();
         }
         catch (SQLException ex) {
-            System.out.println(ex);
-        }
+            System.out.println(ex);        }
         conn.close();
     }
 }
