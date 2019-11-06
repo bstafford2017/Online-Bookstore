@@ -100,7 +100,9 @@ public class Search {
         while(it.hasNext()){
             Tuple current = it.next();
             if(current.isbn == isbn){
-                current.subjects.add(subject);
+                if(!current.subjects.contains(subject)){
+                    current.subjects.add(subject);
+                }
                 current.count += 1;
                 return true;
             }
