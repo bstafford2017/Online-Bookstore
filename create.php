@@ -63,7 +63,6 @@
                     error: function(data){
                         $('html').empty();    
                         $('html').append(document.createTextNode(data));
-                        alert(JSON.stringify(data));
                     }
                 });
             });
