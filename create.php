@@ -62,6 +62,7 @@
                         $('html').append(document.createTextNode(data));
                         $('html').append(JSON.parse(data));
                         $('html').append(data);
+                        $('html').append("<p>" + data + "</P>");
 
                     },
                     error: function(data){
