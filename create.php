@@ -58,16 +58,11 @@
                     data: {filename: "search"},
                     success: function(data){
                         $('html').empty();    
-                        $('html').append(document.createTextNode(JSON.parse(data)));
-                        $('html').append(document.createTextNode(data));
-                        $('html').append(JSON.parse(data));
-                        $('html').append(data);
-                        $('html').append("<p>" + data + "</P>");
-
+                        $('html').html(data);
                     },
                     error: function(data){
                         $('html').empty();    
-                        $('html').append(document.createTextNode(data));
+                        $('html').html(data);
                     }
                 });
             });
