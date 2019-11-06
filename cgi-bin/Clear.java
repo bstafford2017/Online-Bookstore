@@ -17,10 +17,10 @@ public class Clear {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate("truncate table subjects cascade");
-            stmt.executeUpdate("truncate table book cascade");
-            stmt.executeUpdate("truncate table store_users cascade");
-            stmt.executeUpdate("truncate table subject cascade");
+            stmt.executeUpdate("delete from subjects");
+            stmt.executeUpdate("delete from subject");
+            stmt.executeUpdate("delete from book");
+            System.out.println("Content-type: text/html\n\n");
             stmt.close();
         }
         catch (SQLException ex) {
