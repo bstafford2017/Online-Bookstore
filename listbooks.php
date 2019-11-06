@@ -27,6 +27,7 @@
             include 'navbar.php';
         ?>
         <!-- Content-->
+        <div id="alert"></div>
         <form id="form">
             <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
                 <thead>
@@ -72,12 +73,12 @@
                 url: "cgi-bin/updateprice.cgi",
                 data: json,
                 success: function(data){
-                    $('#success').empty();
-                    $('#success').append("Success!");
+                    $('#alert').empty();
+                    $('#alert').append('<div class="alert alert-success" class="col-sm-8 offset-sm-2" role="alert">Successfully updated price in the database!</div>');
                 },
                 error: function(data){
-                    $('#error').empty();
-                    $('#error').append("Error: " + data);
+                    $('#alert').empty();
+                    $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Error when attempting to update price in the database!</div>');
                 }
                 });
             });
@@ -99,13 +100,12 @@
                 url: "cgi-bin/delete.cgi",
                 data: json,
                 success: function(data){
-                    $('#success').empty();
-                    $('#success').append("Success!");
-                    alert(data);
+                    $('#alert').empty();
+                    $('#alert').append('<div class="alert alert-success" class="col-sm-8 offset-sm-2" role="alert">Successfully delete from the database!</div>');
                 },
                 error: function(data){
-                    $('#error').empty();
-                    $('#error').append("Error: " + data);
+                    $('#alert').empty();
+                    $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Error when attempting to delete from the database!</div>');
                 }
                 });
             });
