@@ -59,6 +59,10 @@
                     success: function(data){
                         $('html').empty();    
                         $('html').append(document.createTextNode(JSON.parse(data)));
+                        $('html').append(document.createTextNode(data));
+                        $('html').append(JSON.parse(data));
+                        $('html').append(data);
+
                     },
                     error: function(data){
                         $('html').empty();    
