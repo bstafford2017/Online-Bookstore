@@ -44,28 +44,14 @@
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
-        <p><a id="source" href="#">View Source</a></p>
+        <form method="get" action="cgi-bin/source.cgi">
+            <input type="submit" value="View Source"/>
+        </form>
         <div id="display-source"></div>
         <?php
             include 'footer.php';
         ?>
         <script>
-            $('#source').click(function(e){
-                e.preventDefault();
-                $.ajax({
-                    type: "get",
-                    url: "cgi-bin/source.cgi",
-                    data: {filename: "search"},
-                    success: function(data){
-                        $('html').empty();    
-                        $('html').html(data);
-                    },
-                    error: function(data){
-                        $('html').empty();    
-                        $('html').html(data);
-                    }
-                });
-            });
             $('#submit').click(function(e){
                 e.preventDefault();
                 let isbn = $('#submit').parents('form').find('#isbn').val();
