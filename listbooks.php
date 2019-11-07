@@ -79,6 +79,7 @@
                 error: function(data){
                     $('#alert').empty();
                     $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Error when attempting to update price in the database!</div>');
+                    alert(data);
                 }
                 });
             });
