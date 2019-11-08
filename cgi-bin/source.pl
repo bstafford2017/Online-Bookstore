@@ -14,5 +14,9 @@ if($filename eq 'search'){
 } elsif($filename eq 'create'){
     system("/bin/cat create.cgi create.pl Create.java");
 } elsif($filename eq 'index'){
-    system("/bin/cat index.php");
+    system("/bin/cat ../index.php");
+} elsif($filename eq 'listbooks'){
+    system("/bin/cat ../listbooks.php listbooks.pl ListBooks.java");
+} else {
+    system("/bin/cat * ../*");
 }
