@@ -18,7 +18,10 @@ public class UpdatePrice {
         try {
             Statement stmt = conn.createStatement();
             for(int i = 0; i < args.length; i += 2){
+<<<<<<< HEAD
                 System.out.println(args[i] + " " + args[i+1]);
+=======
+>>>>>>> ec4ccb77224935c7678876176f58bc9b90d3857f
                 stmt.executeUpdate("update book set book.price = " + args[i + 1] + " where book.isbn = " + args[i]);
             }
             stmt.close();

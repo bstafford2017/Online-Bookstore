@@ -9,6 +9,8 @@ system($compile);
 
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom UpdatePrice ";
 
+print("Content-type: text/html\n\n");
+
 my @names = $query->param;
 foreach my $name (@names) {
     $cmd = $cmd . " " . $name . " " . $query->param($name);

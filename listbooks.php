@@ -52,6 +52,22 @@
             include 'footer.php';
         ?>
         <script type="text/javascript">
+            $('#source').click(function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: "get",
+                    url: "cgi-bin/source.cgi",
+                    data: {filename: "listbooks"},
+                    success: function(data){
+                        $('body').empty();    
+                        $('body').append("<pre>" + data + "</pre>");
+                    },
+                    error: function(data){
+                        $('body').empty();    
+                        $('body').append("<pre>" + data + "</pre>");
+                    }
+                });
+            });
             $('#update').click(function(e){
                 e.preventDefault();
                 let isbn = [];

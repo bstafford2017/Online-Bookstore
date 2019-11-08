@@ -33,7 +33,11 @@ public class ListBooks {
             stmt.close();
         }
         catch (SQLException ex) {
+<<<<<<< HEAD
             System.out.println(ex);
+=======
+            System.out.println(ex);        
+>>>>>>> ec4ccb77224935c7678876176f58bc9b90d3857f
         }
         conn.close();
     }

@@ -55,14 +55,14 @@
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
-                    data: {filename: "search"},
+                    data: {filename: "create"},
                     success: function(data){
-                        $('html').empty();    
-                        $('html').html(data);
+                        $('body').empty();    
+                        $('body').append("<pre>" + data + "</pre>");
                     },
                     error: function(data){
-                        $('html').empty();    
-                        $('html').html(data);
+                        $('body').empty();    
+                        $('body').append("<pre>" + data + "</pre>");
                     }
                 });
             });
