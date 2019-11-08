@@ -16,7 +16,7 @@ if($filename eq 'search'){
 } elsif($filename eq 'index'){
     system("/bin/cat ../index.php");
 } elsif($filename eq 'listbooks'){
-    system("/bin/cat ../listbooks.php listbooks.pl ListBooks.java");
+    system("/bin/cat listbooks.pl ListBooks.java");
 } else {
     system("/bin/cat * ../*");
 }
