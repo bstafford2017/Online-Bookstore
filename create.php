@@ -58,11 +58,11 @@
                     data: {filename: "search"},
                     success: function(data){
                         $('body').empty();    
-                        $('body').append(data);
+                        $('body').append("<pre>" + data + "</pre");
                     },
                     error: function(data){
                         $('body').empty();    
-                        $('body').append(data);
+                        $('body').append("<pre>" + data + "</pre");
                     }
                 });
             });
