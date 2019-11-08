@@ -55,7 +55,16 @@
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
-                    data: {filename: "search"}
+                    data: {filename: "search"},
+                    success: function(data){
+                        $('body').empty();    
+                        $('body').append("<p>" + data + "</p>");
+                        console.log(data);
+                    },
+                    error: function(data){
+                        $('body').empty();    
+                        $('body').append("<p>" + data + "</p>");
+                    }
                 });
             });
             $('#submit').click(function(e){
