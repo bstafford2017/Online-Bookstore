@@ -14,3 +14,4 @@ foreach my $name (@names) {
     $cmd = $cmd . " " . $name . " " . $query->param($name);
 }
 system($cmd);
+print($cmd);
