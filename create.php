@@ -57,12 +57,12 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
-                        $('body').empty();    
-                        $('body').append("<p>" + data + "</p>");
+                        $('html').empty();    
+                        $('html').append(data);
                     },
                     error: function(data){
-                        $('body').empty();    
-                        $('body').append("<p>" + data + "</p>");
+                        $('html').empty();    
+                        $('html').append(data);
                     }
                 });
             });
