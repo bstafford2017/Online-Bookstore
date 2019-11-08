@@ -57,6 +57,7 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
+                        console.log(data);
                         $('html').empty();    
                         $('html').html(data);
                     },
