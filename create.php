@@ -58,7 +58,7 @@
                     data: {filename: "search"},
                     success: function(data){
                         $('body').empty();    
-                        $('body').append("<p>" + document.createTextNode(data) + "</p>");
+                        $('body').append(data);
                         console.log(data);
                     },
                     error: function(data){
