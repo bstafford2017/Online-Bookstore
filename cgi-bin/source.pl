@@ -8,6 +8,7 @@ print("Content-type: text/plain\n\n");
 if(! defined $filename){
     exit(0);
 }
+print("<h2>Refresh the page to exit source!</h2>");
 if($filename eq 'search'){
     system("/bin/cat search.cgi search.pl Search.java");
 } elsif($filename eq 'create'){
