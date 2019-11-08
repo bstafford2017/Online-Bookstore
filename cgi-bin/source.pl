@@ -5,7 +5,6 @@ use CGI;
 my $query = new CGI;
 my $filename = $query->param('filename');
 print("Content-type: text/plain\n\n");
-
 if(! defined $filename){
     exit(0);
 }
