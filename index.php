@@ -24,11 +24,11 @@
                     data: {"filename": "index"},
                     success: function(data){
                         $('body').empty();    
-                        $('body').append("<pre>" + data + "</pre>");
+                        $('body').append("<code>" + data + "</code>");
                     },
                     error: function(data){
                         $('body').empty();    
-                        $('body').append("<pre>" + data + "</pre>");
+                        $('body').append("<code>" + data + "</code>");
                     }
                 });
             });
