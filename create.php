@@ -58,12 +58,12 @@
                     data: {filename: "search"},
                     success: function(data){
                         $('body').empty();    
-                        $('body').append("<p>" + data + "</p>");
+                        $('body').append("<p>" + document.createTextNode(data) + "</p>");
                         console.log(data);
                     },
                     error: function(data){
                         $('body').empty();    
-                        $('body').append("<p>" + data + "</p>");
+                        $('body').append(data);
                     }
                 });
             });
