@@ -69,12 +69,12 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "search"},
                     success: function(data){
-                        $('html').empty();    
-                        $('html').html(data);
+                        $('body').empty();    
+                        $('body').append(data);
                     },
                     error: function(data){
-                        $('html').empty();    
-                        $('html').html(data);
+                        $('body').empty();    
+                        $('body').append(data);
                     }
                 });
             });
