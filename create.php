@@ -55,7 +55,7 @@
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
-                    data: {filename: "search"},
+                    data: {filename: "create"},
                     success: function(data){
                         $('body').empty();    
                         $('body').append("<pre>" + data + "</pre>");

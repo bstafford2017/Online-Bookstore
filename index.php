@@ -21,7 +21,7 @@
                 $.ajax({
                     method: "GET",
                     url: "cgi-bin/source.cgi",
-                    data: {"filename": "search"},
+                    data: {"filename": "index"},
                     success: function(data){
                         $('body').empty();    
                         $('body').append("<pre>" + data + "</pre>");
