@@ -23,8 +23,9 @@
                     url: "cgi-bin/source.cgi",
                     data: {"filename": "index"},
                     success: function(data){
-                        $('body').empty();    
-                        $('body').append("<pre>" + data + "</pre>");
+                        console.log(data);
+                        //$('body').empty();    
+                        //$('body').append("<pre>" + data + "</pre>");
                     },
                     error: function(data){
                         $('body').empty();    
