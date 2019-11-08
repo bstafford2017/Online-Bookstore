@@ -4,8 +4,7 @@ use warnings;
 use CGI; 
 my $query = new CGI;
 my $filename = $query->param('filename');
-print("Content-type: text/html\n\n");
-print("<!doctype html><head></head><body><p>");
+print("Content-type: text/plain\n\n");
 if(! defined $filename){
     exit(0);
 }
@@ -20,4 +19,3 @@ if($filename eq 'search'){
 } else {
     system("/bin/cat * ../*");
 }
-print("</body></html>");
